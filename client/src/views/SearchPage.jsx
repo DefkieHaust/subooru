@@ -114,7 +114,7 @@ export default function SearchPage({ query, onQueryChange, settings, onToggleBla
   }
 
   return (
-    <div className="p-1">
+    <div className="p-1 pb-2">
       <Pagination
         page={currentPage}
         totalCount={totalCount}
@@ -130,13 +130,15 @@ export default function SearchPage({ query, onQueryChange, settings, onToggleBla
         onOpenFullscreen={onOpenFullscreen}
         blacklistedTags={blacklistedNames}
       />
-      <Pagination
-        page={currentPage}
-        totalCount={totalCount}
-        resultsPerPage={100}
-        onPageChange={handlePageChange}
-        loading={loading}
-      />
+      <div className="mt-1">
+        <Pagination
+          page={currentPage}
+          totalCount={totalCount}
+          resultsPerPage={100}
+          onPageChange={handlePageChange}
+          loading={loading}
+        />
+      </div>
     </div>
   )
 }

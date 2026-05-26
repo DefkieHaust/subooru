@@ -2,8 +2,8 @@ export default function Pagination({ page, totalCount, resultsPerPage, onPageCha
   const maxPage = Math.ceil(totalCount / resultsPerPage)
 
   return (
-    <div className="d-flex justify-content-between align-items-center px-3 py-2 border-top border-secondary mt-1">
-      <span className="text-muted small">
+    <div className="d-flex justify-content-between align-items-center px-3 py-2 mt-1">
+      <span className="text-light small">
         {totalCount > 0 ? `${totalCount.toLocaleString()} posts` : ''}
       </span>
       <div className="d-flex align-items-center gap-2">
@@ -14,7 +14,7 @@ export default function Pagination({ page, totalCount, resultsPerPage, onPageCha
         >
           Prev
         </button>
-        <span className="text-muted small">
+        <span className="text-light small">
           Page {page}{maxPage > 0 ? ` / ${Math.min(maxPage, 200)}` : ''}
         </span>
         <button

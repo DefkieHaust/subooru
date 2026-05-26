@@ -45,7 +45,7 @@ export default function FullscreenView({ post, onClose, settings, onToggleFavori
     return (
       <div
         className="position-fixed top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"
-        style={{ background: 'rgba(0,0,0,0.95)', zIndex: 1055 }}
+        style={{ background: 'rgba(0,0,0,0.95)', zIndex: 1060 }}
         onClick={onClose}
       >
         <div className="text-center text-muted" onClick={e => e.stopPropagation()}>
@@ -62,7 +62,7 @@ export default function FullscreenView({ post, onClose, settings, onToggleFavori
   return (
     <div
       className="position-fixed top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"
-      style={{ background: 'rgba(0,0,0,0.95)', zIndex: 1055 }}
+      style={{ background: 'rgba(0,0,0,0.95)', zIndex: 1060 }}
       onClick={onClose}
     >
       <div

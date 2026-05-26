@@ -67,10 +67,10 @@ export default function FullscreenView({ post, onClose, settings, onToggleFavori
     >
       <div
         className="d-flex flex-column"
-        style={{ maxWidth: '95vw', maxHeight: '99vh', width: '100%' }}
+        style={{ maxWidth: '95vw', height: '99dvh', width: '100%' }}
         onClick={e => e.stopPropagation()}
       >
-        <div className="d-flex justify-content-between align-items-center mb-2">
+        <div className="d-flex justify-content-between align-items-center mb-2 flex-shrink-0">
           <span className="text-muted small">
             {post.uploader ? `by ${post.uploader}` : ''}
           </span>
@@ -81,7 +81,7 @@ export default function FullscreenView({ post, onClose, settings, onToggleFavori
 
         <div
           className="d-flex align-items-center justify-content-center flex-grow-1 min-h-0"
-          style={{ maxHeight: '85vh', minHeight: '200px', background: '#000' }}
+          style={{ background: '#000' }}
         >
           {video ? (
             <video
@@ -91,7 +91,7 @@ export default function FullscreenView({ post, onClose, settings, onToggleFavori
               autoPlay={settings.autoplayVideo}
               muted={settings.muteVideo}
               className="mw-100"
-              style={{ maxHeight: '85vh', width: 'auto', height: 'auto', maxWidth: '100%' }}
+              style={{ maxHeight: '100%', width: 'auto', height: 'auto', maxWidth: '100%' }}
               onError={handleVideoError}
             />
           ) : (
@@ -105,7 +105,7 @@ export default function FullscreenView({ post, onClose, settings, onToggleFavori
                 alt=""
                 className="mw-100"
                 style={{
-                  maxHeight: '85vh',
+                  maxHeight: '100%',
                   width: 'auto',
                   height: 'auto',
                   maxWidth: '100%',
@@ -120,7 +120,7 @@ export default function FullscreenView({ post, onClose, settings, onToggleFavori
           )}
         </div>
 
-        <div className="mt-2">
+        <div className="flex-shrink-0 pt-1">
           <div className="d-flex gap-3 align-items-center text-muted small mb-2 flex-wrap">
             <span className={`badge bg-${ratingColor(post.rating)}`}>{post.rating}</span>
             <span>Score: {post.score}</span>

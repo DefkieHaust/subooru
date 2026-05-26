@@ -115,6 +115,13 @@ export default function SearchPage({ query, onQueryChange, settings, onToggleBla
 
   return (
     <div className="p-1">
+      <Pagination
+        page={currentPage}
+        totalCount={totalCount}
+        resultsPerPage={100}
+        onPageChange={handlePageChange}
+        loading={loading}
+      />
       <PostGrid
         posts={posts}
         settings={settings}

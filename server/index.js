@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
 import postsRouter from './routes/posts.js'
 import tagsRouter from './routes/tags.js'
+import mediaRouter from './routes/media.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const app = express()
@@ -14,6 +15,7 @@ app.use(express.json())
 
 app.use('/api/posts', postsRouter)
 app.use('/api/tags', tagsRouter)
+app.use('/api/media', mediaRouter)
 
 app.get('/api/version', (req, res) => {
   res.json({ version: '0.1.0' })

@@ -18,8 +18,7 @@ Production: `yarn build && node server/index.js` — Express serves both.
 ## Architecture
 
 - **No caching server, no database, no auth** — settings/favorites/blacklist in localStorage
-- **Media URLs returned directly from Gelbooru CDN**, never proxied through the server
-- Referrer-Policy: `no-referrer` (avoids CDN hotlink blocking)
+- **FullscreenView proxies media through the server** (`/api/media?url=...`) with `Referer: https://gelbooru.com/` to bypass CDN hotlink protection. Grid thumbnails are still loaded directly (no hotlink protection on `gelbooru.com/thumbnails/`).
 - Bootstrap 5 + Tailwind CSS for layout; minimal custom CSS (`App.css`)
 
 ## Backend (`server/`)
@@ -29,6 +28,7 @@ Production: `yarn build && node server/index.js` — Express serves both.
 | `GET /api/posts?page=&q=` | `dapi&s=post&q=index&json=1` (100 per page) |
 | `GET /api/tags?t=` | `dapi&s=tag&q=index&json=1` |
 | `GET /api/tags/search?q=` | `autocomplete2&term=` |
+| `GET /api/media?url=` | Proxies CDN media with `Referer: https://gelbooru.com/` |
 
 Gelbooru tag type mapping: `0=general, 1=artist, 3=copyright, 4=character, 5=metadata, 6=deprecated`.
 
@@ -54,6 +54,6 @@ Post field mapping in `server/gelbooru.js`:
 ### Key gotchas
 - PostCard and FullscreenView cycle through fallback URLs on `onError`. Media elements have `referrerPolicy="no-referrer"`.
 - SearchPage parses URL params directly (`useMemo`) for search, not React state — avoids stale closure on initial navigation.
-- Video detection: regex `/\.(mp4|webm|mov)$/i` on `post.image_url`.
-- Thumbnails are always static images (never video elements), with play icon overlay for video posts.
-- Gelbooru's `preview_url` is always a static image (even for videos).
+- Video detection: regex `/\.(mp4|webm|mov)$/i` on `post.image_url`. PostCard shows thumbnail + play icon overlay. FullscreenView renders `<video>` with `poster` attribute for preview, no fallback to thumbnail on error.
+- Image fallback chain (`FullscreenView`): `image_url` → `sample_url` → `thumbnail_url`. Videos use only `image_url` — if it fails, `Failed to load media` is shown (matching booruview behavior).
+- Gelbooru's `preview_url` is always a static image even for videos — used as `poster` attribute on `<video>` elements.

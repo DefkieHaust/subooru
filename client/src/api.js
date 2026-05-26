@@ -28,3 +28,7 @@ export async function tagAutocomplete(query) {
   if (!res.ok) throw new Error('failed to autocomplete tags')
   return res.json()
 }
+
+export function mediaProxyUrl(url) {
+  return `/api/media?url=${encodeURIComponent(url)}`
+}

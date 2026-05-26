@@ -1,4 +1,5 @@
 import { useEffect, useCallback, useState } from 'react'
+import { mediaProxyUrl } from '../api.js'
 
 function isVideo(url) {
   return /\.(mp4|webm|mov)$/i.test(url)
@@ -7,11 +8,6 @@ function isVideo(url) {
 export default function FullscreenView({ post, onClose, settings, onToggleFavorite }) {
   const isFav = settings.favorites.some(p => p.id === post.id)
   const video = isVideo(post.image_url)
-  const sources = [post.image_url, post.sample_url, post.thumbnail_url].filter(Boolean)
-  const [srcIndex, setSrcIndex] = useState(0)
-  const [imgReady, setImgReady] = useState(false)
-  const [loadFailed, setLoadFailed] = useState(false)
-  const currentSrc = sources[srcIndex]
 
   const handleKey = useCallback(e => {
     if (e.key === 'Escape') onClose()
@@ -26,14 +22,24 @@ export default function FullscreenView({ post, onClose, settings, onToggleFavori
     }
   }, [handleKey])
 
+  const imageSources = [post.image_url, post.sample_url, post.thumbnail_url].filter(Boolean)
+  const [srcIndex, setSrcIndex] = useState(0)
+  const [imgReady, setImgReady] = useState(false)
+  const [loadFailed, setLoadFailed] = useState(false)
+  const currentSrc = imageSources[srcIndex]
+
   const tryNextSrc = useCallback(() => {
-    if (srcIndex < sources.length - 1) {
+    if (srcIndex < imageSources.length - 1) {
       setSrcIndex(i => i + 1)
       setImgReady(false)
     } else {
       setLoadFailed(true)
     }
-  }, [srcIndex, sources.length])
+  }, [srcIndex, imageSources.length])
+
+  const handleVideoError = useCallback(() => {
+    setLoadFailed(true)
+  }, [])
 
   if (loadFailed) {
     return (
@@ -49,6 +55,9 @@ export default function FullscreenView({ post, onClose, settings, onToggleFavori
       </div>
     )
   }
+
+  const proxiedSrc = video ? mediaProxyUrl(post.image_url) : mediaProxyUrl(currentSrc)
+  const posterUrl = video ? (post.thumbnail_url || '') : undefined
 
   return (
     <div
@@ -74,41 +83,40 @@ export default function FullscreenView({ post, onClose, settings, onToggleFavori
           className="d-flex align-items-center justify-content-center flex-grow-1 min-h-0"
           style={{ maxHeight: '85vh', minHeight: '200px', background: '#000' }}
         >
-          {!imgReady && !loadFailed && (
-            <div className="spinner-border text-light" role="status" />
-          )}
           {video ? (
             <video
-              key={currentSrc}
-              src={currentSrc}
+              src={proxiedSrc}
+              poster={posterUrl}
               controls
               autoPlay={settings.autoplayVideo}
               muted={settings.muteVideo}
               className="mw-100"
-              style={{ maxHeight: '85vh', width: 'auto', height: 'auto', maxWidth: '100%', display: imgReady ? 'block' : 'none' }}
-              onCanPlay={() => setImgReady(true)}
-              onError={tryNextSrc}
-              referrerPolicy="no-referrer"
+              style={{ maxHeight: '85vh', width: 'auto', height: 'auto', maxWidth: '100%' }}
+              onError={handleVideoError}
             />
           ) : (
-            <img
-              key={currentSrc}
-              src={currentSrc}
-              alt=""
-              className="mw-100"
-              style={{
-                maxHeight: '85vh',
-                width: 'auto',
-                height: 'auto',
-                maxWidth: '100%',
-                objectFit: 'contain',
-                borderRadius: '4px',
-                display: imgReady ? 'block' : 'none'
-              }}
-              onLoad={() => setImgReady(true)}
-              onError={tryNextSrc}
-              referrerPolicy="no-referrer"
-            />
+            <>
+              {!imgReady && (
+                <div className="spinner-border text-light" role="status" />
+              )}
+              <img
+                key={proxiedSrc}
+                src={proxiedSrc}
+                alt=""
+                className="mw-100"
+                style={{
+                  maxHeight: '85vh',
+                  width: 'auto',
+                  height: 'auto',
+                  maxWidth: '100%',
+                  objectFit: 'contain',
+                  borderRadius: '4px',
+                  display: imgReady ? 'block' : 'none'
+                }}
+                onLoad={() => setImgReady(true)}
+                onError={tryNextSrc}
+              />
+            </>
           )}
         </div>
 

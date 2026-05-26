@@ -25,18 +25,14 @@ export default function PostGrid({ posts, settings, onToggleBlacklist, onToggleF
     const count = Math.max(1, Math.floor((containerWidth - colWidth) / colWithGap) + 1)
     const width = (containerWidth - (count - 1) * colGap) / count
 
-    const filtered = posts.filter(p => {
-      const hasTag = p.tags.some(t => blacklistedTags.includes(t))
-      if (!hasTag) return true
-      return false
-    })
+    const filtered = posts.filter(p => !p.tags.some(t => blacklistedTags.includes(t)))
     const maxHeight = settings.maxPostHeight
 
     const cropped = filtered.map(p => {
       const zoom = width / p.width
       const renderHeight = p.height * zoom
       const cropped = renderHeight > maxHeight
-      return { ...p, renderHeight: cropped ? maxHeight : renderHeight, cropped, zoom }
+      return { ...p, renderHeight: cropped ? maxHeight : renderHeight, cropped }
     })
 
     const cols = Array.from({ length: count }, () => ({ posts: [], height: 0 }))
@@ -52,9 +48,9 @@ export default function PostGrid({ posts, settings, onToggleBlacklist, onToggleF
   }, [posts, containerWidth, settings, blacklistedTags])
 
   return (
-    <div className="post-grid" ref={containerRef}>
+    <div className="d-flex gap-1" ref={containerRef}>
       {columns.map((col, i) => (
-        <div className="post-column" key={i}>
+        <div className="d-flex flex-column flex-grow-1 gap-1" key={i}>
           {col.posts.map(p => (
             <PostCard
               key={p.id}

@@ -6,9 +6,12 @@ function isVideo(url) {
 
 export default function FullscreenView({ post, onClose, settings, onToggleFavorite }) {
   const isFav = settings.favorites.some(p => p.id === post.id)
-  const [imgError, setImgError] = useState(false)
   const video = isVideo(post.image_url)
-  const imgSrc = post.sample_url || post.image_url
+  const sources = [post.image_url, post.sample_url, post.thumbnail_url].filter(Boolean)
+  const [srcIndex, setSrcIndex] = useState(0)
+  const [imgReady, setImgReady] = useState(false)
+  const [loadFailed, setLoadFailed] = useState(false)
+  const currentSrc = sources[srcIndex]
 
   const handleKey = useCallback(e => {
     if (e.key === 'Escape') onClose()
@@ -22,6 +25,30 @@ export default function FullscreenView({ post, onClose, settings, onToggleFavori
       document.body.style.overflow = ''
     }
   }, [handleKey])
+
+  const tryNextSrc = useCallback(() => {
+    if (srcIndex < sources.length - 1) {
+      setSrcIndex(i => i + 1)
+      setImgReady(false)
+    } else {
+      setLoadFailed(true)
+    }
+  }, [srcIndex, sources.length])
+
+  if (loadFailed) {
+    return (
+      <div
+        className="position-fixed top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"
+        style={{ background: 'rgba(0,0,0,0.95)', zIndex: 1055 }}
+        onClick={onClose}
+      >
+        <div className="text-center text-muted" onClick={e => e.stopPropagation()}>
+          <p>Failed to load media</p>
+          <button className="btn btn-sm btn-outline-light" onClick={onClose}>Close</button>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div
@@ -47,24 +74,27 @@ export default function FullscreenView({ post, onClose, settings, onToggleFavori
           className="d-flex align-items-center justify-content-center flex-grow-1 min-h-0"
           style={{ maxHeight: '85vh', minHeight: '200px', background: '#000' }}
         >
+          {!imgReady && !loadFailed && (
+            <div className="spinner-border text-light" role="status" />
+          )}
           {video ? (
             <video
-              src={post.image_url}
+              key={currentSrc}
+              src={currentSrc}
               controls
               autoPlay={settings.autoplayVideo}
               muted={settings.muteVideo}
               className="mw-100"
-              style={{ maxHeight: '85vh', width: 'auto', height: 'auto', maxWidth: '100%' }}
+              style={{ maxHeight: '85vh', width: 'auto', height: 'auto', maxWidth: '100%', display: imgReady ? 'block' : 'none' }}
+              onCanPlay={() => setImgReady(true)}
+              onError={tryNextSrc}
+              referrerPolicy="no-referrer"
             />
           ) : (
             <img
-              src={imgError ? post.image_url : imgSrc}
+              key={currentSrc}
+              src={currentSrc}
               alt=""
-              onError={() => {
-                if (!imgError && imgSrc !== post.image_url) {
-                  setImgError(true)
-                }
-              }}
               className="mw-100"
               style={{
                 maxHeight: '85vh',
@@ -72,8 +102,12 @@ export default function FullscreenView({ post, onClose, settings, onToggleFavori
                 height: 'auto',
                 maxWidth: '100%',
                 objectFit: 'contain',
-                borderRadius: '4px'
+                borderRadius: '4px',
+                display: imgReady ? 'block' : 'none'
               }}
+              onLoad={() => setImgReady(true)}
+              onError={tryNextSrc}
+              referrerPolicy="no-referrer"
             />
           )}
         </div>
@@ -83,7 +117,6 @@ export default function FullscreenView({ post, onClose, settings, onToggleFavori
             <span className={`badge bg-${ratingColor(post.rating)}`}>{post.rating}</span>
             <span>Score: {post.score}</span>
             <span>{post.width} x {post.height}</span>
-            <span>{post.thumbnail_url ? '' : 'no thumbnail'}</span>
           </div>
 
           <div className="d-flex gap-2 mb-2 flex-wrap">

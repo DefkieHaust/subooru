@@ -1,24 +1,34 @@
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 
 function isVideo(url) {
   return /\.(mp4|webm|mov)$/i.test(url)
 }
 
 export default function PostCard({ post, settings, onToggleBlacklist, onToggleFavorite, onOpenFullscreen }) {
+  const sources = [post.thumbnail_url, post.sample_url, post.image_url].filter(Boolean)
+  const [srcIndex, setSrcIndex] = useState(0)
   const [loaded, setLoaded] = useState(false)
   const isFav = settings.favorites.some(p => p.id === post.id)
   const video = isVideo(post.image_url)
+
+  const handleError = useCallback(() => {
+    setSrcIndex(i => Math.min(i + 1, sources.length - 1))
+  }, [sources.length])
+
+  const currentSrc = sources[srcIndex] || sources[0]
 
   return (
     <div className="position-relative overflow-hidden rounded bg-dark" style={{ height: post.renderHeight, cursor: 'pointer' }}>
       <div className="w-100 h-100 position-relative" onClick={() => onOpenFullscreen(post)}>
         <div className="w-100 h-100 position-absolute top-0 start-0" style={{ background: '#0f3460', opacity: loaded ? 0 : 1, transition: 'opacity 0.3s' }} />
         <img
-          src={post.thumbnail_url}
+          src={currentSrc}
           alt=""
           onLoad={() => setLoaded(true)}
+          onError={handleError}
           className="w-100 h-100 position-absolute top-0 start-0"
           style={{ objectFit: 'cover', opacity: loaded ? 1 : 0, transition: 'opacity 0.3s' }}
+          referrerPolicy="no-referrer"
         />
         {video && loaded && (
           <div className="position-absolute top-50 start-50 translate-middle" style={{ opacity: 0.8, zIndex: 2 }}>

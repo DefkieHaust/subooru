@@ -13,7 +13,7 @@ const app = express()
 const PORT = parseInt(process.env.PORT, 10) || 3000
 const HOST = process.env.HOST || '0.0.0.0'
 
-const conf = JSON.parse(readFileSync(join(__dirname, 'conf.json'), 'utf-8'))
+const conf = JSON.parse(readFileSync(join(__dirname, '..', 'conf.json'), 'utf-8'))
 app.locals.conf = conf
 
 app.use(express.json())

@@ -1,8 +1,6 @@
 {
   "server": {
-    "include": [
-    	"lolicon"
-    ],
+    "include": [],
     "blacklist": [],
     "metatags": [
       { "prefix": "rating:", "tags": ["rating:general", "rating:safe", "rating:questionable", "rating:explicit"] },
@@ -11,14 +9,6 @@
     ]
   },
   "client": {
-    "blacklist": [
-    	"all_the_way_through",
-	"scat",
-	"puke",
-	"guro",
-	"rape",
-	"torture",
-	"vomit"
-    ]
+    "blacklist": []
   }
 }

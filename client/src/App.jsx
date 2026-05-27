@@ -173,7 +173,7 @@ export default function App() {
               }
             />
             <Route
-              path="/search/:page/:query?"
+              path="/search/:page/:query"
               element={
                 <SearchPage
                   query={query}

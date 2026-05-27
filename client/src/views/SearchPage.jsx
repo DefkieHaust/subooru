@@ -44,9 +44,10 @@ export default function SearchPage({ query, onQueryChange, settings, onToggleBla
     if (queryParam === undefined) return
     let cancelled = false
 
+    setLoading(true)
+    setError(null)
+
     async function doSearch() {
-      setLoading(true)
-      setError(null)
       try {
         const blacklistedNames = (settings.blacklist || []).map(t => t.name)
         const data = await fetchPosts({
@@ -59,14 +60,16 @@ export default function SearchPage({ query, onQueryChange, settings, onToggleBla
         if (cancelled) return
         setPosts(data.results || [])
         setTotalCount(data.total_count || 0)
-        setHasSearched(true)
       } catch (err) {
         if (cancelled) return
         setError(err.message)
         setPosts([])
         setTotalCount(0)
       } finally {
-        if (!cancelled) setLoading(false)
+        if (!cancelled) {
+          setLoading(false)
+          setHasSearched(true)
+        }
       }
     }
 
@@ -82,24 +85,7 @@ export default function SearchPage({ query, onQueryChange, settings, onToggleBla
   const blacklistedNames = (settings.blacklist || []).map(t => t.name)
   const maxPage = totalCount > 0 ? Math.ceil(totalCount / 100) : 0
 
-  if (loading) {
-    return (
-      <div className="d-flex align-items-center justify-content-center text-light" style={{ height: '200px' }}>
-        <div className="spinner-border me-2 text-light" role="status" />
-        Loading...
-      </div>
-    )
-  }
-
-  if (error) {
-    return (
-      <div className="d-flex align-items-center justify-content-center text-danger" style={{ height: '200px' }}>
-        {error}
-      </div>
-    )
-  }
-
-  if (!loading && !hasSearched && queryParam === undefined) {
+  if (queryParam === undefined) {
     return (
       <div className="d-flex flex-column align-items-center justify-content-center text-center" style={{ height: '400px' }}>
         <h2 className="fw-bold" style={{ color: '#e94560' }}>subooru</h2>
@@ -108,7 +94,22 @@ export default function SearchPage({ query, onQueryChange, settings, onToggleBla
     )
   }
 
-  if (!loading && hasSearched && totalCount === 0) {
+  if (loading || !hasSearched) {
+    return (
+      <div className="d-flex align-items-center justify-content-center text-light" style={{ height: '200px' }}>
+        {error ? (
+          <span className="text-danger">{error}</span>
+        ) : (
+          <>
+            <div className="spinner-border me-2 text-light" role="status" />
+            Loading...
+          </>
+        )}
+      </div>
+    )
+  }
+
+  if (totalCount === 0) {
     return (
       <div className="d-flex align-items-center justify-content-center text-light" style={{ height: '200px' }}>
         No results found

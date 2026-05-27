@@ -15,7 +15,8 @@ export default function SearchPage({ query, onQueryChange, settings, onToggleBla
   const [hasSearched, setHasSearched] = useState(false)
 
   const parsedTags = useMemo(() => {
-    if (!queryParam) return null
+    if (queryParam === undefined) return null
+    if (!queryParam) return { include: [], exclude: [] }
     const include = []
     const exclude = []
     for (const p of queryParam.split(',')) {
@@ -34,11 +35,13 @@ export default function SearchPage({ query, onQueryChange, settings, onToggleBla
         else include.push({ name: p, type: 'general', count: 0 })
       }
       onQueryChange({ include, exclude })
+    } else if (queryParam === '') {
+      onQueryChange({ include: [], exclude: [] })
     }
   }, [queryParam, onQueryChange])
 
   useEffect(() => {
-    if (!queryParam) return
+    if (queryParam === undefined) return
     let cancelled = false
 
     async function doSearch() {
@@ -96,7 +99,7 @@ export default function SearchPage({ query, onQueryChange, settings, onToggleBla
     )
   }
 
-  if (!loading && !hasSearched && !queryParam) {
+  if (!loading && !hasSearched && queryParam === undefined) {
     return (
       <div className="d-flex flex-column align-items-center justify-content-center text-center" style={{ height: '400px' }}>
         <h2 className="fw-bold" style={{ color: '#e94560' }}>subooru</h2>

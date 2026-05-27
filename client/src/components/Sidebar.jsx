@@ -53,9 +53,7 @@ export default function Sidebar({ query, onQueryChange, settings, onSettingsChan
       }
       setInput('')
     }
-    if (tags.length > 0) {
-      navigate(`/search/1/${tags.join(',')}`)
-    }
+    navigate(`/search/1/${tags.join(',')}`)
     onCloseMobile?.()
   }, [input, query, navigate, onCloseMobile])
 

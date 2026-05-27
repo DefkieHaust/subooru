@@ -179,21 +179,24 @@ export default function App() {
               {settings.blacklist.length === 0 && (
                 <li className="dropdown-item-text text-light small opacity-75">No blacklisted tags</li>
               )}
-              {settings.blacklist.map(t => (
-                <li key={t.name} className="mb-1">
-                  <span
-                    className={`badge ${tagBadgeColor(t.type)} d-inline-flex align-items-center w-100`}
-                    role="button"
-                    tabIndex={0}
-                    style={{ cursor: 'pointer', fontSize: '0.8rem', padding: '0.35em 0.5em' }}
-                    onClick={() => toggleBlacklist(t)}
-                    onKeyDown={e => { if (e.key === 'Enter') toggleBlacklist(t) }}
-                  >
-                    {t.name}
-                    <span className="ms-auto">&times;</span>
-                  </span>
+              {settings.blacklist.length > 0 && (
+                <li className="d-flex flex-wrap gap-1">
+                  {settings.blacklist.map(t => (
+                    <span
+                      key={t.name}
+                      className={`badge ${tagBadgeColor(t.type)} d-inline-flex align-items-center gap-1`}
+                      role="button"
+                      tabIndex={0}
+                      style={{ cursor: 'pointer', fontSize: '0.75rem' }}
+                      onClick={() => toggleBlacklist(t)}
+                      onKeyDown={e => { if (e.key === 'Enter') toggleBlacklist(t) }}
+                    >
+                      {t.name}
+                      <span>&times;</span>
+                    </span>
+                  ))}
                 </li>
-              ))}
+              )}
             </ul>
           </div>
           <button

@@ -7,3 +7,13 @@ export function tagBadgeColor(type) {
     default: return 'bg-primary'
   }
 }
+
+export function tagTextColor(type) {
+  switch (type) {
+    case 'artist': return 'text-info'
+    case 'character': return 'text-success'
+    case 'copyright': return 'text-warning'
+    case 'metadata': return 'text-secondary'
+    default: return ''
+  }
+}

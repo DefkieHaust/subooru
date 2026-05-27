@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { tagAutocomplete } from '../api.js'
-import { tagBadgeColor } from '../utils.js'
+import { tagBadgeColor, tagTextColor } from '../utils.js'
 
 export default function Sidebar({ query, onQueryChange, settings, onSettingsChange, onCloseMobile, show }) {
   const [input, setInput] = useState('')
@@ -130,10 +130,7 @@ export default function Sidebar({ query, onQueryChange, settings, onSettingsChan
                 onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
                 onClick={() => { addTag(t.name, false, t.type); setInput(''); setShowSuggestions(false); inputRef.current?.focus() }}
               >
-                <span className="d-flex align-items-center gap-1">
-                  <span className={`badge ${tagBadgeColor(t.type)}`} style={{ fontSize: '0.6rem', padding: '0.15em 0.4em' }}>{t.type}</span>
-                  {t.name}
-                </span>
+                <span className={`${tagTextColor(t.type)}`}>{t.name}</span>
                 <span className="text-light opacity-75 small">{t.count.toLocaleString()}</span>
               </button>
             ))}

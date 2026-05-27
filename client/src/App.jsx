@@ -5,7 +5,7 @@ import SearchPage from './views/SearchPage.jsx'
 import FullscreenView from './views/FullscreenView.jsx'
 import FavoritesModal from './components/FavoritesModal.jsx'
 import { tagAutocomplete } from './api.js'
-import { tagBadgeColor } from './utils.js'
+import { tagBadgeColor, tagTextColor } from './utils.js'
 
 function loadJSON(key, fallback) {
   try {
@@ -170,10 +170,7 @@ export default function App() {
                           blInputRef.current?.focus()
                         }}
                       >
-                        <span className="d-flex align-items-center gap-1">
-                          <span className={`badge ${tagBadgeColor(t.type)}`} style={{ fontSize: '0.6rem', padding: '0.15em 0.4em' }}>{t.type}</span>
-                          {t.name}
-                        </span>
+                        <span className={`${tagTextColor(t.type)}`}>{t.name}</span>
                         <span className="text-light opacity-75 small">{t.count.toLocaleString()}</span>
                       </button>
                     ))}

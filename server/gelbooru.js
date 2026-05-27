@@ -85,7 +85,7 @@ export async function searchTags(query) {
 
   return (data || []).map(t => ({
     name: t.value,
-    type: TAG_TYPE_MAP[t.category] || 'general',
+    type: t.category === 'tag' ? 'general' : t.category,
     count: parseInt(t.post_count, 10) || 0
   }))
 }

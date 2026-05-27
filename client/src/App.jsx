@@ -5,6 +5,7 @@ import SearchPage from './views/SearchPage.jsx'
 import FullscreenView from './views/FullscreenView.jsx'
 import FavoritesModal from './components/FavoritesModal.jsx'
 import { tagAutocomplete } from './api.js'
+import { tagBadgeColor } from './utils.js'
 
 function loadJSON(key, fallback) {
   try {
@@ -169,7 +170,10 @@ export default function App() {
                           blInputRef.current?.focus()
                         }}
                       >
-                        <span>{t.name}</span>
+                        <span className="d-flex align-items-center gap-1">
+                          <span className={`badge ${tagBadgeColor(t.type)}`} style={{ fontSize: '0.6rem', padding: '0.15em 0.4em' }}>{t.type}</span>
+                          {t.name}
+                        </span>
                         <span className="text-light opacity-75 small">{t.count.toLocaleString()}</span>
                       </button>
                     ))}
@@ -281,12 +285,4 @@ export default function App() {
   )
 }
 
-function tagBadgeColor(type) {
-  switch (type) {
-    case 'artist': return 'bg-info text-light'
-    case 'character': return 'bg-success'
-    case 'copyright': return 'bg-warning text-light'
-    case 'metadata': return 'bg-secondary'
-    default: return 'bg-primary'
-  }
-}
+

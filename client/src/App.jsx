@@ -93,7 +93,7 @@ export default function App() {
             <button className="btn btn-sm btn-outline-light dropdown-toggle" data-bs-toggle="dropdown">
               Blacklist ({settings.blacklist.length})
             </button>
-            <ul className="dropdown-menu dropdown-menu-dark p-2" style={{ minWidth: '250px' }}>
+            <ul className="dropdown-menu dropdown-menu-end dropdown-menu-dark p-2" style={{ minWidth: '250px' }} data-bs-popper="static">
               <li className="dropdown-item p-0 mb-2">
                 <form onSubmit={(e) => {
                   e.preventDefault()

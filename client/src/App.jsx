@@ -170,7 +170,7 @@ export default function App() {
                           blInputRef.current?.focus()
                         }}
                       >
-                        <span className={`${tagTextColor(t.type)}`}>{t.name}</span>
+                        <span className={`${tagTextColor(t.type, t.name)}`}>{t.name}</span>
                         {t.type !== 'metadata' && <span className="text-light opacity-75 small">{t.count.toLocaleString()}</span>}
                       </button>
                     ))}
@@ -185,7 +185,7 @@ export default function App() {
                   {settings.blacklist.map(t => (
                     <span
                       key={t.name}
-                      className={`badge ${tagBadgeColor(t.type)} d-inline-flex align-items-center gap-1`}
+                      className={`badge ${tagBadgeColor(t.type, t.name)} d-inline-flex align-items-center gap-1`}
                       role="button"
                       tabIndex={0}
                       style={{ cursor: 'pointer', fontSize: '0.75rem' }}

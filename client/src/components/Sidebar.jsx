@@ -58,12 +58,13 @@ export default function Sidebar({ query, onQueryChange, settings, onSettingsChan
     onCloseMobile?.()
   }, [input, query, navigate, onCloseMobile])
 
-  const addTag = useCallback((name, exclude = false, type = 'general') => {
+  const addTag = useCallback((name, exclude = false, type) => {
+    const resolvedType = type || (name.includes(':') ? 'metadata' : 'general')
     const key = exclude ? 'exclude' : 'include'
     if (query[key].some(t => t.name === name)) return
     onQueryChange(q => ({
       ...q,
-      [key]: [...q[key], { name, type, count: 0 }]
+      [key]: [...q[key], { name, type: resolvedType, count: 0 }]
     }))
   }, [query, onQueryChange])
 
@@ -130,7 +131,7 @@ export default function Sidebar({ query, onQueryChange, settings, onSettingsChan
                 onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
                 onClick={() => { addTag(t.name, false, t.type); setInput(''); setShowSuggestions(false); inputRef.current?.focus() }}
               >
-                <span className={`${tagTextColor(t.type)}`}>{t.name}</span>
+                <span className={`${tagTextColor(t.type, t.name)}`}>{t.name}</span>
                 {t.type !== 'metadata' && <span className="text-light opacity-75 small">{t.count.toLocaleString()}</span>}
               </button>
             ))}
@@ -142,7 +143,7 @@ export default function Sidebar({ query, onQueryChange, settings, onSettingsChan
         <small className="text-light text-uppercase fw-bold opacity-75">Tags</small>
         <div className="d-flex flex-wrap gap-1 mt-1">
           {query.include.map(t => (
-            <span key={t.name} className={`badge ${tagBadgeColor(t.type)} d-inline-flex align-items-center gap-1`} style={{ fontSize: '0.75rem' }}>
+            <span key={t.name} className={`badge ${tagBadgeColor(t.type, t.name)} d-inline-flex align-items-center gap-1`} style={{ fontSize: '0.75rem' }}>
               {t.name}
               <button className="btn-close btn-close-white" style={{ fontSize: '0.5rem' }} onClick={() => removeTag(t.name)} />
             </span>

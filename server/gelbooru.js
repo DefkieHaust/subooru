@@ -77,15 +77,34 @@ export async function listTags(names) {
   }))
 }
 
+const META_SUGGESTIONS = [
+  { prefix: 'rating:', tags: ['rating:general', 'rating:safe', 'rating:questionable', 'rating:explicit'] },
+  { prefix: 'sort:', tags: ['sort:random', 'sort:score', 'sort:mpixels', 'sort:filesize', 'sort:landscape', 'sort:portrait', 'sort:date'] }
+]
+
 export async function searchTags(query) {
   const data = await fetchGelbooru({
     page: 'autocomplete2',
     term: query
   })
 
-  return (data || []).map(t => ({
+  const results = (data || []).map(t => ({
     name: t.value,
     type: t.category === 'tag' ? 'general' : t.category,
     count: parseInt(t.post_count, 10) || 0
   }))
+
+  const lower = query.toLowerCase()
+  for (const { prefix, tags } of META_SUGGESTIONS) {
+    if (lower.startsWith(prefix)) {
+      const suffix = lower.slice(prefix.length)
+      for (const tag of tags) {
+        if (tag.toLowerCase().includes(suffix)) {
+          results.push({ name: tag, type: 'metadata', count: 0 })
+        }
+      }
+    }
+  }
+
+  return results
 }

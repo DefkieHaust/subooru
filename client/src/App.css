@@ -64,14 +64,4 @@ main:focus {
   }
 }
 
-.sticky-bottom-pagination {
-  position: sticky;
-  bottom: 0;
-  background: var(--bg);
-  border-top: 1px solid #495057;
-  z-index: 10;
-}
 
-.sticky-bottom-pagination .d-flex {
-  padding: 0.5rem 0.75rem;
-}

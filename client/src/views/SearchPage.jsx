@@ -2,7 +2,6 @@ import { useState, useEffect, useCallback, useMemo } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { fetchPosts } from '../api.js'
 import PostGrid from '../components/PostGrid.jsx'
-import Pagination from '../components/Pagination.jsx'
 
 export default function SearchPage({ query, onQueryChange, settings, onToggleBlacklist, onToggleFavorite, onOpenFullscreen }) {
   const { page: pageParam, query: queryParam } = useParams()
@@ -116,13 +115,6 @@ export default function SearchPage({ query, onQueryChange, settings, onToggleBla
   return (
     <>
       <div className="p-1" style={{ paddingBottom: '56px' }}>
-        <Pagination
-          page={currentPage}
-          totalCount={totalCount}
-          resultsPerPage={100}
-          onPageChange={handlePageChange}
-          loading={loading}
-        />
         <PostGrid
           posts={posts}
           settings={settings}
@@ -133,14 +125,44 @@ export default function SearchPage({ query, onQueryChange, settings, onToggleBla
         />
       </div>
 
-      <div className="sticky-bottom-pagination">
-        <Pagination
-          page={currentPage}
-          totalCount={totalCount}
-          resultsPerPage={100}
-          onPageChange={handlePageChange}
-          loading={loading}
-        />
+      <div
+        className="d-flex justify-content-between align-items-center px-3"
+        style={{
+          position: 'fixed',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          height: '48px',
+          background: 'var(--bg)',
+          borderTop: '1px solid #495057',
+          zIndex: 1020
+        }}
+      >
+        <span className="text-light small">
+          {totalCount > 0 ? `${totalCount.toLocaleString()} posts` : ''}
+        </span>
+        <div className="d-flex align-items-center gap-2">
+          <button
+            className="btn btn-sm btn-outline-light"
+            disabled={currentPage <= 1 || loading}
+            onClick={() => handlePageChange(currentPage - 1)}
+          >
+            Prev
+          </button>
+          <span className="text-light small">
+            {(() => {
+              const maxPage = Math.ceil(totalCount / 100)
+              return `Page ${currentPage}${maxPage > 0 ? ` / ${Math.min(maxPage, 200)}` : ''}`
+            })()}
+          </span>
+          <button
+            className="btn btn-sm btn-outline-light"
+            disabled={currentPage >= 200 || loading}
+            onClick={() => handlePageChange(currentPage + 1)}
+          >
+            Next
+          </button>
+        </div>
       </div>
     </>
   )

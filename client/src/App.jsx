@@ -110,7 +110,7 @@ export default function App() {
             </ul>
           </div>
           <button
-            className={`btn btn-sm ${showSidebar ? 'btn-secondary' : 'btn-outline-light'} d-none d-md-inline-block`}
+            className="btn btn-sm btn-outline-light d-none"
             onClick={() => setShowSidebar(!showSidebar)}
             title="Toggle sidebar"
           >
@@ -121,7 +121,7 @@ export default function App() {
         </div>
       </nav>
 
-      <div className="position-relative flex-grow-1 min-h-0">
+      <div className="d-md-flex flex-grow-1 min-h-0 position-relative">
         {showSidebar && (
           <div
             className="position-fixed top-0 start-0 w-100 h-100 d-md-none"
@@ -139,7 +139,7 @@ export default function App() {
           show={showSidebar}
         />
 
-        <main className="position-absolute top-0 start-0 w-100 h-100 overflow-auto" style={{ paddingBottom: '60px' }}>
+        <main className="overflow-auto app-main" style={{ paddingBottom: '60px' }}>
           <Routes>
             <Route
               path="/"

@@ -1,4 +1,5 @@
 import { useEffect, useCallback, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { mediaProxyUrl } from '../api.js'
 
 function isVideo(url) {
@@ -6,8 +7,14 @@ function isVideo(url) {
 }
 
 export default function FullscreenView({ post, onClose, settings, onToggleFavorite }) {
+  const navigate = useNavigate()
   const isFav = settings.favorites.some(p => p.id === post.id)
   const video = isVideo(post.image_url)
+
+  const handleTagClick = useCallback((tag) => {
+    onClose()
+    navigate(`/search/1/${encodeURIComponent(tag)}`)
+  }, [onClose, navigate])
 
   const handleKey = useCallback(e => {
     if (e.key === 'Escape') onClose()
@@ -146,7 +153,15 @@ export default function FullscreenView({ post, onClose, settings, onToggleFavori
 
           <div className="d-flex flex-wrap gap-1" style={{ maxHeight: '100px', overflowY: 'auto' }}>
             {post.tags.map(t => (
-              <span key={t} className="badge bg-secondary" style={{ fontSize: '0.75rem' }}>{t}</span>
+              <span
+                key={t}
+                className="badge bg-secondary"
+                role="button"
+                tabIndex={0}
+                style={{ fontSize: '0.75rem', cursor: 'pointer' }}
+                onClick={() => handleTagClick(t)}
+                onKeyDown={e => { if (e.key === 'Enter') handleTagClick(t) }}
+              >{t}</span>
             ))}
           </div>
         </div>

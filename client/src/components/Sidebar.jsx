@@ -89,7 +89,7 @@ export default function Sidebar({ query, onQueryChange, settings, onSettingsChan
         </button>
       </div>
 
-      <form className="p-2 position-relative" onSubmit={handleSearch}>
+      <div className="p-2 position-relative">
         <div className="input-group input-group-sm">
           <input
             ref={inputRef}
@@ -99,8 +99,19 @@ export default function Sidebar({ query, onQueryChange, settings, onSettingsChan
             value={input}
             onChange={e => setInput(e.target.value)}
             onFocus={() => suggestions.length > 0 && setShowSuggestions(true)}
+            onKeyDown={e => {
+              if (e.key === 'Enter') {
+                e.preventDefault()
+                if (input.trim()) {
+                  addTag(input.trim())
+                  setInput('')
+                  setShowSuggestions(false)
+                  inputRef.current?.focus()
+                }
+              }
+            }}
           />
-          <button type="submit" className="btn btn-danger btn-sm">Search</button>
+          <button className="btn btn-danger btn-sm" onClick={handleSearch}>Search</button>
         </div>
         {showSuggestions && suggestions.length > 0 && (
           <div
@@ -116,15 +127,15 @@ export default function Sidebar({ query, onQueryChange, settings, onSettingsChan
                 style={{ fontSize: '0.85rem' }}
                 onMouseEnter={e => e.currentTarget.style.background = '#0f3460'}
                 onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
-                onClick={() => { addTag(t.name); setInput(''); setShowSuggestions(false) }}
+                onClick={() => { addTag(t.name); setInput(''); setShowSuggestions(false); inputRef.current?.focus() }}
               >
                 <span>{t.name}</span>
-                <span className="text-muted small">{t.count.toLocaleString()}</span>
+                <span className="text-light opacity-75 small">{t.count.toLocaleString()}</span>
               </button>
             ))}
           </div>
         )}
-      </form>
+      </div>
 
       <div className="p-2 border-bottom border-secondary">
         <small className="text-light text-uppercase fw-bold opacity-75">Tags</small>
@@ -143,7 +154,7 @@ export default function Sidebar({ query, onQueryChange, settings, onSettingsChan
           ))}
         </div>
         {query.include.length === 0 && query.exclude.length === 0 && (
-          <p className="text-muted small mt-1 mb-0">Type a tag and press Search</p>
+          <p className="text-muted small mt-1 mb-0">Type a tag and press Enter to add</p>
         )}
       </div>
 

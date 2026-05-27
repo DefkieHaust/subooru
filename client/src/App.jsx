@@ -28,6 +28,7 @@ export default function App() {
   }))
 
   const [fullscreenPost, setFullscreenPost] = useState(null)
+  const [blacklistInput, setBlacklistInput] = useState('')
 
   const saveSettings = useCallback((next) => {
     setSettings(prev => {
@@ -93,6 +94,23 @@ export default function App() {
               Blacklist ({settings.blacklist.length})
             </button>
             <ul className="dropdown-menu dropdown-menu-dark p-2" style={{ minWidth: '250px' }}>
+              <li className="dropdown-item p-0 mb-2">
+                <form onSubmit={(e) => {
+                  e.preventDefault()
+                  if (blacklistInput.trim()) {
+                    toggleBlacklist({ name: blacklistInput.trim(), type: 'general', count: 0 })
+                    setBlacklistInput('')
+                  }
+                }} className="d-flex gap-1">
+                  <input
+                    className="form-control form-control-sm bg-dark text-light border-secondary"
+                    placeholder="Add tag..."
+                    value={blacklistInput}
+                    onChange={e => setBlacklistInput(e.target.value)}
+                  />
+                  <button type="submit" className="btn btn-sm btn-outline-light">Add</button>
+                </form>
+              </li>
               {settings.blacklist.length === 0 && (
                 <li className="dropdown-item-text text-muted small">No blacklisted tags</li>
               )}

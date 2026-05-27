@@ -121,7 +121,7 @@ export default function App() {
         </div>
       </nav>
 
-      <div className="position-relative flex-grow-1 min-h-0">
+      <div className="position-relative flex-grow-1 min-h-0 d-flex flex-column">
         {showSidebar && (
           <div
             className="position-fixed top-0 start-0 w-100 h-100 d-md-none"
@@ -139,7 +139,7 @@ export default function App() {
           show={showSidebar}
         />
 
-        <main id="scroll-container" tabIndex={-1} className="w-100 h-100 overflow-auto">
+        <main id="scroll-container" tabIndex={-1} className="flex-grow-1 min-h-0 overflow-auto">
           <Routes>
             <Route
               path="/"

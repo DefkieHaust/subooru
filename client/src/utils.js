@@ -20,7 +20,7 @@ export function tagTextColor(type, name) {
     case 'artist': return 'text-info'
     case 'character': return 'text-success'
     case 'copyright': return 'text-warning'
-    case 'metadata': return 'text-info'
+    case 'metadata': return 'text-secondary'
     default: return ''
   }
 }

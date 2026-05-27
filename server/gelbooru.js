@@ -79,7 +79,8 @@ export async function listTags(names) {
 
 const META_SUGGESTIONS = [
   { prefix: 'rating:', tags: ['rating:general', 'rating:safe', 'rating:questionable', 'rating:explicit'] },
-  { prefix: 'sort:', tags: ['sort:random', 'sort:score', 'sort:mpixels', 'sort:filesize', 'sort:landscape', 'sort:portrait', 'sort:date'] }
+  { prefix: 'sort:', tags: ['sort:random', 'sort:score', 'sort:mpixels', 'sort:filesize', 'sort:landscape', 'sort:portrait', 'sort:date'] },
+  { prefix: 'score:', tags: ['score:>100', 'score:>500', 'score:>1000', 'score:>5000', 'score:<100', 'score:<500'] }
 ]
 
 export async function searchTags(query) {

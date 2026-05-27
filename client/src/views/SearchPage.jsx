@@ -114,23 +114,26 @@ export default function SearchPage({ query, onQueryChange, settings, onToggleBla
   }
 
   return (
-    <div className="p-1 pb-2">
-      <Pagination
-        page={currentPage}
-        totalCount={totalCount}
-        resultsPerPage={100}
-        onPageChange={handlePageChange}
-        loading={loading}
-      />
-      <PostGrid
-        posts={posts}
-        settings={settings}
-        onToggleBlacklist={onToggleBlacklist}
-        onToggleFavorite={onToggleFavorite}
-        onOpenFullscreen={onOpenFullscreen}
-        blacklistedTags={blacklistedNames}
-      />
-      <div className="mt-1">
+    <>
+      <div className="p-1" style={{ paddingBottom: '56px' }}>
+        <Pagination
+          page={currentPage}
+          totalCount={totalCount}
+          resultsPerPage={100}
+          onPageChange={handlePageChange}
+          loading={loading}
+        />
+        <PostGrid
+          posts={posts}
+          settings={settings}
+          onToggleBlacklist={onToggleBlacklist}
+          onToggleFavorite={onToggleFavorite}
+          onOpenFullscreen={onOpenFullscreen}
+          blacklistedTags={blacklistedNames}
+        />
+      </div>
+
+      <div className="sticky-bottom-pagination">
         <Pagination
           page={currentPage}
           totalCount={totalCount}
@@ -139,6 +142,6 @@ export default function SearchPage({ query, onQueryChange, settings, onToggleBla
           loading={loading}
         />
       </div>
-    </div>
+    </>
   )
 }

@@ -112,7 +112,7 @@ export default function App() {
                 </form>
               </li>
               {settings.blacklist.length === 0 && (
-                <li className="dropdown-item-text text-muted small">No blacklisted tags</li>
+                <li className="dropdown-item-text text-light small opacity-75">No blacklisted tags</li>
               )}
               {settings.blacklist.map(t => (
                 <li key={t.name} className="d-flex align-items-center gap-2 mb-1">
@@ -211,9 +211,9 @@ export default function App() {
 
 function tagBadgeColor(type) {
   switch (type) {
-    case 'artist': return 'bg-info'
+    case 'artist': return 'bg-info text-light'
     case 'character': return 'bg-success'
-    case 'copyright': return 'bg-warning text-dark'
+    case 'copyright': return 'bg-warning text-light'
     case 'metadata': return 'bg-secondary'
     default: return 'bg-primary'
   }

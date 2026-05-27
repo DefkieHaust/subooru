@@ -55,7 +55,7 @@ export default function FullscreenView({ post, onClose, settings, onToggleFavori
         style={{ background: 'rgba(0,0,0,0.95)', zIndex: 1060 }}
         onClick={onClose}
       >
-        <div className="text-center text-muted" onClick={e => e.stopPropagation()}>
+        <div className="text-center text-light" onClick={e => e.stopPropagation()}>
           <p>Failed to load media</p>
           <button className="btn btn-sm btn-outline-light" onClick={onClose}>Close</button>
         </div>

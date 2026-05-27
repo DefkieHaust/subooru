@@ -81,8 +81,8 @@ export default function SearchPage({ query, onQueryChange, settings, onToggleBla
 
   if (loading) {
     return (
-      <div className="d-flex align-items-center justify-content-center text-muted" style={{ height: '200px' }}>
-        <div className="spinner-border me-2" role="status" />
+      <div className="d-flex align-items-center justify-content-center text-light" style={{ height: '200px' }}>
+        <div className="spinner-border me-2 text-light" role="status" />
         Loading...
       </div>
     )
@@ -100,14 +100,14 @@ export default function SearchPage({ query, onQueryChange, settings, onToggleBla
     return (
       <div className="d-flex flex-column align-items-center justify-content-center text-center" style={{ height: '400px' }}>
         <h2 className="fw-bold" style={{ color: '#e94560' }}>subooru</h2>
-        <p className="text-muted">Enter tags in the sidebar and click Search</p>
+        <p className="text-light opacity-75">Enter tags in the sidebar and click Search</p>
       </div>
     )
   }
 
   if (!loading && hasSearched && totalCount === 0) {
     return (
-      <div className="d-flex align-items-center justify-content-center text-muted" style={{ height: '200px' }}>
+      <div className="d-flex align-items-center justify-content-center text-light" style={{ height: '200px' }}>
         No results found
       </div>
     )

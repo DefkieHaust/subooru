@@ -129,7 +129,7 @@ export default function Sidebar({ query, onQueryChange, settings, onSettingsChan
       </form>
 
       <div className="p-2 border-bottom border-secondary">
-        <small className="text-muted text-uppercase fw-bold">Tags</small>
+        <small className="text-light text-uppercase fw-bold opacity-75">Tags</small>
         <div className="d-flex flex-wrap gap-1 mt-1">
           {query.include.map(t => (
             <span key={t.name} className="badge bg-primary d-inline-flex align-items-center gap-1" style={{ fontSize: '0.75rem' }}>
@@ -150,7 +150,7 @@ export default function Sidebar({ query, onQueryChange, settings, onSettingsChan
       </div>
 
       <div className="p-2 border-bottom border-secondary">
-        <small className="text-muted text-uppercase fw-bold">Settings</small>
+        <small className="text-light text-uppercase fw-bold opacity-75">Settings</small>
         <div className="mt-1">
           <label className="d-flex align-items-center gap-2 small mb-1">
             <span className="text-nowrap" style={{ minWidth: '85px' }}>Column width</span>
@@ -185,7 +185,7 @@ export default function Sidebar({ query, onQueryChange, settings, onSettingsChan
 
       {settings.blacklist.length > 0 && (
         <div className="p-2 border-bottom border-secondary">
-          <small className="text-muted text-uppercase fw-bold">Blacklist</small>
+          <small className="text-light text-uppercase fw-bold opacity-75">Blacklist</small>
           <div className="d-flex flex-wrap gap-1 mt-1">
             {settings.blacklist.map(t => (
               <span key={t.name} className="badge bg-secondary d-inline-flex align-items-center gap-1" style={{ fontSize: '0.75rem' }}>

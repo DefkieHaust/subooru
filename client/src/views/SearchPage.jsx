@@ -15,7 +15,6 @@ export default function SearchPage({ query, onQueryChange, settings, onToggleBla
   const [hasSearched, setHasSearched] = useState(false)
 
   const parsedTags = useMemo(() => {
-    if (queryParam === undefined) return null
     if (!queryParam) return { include: [], exclude: [] }
     const include = []
     const exclude = []
@@ -27,21 +26,21 @@ export default function SearchPage({ query, onQueryChange, settings, onToggleBla
   }, [queryParam])
 
   useEffect(() => {
-    if (queryParam) {
-      const include = []
-      const exclude = []
-      for (const p of queryParam.split(',')) {
-        if (p.startsWith('-')) exclude.push({ name: p.slice(1), type: 'general', count: 0 })
-        else include.push({ name: p, type: 'general', count: 0 })
-      }
-      onQueryChange({ include, exclude })
-    } else if (queryParam === '') {
+    if (!queryParam) {
       onQueryChange({ include: [], exclude: [] })
+      return
     }
+    const include = []
+    const exclude = []
+    for (const p of queryParam.split(',')) {
+      if (p.startsWith('-')) exclude.push({ name: p.slice(1), type: 'general', count: 0 })
+      else include.push({ name: p, type: 'general', count: 0 })
+    }
+    onQueryChange({ include, exclude })
   }, [queryParam, onQueryChange])
 
   useEffect(() => {
-    if (queryParam === undefined) return
+    if (pageParam === undefined) return
     let cancelled = false
 
     setLoading(true)
@@ -85,7 +84,7 @@ export default function SearchPage({ query, onQueryChange, settings, onToggleBla
   const blacklistedNames = (settings.blacklist || []).map(t => t.name)
   const maxPage = totalCount > 0 ? Math.ceil(totalCount / 100) : 0
 
-  if (queryParam === undefined) {
+  if (pageParam === undefined) {
     return (
       <div className="d-flex flex-column align-items-center justify-content-center text-center" style={{ height: '400px' }}>
         <h2 className="fw-bold" style={{ color: '#e94560' }}>subooru</h2>

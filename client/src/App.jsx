@@ -4,7 +4,7 @@ import Sidebar from './components/Sidebar.jsx'
 import SearchPage from './views/SearchPage.jsx'
 import FullscreenView from './views/FullscreenView.jsx'
 import FavoritesModal from './components/FavoritesModal.jsx'
-import { tagAutocomplete } from './api.js'
+import { tagAutocomplete, fetchConfig } from './api.js'
 import { tagBadgeColor, tagTextColor } from './utils.js'
 
 function loadJSON(key, fallback) {
@@ -42,6 +42,22 @@ export default function App() {
       localStorage.setItem('subooru-settings', JSON.stringify(updated))
       return updated
     })
+  }, [])
+
+  useEffect(() => {
+    fetchConfig().then(cfg => {
+      if (cfg.blacklist?.length) {
+        saveSettings(s => {
+          const existing = new Set(s.blacklist.map(t => t.name))
+          const toAdd = cfg.blacklist.filter(name => !existing.has(name))
+          if (!toAdd.length) return s
+          return {
+            ...s,
+            blacklist: [...s.blacklist, ...toAdd.map(name => ({ name, type: 'general', count: 0 }))]
+          }
+        })
+      }
+    }).catch(() => {})
   }, [])
 
   useEffect(() => {

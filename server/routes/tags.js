@@ -31,7 +31,8 @@ router.get('/search', async (req, res) => {
       return res.status(400).json({ error: 'required GET param `q` is missing' })
     }
 
-    const results = await searchTags(query)
+    const conf = req.app.locals.conf
+    const results = await searchTags(query, conf.server.metatags)
     res.json({ results })
   } catch (err) {
     console.error('Failed to search tags:', err)

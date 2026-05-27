@@ -77,13 +77,7 @@ export async function listTags(names) {
   }))
 }
 
-const META_SUGGESTIONS = [
-  { prefix: 'rating:', tags: ['rating:general', 'rating:safe', 'rating:questionable', 'rating:explicit'] },
-  { prefix: 'sort:', tags: ['sort:random', 'sort:score', 'sort:mpixels', 'sort:filesize', 'sort:landscape', 'sort:portrait', 'sort:date'] },
-  { prefix: 'score:', tags: ['score:>100', 'score:>500', 'score:>1000', 'score:>5000', 'score:<100', 'score:<500'] }
-]
-
-export async function searchTags(query) {
+export async function searchTags(query, metatags = []) {
   const data = await fetchGelbooru({
     page: 'autocomplete2',
     term: query
@@ -96,7 +90,7 @@ export async function searchTags(query) {
   }))
 
   const lower = query.toLowerCase()
-  for (const { prefix, tags } of META_SUGGESTIONS) {
+  for (const { prefix, tags } of metatags) {
     if (lower.startsWith(prefix)) {
       const suffix = lower.slice(prefix.length)
       for (const tag of tags) {

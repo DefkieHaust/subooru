@@ -29,6 +29,11 @@ export async function tagAutocomplete(query) {
   return res.json()
 }
 
+export async function fetchConfig() {
+  const res = await fetch('/api/config')
+  return res.json()
+}
+
 export function mediaProxyUrl(url) {
   return `/api/media?url=${encodeURIComponent(url)}`
 }

@@ -10,7 +10,21 @@ router.get('/', async (req, res) => {
       return res.status(400).json({ error: 'results past page 200 are blocked by gelbooru' })
     }
 
-    const tags = [].concat(req.query.q || []).filter(Boolean).join(' ')
+    const conf = req.app.locals.conf.server
+    const userTags = [].concat(req.query.q || []).filter(Boolean)
+
+    const filteredTags = userTags.filter(t => {
+      const name = t.startsWith('-') ? t.slice(1) : t
+      return !conf.blacklist.includes(name)
+    })
+
+    const allTags = [
+      ...conf.include,
+      ...filteredTags,
+      ...conf.blacklist.map(t => `-${t}`)
+    ]
+    const tags = allTags.join(' ')
+
     const result = await listPosts(tags, page)
     res.json(result)
   } catch (err) {

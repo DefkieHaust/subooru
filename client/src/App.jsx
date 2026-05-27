@@ -139,36 +139,34 @@ export default function App() {
           show={showSidebar}
         />
 
-        <main id="scroll-container" tabIndex={-1} className="flex-grow-1 min-h-0 overflow-auto">
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <SearchPage
-                  query={query}
-                  onQueryChange={setQuery}
-                  settings={settings}
-                  onToggleBlacklist={toggleBlacklist}
-                  onToggleFavorite={toggleFavorite}
-                  onOpenFullscreen={setFullscreenPost}
-                />
-              }
-            />
-            <Route
-              path="/search/:page/:query?"
-              element={
-                <SearchPage
-                  query={query}
-                  onQueryChange={setQuery}
-                  settings={settings}
-                  onToggleBlacklist={toggleBlacklist}
-                  onToggleFavorite={toggleFavorite}
-                  onOpenFullscreen={setFullscreenPost}
-                />
-              }
-            />
-          </Routes>
-        </main>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <SearchPage
+                query={query}
+                onQueryChange={setQuery}
+                settings={settings}
+                onToggleBlacklist={toggleBlacklist}
+                onToggleFavorite={toggleFavorite}
+                onOpenFullscreen={setFullscreenPost}
+              />
+            }
+          />
+          <Route
+            path="/search/:page/:query?"
+            element={
+              <SearchPage
+                query={query}
+                onQueryChange={setQuery}
+                settings={settings}
+                onToggleBlacklist={toggleBlacklist}
+                onToggleFavorite={toggleFavorite}
+                onOpenFullscreen={setFullscreenPost}
+              />
+            }
+          />
+        </Routes>
       </div>
 
       {fullscreenPost && (

@@ -121,7 +121,7 @@ export default function App() {
         </div>
       </nav>
 
-      <div className="position-relative flex-grow-1 min-h-0 d-flex flex-column">
+      <div className="position-relative flex-grow-1 min-h-0">
         {showSidebar && (
           <div
             className="position-fixed top-0 start-0 w-100 h-100 d-md-none"
@@ -139,34 +139,36 @@ export default function App() {
           show={showSidebar}
         />
 
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <SearchPage
-                query={query}
-                onQueryChange={setQuery}
-                settings={settings}
-                onToggleBlacklist={toggleBlacklist}
-                onToggleFavorite={toggleFavorite}
-                onOpenFullscreen={setFullscreenPost}
-              />
-            }
-          />
-          <Route
-            path="/search/:page/:query?"
-            element={
-              <SearchPage
-                query={query}
-                onQueryChange={setQuery}
-                settings={settings}
-                onToggleBlacklist={toggleBlacklist}
-                onToggleFavorite={toggleFavorite}
-                onOpenFullscreen={setFullscreenPost}
-              />
-            }
-          />
-        </Routes>
+        <main className="position-absolute top-0 start-0 w-100 h-100 overflow-auto" style={{ paddingBottom: '60px' }}>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <SearchPage
+                  query={query}
+                  onQueryChange={setQuery}
+                  settings={settings}
+                  onToggleBlacklist={toggleBlacklist}
+                  onToggleFavorite={toggleFavorite}
+                  onOpenFullscreen={setFullscreenPost}
+                />
+              }
+            />
+            <Route
+              path="/search/:page/:query?"
+              element={
+                <SearchPage
+                  query={query}
+                  onQueryChange={setQuery}
+                  settings={settings}
+                  onToggleBlacklist={toggleBlacklist}
+                  onToggleFavorite={toggleFavorite}
+                  onOpenFullscreen={setFullscreenPost}
+                />
+              }
+            />
+          </Routes>
+        </main>
       </div>
 
       {fullscreenPost && (

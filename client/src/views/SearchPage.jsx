@@ -114,20 +114,29 @@ export default function SearchPage({ query, onQueryChange, settings, onToggleBla
   }
 
   return (
-    <div className="d-flex flex-column flex-grow-1 min-h-0">
-      <div className="flex-grow-1 min-h-0 overflow-auto" style={{ padding: '0.25rem' }}>
-        <PostGrid
-          posts={posts}
-          settings={settings}
-          onToggleBlacklist={onToggleBlacklist}
-          onToggleFavorite={onToggleFavorite}
-          onOpenFullscreen={onOpenFullscreen}
-          blacklistedTags={blacklistedNames}
-        />
-      </div>
+    <>
+      <PostGrid
+        posts={posts}
+        settings={settings}
+        onToggleBlacklist={onToggleBlacklist}
+        onToggleFavorite={onToggleFavorite}
+        onOpenFullscreen={onOpenFullscreen}
+        blacklistedTags={blacklistedNames}
+      />
 
-      <div className="d-flex justify-content-between align-items-center px-3 flex-shrink-0"
-        style={{ height: '48px', background: 'var(--bg)', borderTop: '1px solid #495057' }}>
+      <div
+        className="d-flex justify-content-between align-items-center px-3"
+        style={{
+          position: 'fixed',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          height: '48px',
+          background: 'var(--bg)',
+          borderTop: '1px solid #495057',
+          zIndex: 1020
+        }}
+      >
         <span className="text-light small">
           {totalCount > 0 ? `${totalCount.toLocaleString()} posts` : ''}
         </span>
@@ -151,6 +160,6 @@ export default function SearchPage({ query, onQueryChange, settings, onToggleBla
           </button>
         </div>
       </div>
-    </div>
+    </>
   )
 }

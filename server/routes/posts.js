@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
     const userTags = [].concat(req.query.q || []).filter(Boolean)
 
     const filteredTags = userTags.filter(t => {
-      const name = t.startsWith('-') ? t.slice(1) : t
+      const name = t.startsWith('-') || t.startsWith('~') ? t.slice(1) : t
       return !conf.blacklist.includes(name)
     })
 

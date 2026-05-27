@@ -1,14 +1,24 @@
 {
   "server": {
-    "include": [],
+    "include": [
+    	"lolicon"
+    ],
     "blacklist": [],
     "metatags": [
       { "prefix": "rating:", "tags": ["rating:general", "rating:safe", "rating:questionable", "rating:explicit"] },
       { "prefix": "sort:", "tags": ["sort:random", "sort:score", "sort:mpixels", "sort:filesize", "sort:landscape", "sort:portrait", "sort:date"] },
-      { "prefix": "score:", "tags": ["score:>100", "score:>500", "score:>1000", "score:>5000", "score:<100", "score:<500"] }
+      { "prefix": "score:", "tags": ["score:>=100", "score:>50", "score:>10", "score:>5000", "score:<100", "score:<50"] }
     ]
   },
   "client": {
-    "blacklist": []
+    "blacklist": [
+    	"all_the_way_through",
+	"scat",
+	"puke",
+	"guro",
+	"rape",
+	"torture",
+	"vomit"
+    ]
   }
 }

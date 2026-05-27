@@ -1,9 +1,10 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Sidebar from './components/Sidebar.jsx'
 import SearchPage from './views/SearchPage.jsx'
 import FullscreenView from './views/FullscreenView.jsx'
 import FavoritesModal from './components/FavoritesModal.jsx'
+import { tagAutocomplete } from './api.js'
 
 function loadJSON(key, fallback) {
   try {
@@ -29,6 +30,10 @@ export default function App() {
 
   const [fullscreenPost, setFullscreenPost] = useState(null)
   const [blacklistInput, setBlacklistInput] = useState('')
+  const [blSuggestions, setBlSuggestions] = useState([])
+  const [showBlSuggestions, setShowBlSuggestions] = useState(false)
+  const blInputRef = useRef(null)
+  const blSuggestionRef = useRef(null)
 
   const saveSettings = useCallback((next) => {
     setSettings(prev => {
@@ -36,6 +41,34 @@ export default function App() {
       localStorage.setItem('subooru-settings', JSON.stringify(updated))
       return updated
     })
+  }, [])
+
+  useEffect(() => {
+    if (!blacklistInput.trim()) {
+      setBlSuggestions([])
+      return
+    }
+    const timer = setTimeout(async () => {
+      try {
+        const data = await tagAutocomplete(blacklistInput.trim())
+        setBlSuggestions(data.results || [])
+        setShowBlSuggestions(true)
+      } catch {
+        setBlSuggestions([])
+      }
+    }, 200)
+    return () => clearTimeout(timer)
+  }, [blacklistInput])
+
+  useEffect(() => {
+    function handleClick(e) {
+      if (blSuggestionRef.current && !blSuggestionRef.current.contains(e.target) &&
+          blInputRef.current && !blInputRef.current.contains(e.target)) {
+        setShowBlSuggestions(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClick)
+    return () => document.removeEventListener('mousedown', handleClick)
   }, [])
 
   const toggleBlacklist = useCallback((tag) => {
@@ -94,35 +127,71 @@ export default function App() {
               Blacklist ({settings.blacklist.length})
             </button>
             <ul className="dropdown-menu dropdown-menu-end dropdown-menu-dark p-2" style={{ minWidth: '250px' }} data-bs-popper="static">
-              <li className="dropdown-item p-0 mb-2">
-                <form onSubmit={(e) => {
-                  e.preventDefault()
-                  if (blacklistInput.trim()) {
-                    toggleBlacklist({ name: blacklistInput.trim(), type: 'general', count: 0 })
-                    setBlacklistInput('')
-                  }
-                }} className="d-flex gap-1">
+              <li className="dropdown-item p-0 mb-2 position-relative">
+                <div className="d-flex gap-1">
                   <input
-                    className="form-control form-control-sm bg-dark text-light border-secondary"
-                    placeholder="Add tag..."
+                    ref={blInputRef}
+                    className="form-control form-control-sm bg-dark text-light border-secondary flex-grow-1"
+                    placeholder="Type to add..."
                     value={blacklistInput}
                     onChange={e => setBlacklistInput(e.target.value)}
+                    onFocus={() => blSuggestions.length > 0 && setShowBlSuggestions(true)}
+                    onKeyDown={e => {
+                      if (e.key === 'Enter') {
+                        e.preventDefault()
+                        if (blacklistInput.trim()) {
+                          toggleBlacklist({ name: blacklistInput.trim(), type: 'general', count: 0 })
+                          setBlacklistInput('')
+                          setShowBlSuggestions(false)
+                        }
+                      }
+                    }}
                   />
-                  <button type="submit" className="btn btn-sm btn-outline-light">Add</button>
-                </form>
+                </div>
+                {showBlSuggestions && blSuggestions.length > 0 && (
+                  <div
+                    ref={blSuggestionRef}
+                    className="position-absolute start-0 end-0 bg-dark border border-secondary rounded-bottom"
+                    style={{ zIndex: 100, maxHeight: '200px', overflowY: 'auto' }}
+                  >
+                    {blSuggestions.map(t => (
+                      <button
+                        key={t.name}
+                        type="button"
+                        className="d-flex justify-content-between align-items-center w-100 px-2 py-1 text-start bg-transparent border-0 text-light"
+                        style={{ fontSize: '0.85rem' }}
+                        onMouseEnter={e => e.currentTarget.style.background = '#0f3460'}
+                        onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
+                        onClick={() => {
+                          toggleBlacklist({ name: t.name, type: t.type, count: t.count })
+                          setBlacklistInput('')
+                          setShowBlSuggestions(false)
+                          blInputRef.current?.focus()
+                        }}
+                      >
+                        <span>{t.name}</span>
+                        <span className="text-light opacity-75 small">{t.count.toLocaleString()}</span>
+                      </button>
+                    ))}
+                  </div>
+                )}
               </li>
               {settings.blacklist.length === 0 && (
                 <li className="dropdown-item-text text-light small opacity-75">No blacklisted tags</li>
               )}
               {settings.blacklist.map(t => (
-                <li key={t.name} className="d-flex align-items-center gap-2 mb-1">
-                  <span className={`badge ${tagBadgeColor(t.type)}`}>{t.name}</span>
-                  <button
-                    className="btn btn-sm btn-outline-danger ms-auto py-0 px-1"
+                <li key={t.name} className="mb-1">
+                  <span
+                    className={`badge ${tagBadgeColor(t.type)} d-inline-flex align-items-center w-100`}
+                    role="button"
+                    tabIndex={0}
+                    style={{ cursor: 'pointer', fontSize: '0.8rem', padding: '0.35em 0.5em' }}
                     onClick={() => toggleBlacklist(t)}
+                    onKeyDown={e => { if (e.key === 'Enter') toggleBlacklist(t) }}
                   >
-                    &times;
-                  </button>
+                    {t.name}
+                    <span className="ms-auto">&times;</span>
+                  </span>
                 </li>
               ))}
             </ul>

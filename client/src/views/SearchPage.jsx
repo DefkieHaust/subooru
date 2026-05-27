@@ -114,7 +114,7 @@ export default function SearchPage({ query, onQueryChange, settings, onToggleBla
 
   return (
     <>
-      <div className="p-1" style={{ paddingBottom: '56px' }}>
+      <div style={{ padding: '0.25rem 0.25rem 56px' }}>
         <PostGrid
           posts={posts}
           settings={settings}

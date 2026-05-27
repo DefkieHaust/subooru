@@ -171,7 +171,7 @@ export default function App() {
                         }}
                       >
                         <span className={`${tagTextColor(t.type)}`}>{t.name}</span>
-                        <span className="text-light opacity-75 small">{t.count.toLocaleString()}</span>
+                        {t.type !== 'metadata' && <span className="text-light opacity-75 small">{t.count.toLocaleString()}</span>}
                       </button>
                     ))}
                   </div>

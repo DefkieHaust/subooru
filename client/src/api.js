@@ -34,10 +34,13 @@ export async function fetchConfig() {
   return res.json()
 }
 
-const WORKER_BASE = 'https://subooru-media.REPLACE_WITH_CLOUDFLARE_SUBDOMAIN.workers.dev'
+const WORKER_BASE = import.meta.env.VITE_WORKER_BASE || null
 
 export function mediaProxyUrls(url) {
-  const worker = `${WORKER_BASE}?url=${encodeURIComponent(url)}`
   const server = `/api/media?url=${encodeURIComponent(url)}`
-  return [worker, server]
+  if (WORKER_BASE) {
+    const worker = `${WORKER_BASE}?url=${encodeURIComponent(url)}`
+    return [worker, server]
+  }
+  return [server]
 }

@@ -25,23 +25,36 @@ export default function FullscreenView({ post, onClose, settings, onToggleFavori
     }
   }, [handleKey])
 
-  const sourceUrls = (video ? [post.image_url] : [post.image_url, post.sample_url, post.thumbnail_url])
-    .filter(Boolean)
-    .flatMap(u => mediaProxyUrls(u))
+  const videoSources = video ? mediaProxyUrls(post.image_url) : []
+  const imageSources = video
+    ? []
+    : [post.image_url, post.sample_url, post.thumbnail_url]
+        .filter(Boolean)
+        .flatMap(u => mediaProxyUrls(u))
 
+  const [videoSrcIndex, setVideoSrcIndex] = useState(0)
   const [fallbackIndex, setFallbackIndex] = useState(0)
   const [imgReady, setImgReady] = useState(false)
   const [loadFailed, setLoadFailed] = useState(false)
-  const currentSrc = sourceUrls[fallbackIndex]
+  const currentImgSrc = imageSources[fallbackIndex]
+  const currentVideoSrc = videoSources[videoSrcIndex]
 
   const tryNext = useCallback(() => {
-    if (fallbackIndex < sourceUrls.length - 1) {
+    if (imageSources.length > 0 && fallbackIndex < imageSources.length - 1) {
       setFallbackIndex(i => i + 1)
       setImgReady(false)
     } else {
       setLoadFailed(true)
     }
-  }, [fallbackIndex, sourceUrls.length])
+  }, [fallbackIndex, imageSources.length])
+
+  const handleVideoError = useCallback(() => {
+    if (videoSrcIndex < videoSources.length - 1) {
+      setVideoSrcIndex(i => i + 1)
+    } else {
+      setLoadFailed(true)
+    }
+  }, [videoSrcIndex, videoSources.length])
 
   if (loadFailed) {
     return (
@@ -86,14 +99,15 @@ export default function FullscreenView({ post, onClose, settings, onToggleFavori
         >
           {video ? (
             <video
-              key={currentSrc}
-              src={currentSrc}
+              key={currentVideoSrc}
+              src={currentVideoSrc}
               poster={posterUrl}
               controls
               autoPlay={settings.autoplayVideo}
               muted={settings.muteVideo}
+              className="mw-100"
               style={{ maxHeight: '100%', width: 'auto', height: 'auto', maxWidth: '100%' }}
-              onError={tryNext}
+              onError={handleVideoError}
             />
           ) : (
             <>
@@ -101,8 +115,8 @@ export default function FullscreenView({ post, onClose, settings, onToggleFavori
                 <div className="spinner-border text-light" role="status" />
               )}
               <img
-                key={currentSrc}
-                src={currentSrc}
+                key={currentImgSrc}
+                src={currentImgSrc}
                 alt=""
                 className="mw-100"
                 style={{

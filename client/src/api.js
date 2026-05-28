@@ -35,5 +35,8 @@ export async function fetchConfig() {
 }
 
 export function mediaProxyUrl(url) {
-  return `/api/media?url=${encodeURIComponent(url)}`
+  if (/\.(mp4|webm|mov)$/i.test(url)) {
+    return `/api/media?url=${encodeURIComponent(url)}`
+  }
+  return `https://wsrv.nl/?url=${encodeURIComponent(url)}&referer=https://gelbooru.com/`
 }

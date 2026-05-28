@@ -193,20 +193,6 @@ export default function Sidebar({ query, onQueryChange, settings, onSettingsChan
           </div>
         </div>
       </div>
-
-      {settings.blacklist.length > 0 && (
-        <div className="p-2 border-bottom border-secondary">
-          <small className="text-light text-uppercase fw-bold opacity-75">Blacklist</small>
-          <div className="d-flex flex-wrap gap-1 mt-1">
-            {settings.blacklist.map(t => (
-              <span key={t.name} className="badge bg-secondary d-inline-flex align-items-center gap-1" style={{ fontSize: '0.75rem' }}>
-                {t.name}
-                <button className="btn-close btn-close-white" style={{ fontSize: '0.5rem' }} onClick={() => onSettingsChange(s => ({ ...s, blacklist: s.blacklist.filter(b => b.name !== t.name) }))} />
-              </span>
-            ))}
-          </div>
-        </div>
-      )}
     </aside>
   )
 }

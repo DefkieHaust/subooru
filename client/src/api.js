@@ -34,9 +34,10 @@ export async function fetchConfig() {
   return res.json()
 }
 
-export function mediaProxyUrl(url) {
-  if (/\.(mp4|webm|mov)$/i.test(url)) {
-    return `/api/media?url=${encodeURIComponent(url)}`
-  }
-  return `https://wsrv.nl/?url=${encodeURIComponent(url)}&referer=https://gelbooru.com/`
+const WORKER_BASE = 'https://subooru-media.REPLACE_WITH_CLOUDFLARE_SUBDOMAIN.workers.dev'
+
+export function mediaProxyUrls(url) {
+  const worker = `${WORKER_BASE}?url=${encodeURIComponent(url)}`
+  const server = `/api/media?url=${encodeURIComponent(url)}`
+  return [worker, server]
 }

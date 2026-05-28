@@ -1,15 +1,11 @@
 import { useEffect, useCallback, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { mediaProxyUrl } from '../api.js'
-
-function isVideo(url) {
-  return /\.(mp4|webm|mov)$/i.test(url)
-}
+import { mediaProxyUrls } from '../api.js'
 
 export default function FullscreenView({ post, onClose, settings, onToggleFavorite }) {
   const navigate = useNavigate()
   const isFav = settings.favorites.some(p => p.id === post.id)
-  const video = isVideo(post.image_url)
+  const video = /\.(mp4|webm|mov)$/i.test(post.image_url)
 
   const handleTagClick = useCallback((tag) => {
     onClose()
@@ -29,24 +25,23 @@ export default function FullscreenView({ post, onClose, settings, onToggleFavori
     }
   }, [handleKey])
 
-  const imageSources = [post.image_url, post.sample_url, post.thumbnail_url].filter(Boolean)
-  const [srcIndex, setSrcIndex] = useState(0)
+  const sourceUrls = (video ? [post.image_url] : [post.image_url, post.sample_url, post.thumbnail_url])
+    .filter(Boolean)
+    .flatMap(u => mediaProxyUrls(u))
+
+  const [fallbackIndex, setFallbackIndex] = useState(0)
   const [imgReady, setImgReady] = useState(false)
   const [loadFailed, setLoadFailed] = useState(false)
-  const currentSrc = imageSources[srcIndex]
+  const currentSrc = sourceUrls[fallbackIndex]
 
-  const tryNextSrc = useCallback(() => {
-    if (srcIndex < imageSources.length - 1) {
-      setSrcIndex(i => i + 1)
+  const tryNext = useCallback(() => {
+    if (fallbackIndex < sourceUrls.length - 1) {
+      setFallbackIndex(i => i + 1)
       setImgReady(false)
     } else {
       setLoadFailed(true)
     }
-  }, [srcIndex, imageSources.length])
-
-  const handleVideoError = useCallback(() => {
-    setLoadFailed(true)
-  }, [])
+  }, [fallbackIndex, sourceUrls.length])
 
   if (loadFailed) {
     return (
@@ -63,7 +58,6 @@ export default function FullscreenView({ post, onClose, settings, onToggleFavori
     )
   }
 
-  const proxiedSrc = video ? mediaProxyUrl(post.image_url) : mediaProxyUrl(currentSrc)
   const posterUrl = video ? (post.thumbnail_url || '') : undefined
 
   return (
@@ -92,14 +86,14 @@ export default function FullscreenView({ post, onClose, settings, onToggleFavori
         >
           {video ? (
             <video
-              src={proxiedSrc}
+              key={currentSrc}
+              src={currentSrc}
               poster={posterUrl}
               controls
               autoPlay={settings.autoplayVideo}
               muted={settings.muteVideo}
-              className="mw-100"
               style={{ maxHeight: '100%', width: 'auto', height: 'auto', maxWidth: '100%' }}
-              onError={handleVideoError}
+              onError={tryNext}
             />
           ) : (
             <>
@@ -107,8 +101,8 @@ export default function FullscreenView({ post, onClose, settings, onToggleFavori
                 <div className="spinner-border text-light" role="status" />
               )}
               <img
-                key={proxiedSrc}
-                src={proxiedSrc}
+                key={currentSrc}
+                src={currentSrc}
                 alt=""
                 className="mw-100"
                 style={{
@@ -121,7 +115,7 @@ export default function FullscreenView({ post, onClose, settings, onToggleFavori
                   display: imgReady ? 'block' : 'none'
                 }}
                 onLoad={() => setImgReady(true)}
-                onError={tryNextSrc}
+                onError={tryNext}
               />
             </>
           )}

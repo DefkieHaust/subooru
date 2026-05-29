@@ -44,7 +44,6 @@ app.use((req, res, next) => {
 const rl = conf.server.rate_limit
 if (rl?.enabled !== false) {
   app.use('/api/posts', createRateLimiter({ ...rl, max: rl.endpoints.posts }, redis))
-  app.use('/api/tags/search', createRateLimiter({ ...rl, max: rl.endpoints.tags_search }, redis))
   app.use('/api/tags', createRateLimiter({ ...rl, max: rl.endpoints.tags }, redis))
   app.use('/api/media', createRateLimiter({ ...rl, max: rl.endpoints.media }, redis))
   app.use('/api/config', createRateLimiter({ ...rl, max: rl.endpoints.config }, redis))

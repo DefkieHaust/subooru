@@ -5,64 +5,62 @@ Proxy booru client for Gelbooru — Express backend + React (Vite) frontend.
 ## Dev commands
 
 ```sh
-# Root (Express server)
-node server/index.js          # serves API + built client on :3000
+# Terminal 1 — Express server (API + built client on :3000)
+node server/index.js
 
-# Client (separate terminal)
-cd client && yarn dev          # Vite dev server on :5173, proxies /api -> :3000
-cd client && yarn build        # output -> client/dist/
+# Terminal 2 — Vite dev server (hot reload on :5173, proxies /api -> :3000)
+cd client && yarn dev
+
+# Production build
+cd client && yarn build && cd .. && node server/index.js
 ```
 
-Production: `yarn build && node server/index.js` — Express serves both.
+No test, lint, or typecheck tooling exists. Node 22+ required.
 
-## Architecture
+## Key gotchas
 
-- **In-memory or Redis caching** — Gelbooru API responses cached with per-endpoint TTL from `conf.json.server.cache.endpoints`. Falls back to in-memory Map if `REDIS_URL` is unset.
-- **Per-IP rate limiting** — Applied per-route via `express-rate-limit`, backed by Redis (or memory). Config in `conf.json.server.rate_limit`.
-- **Structured logging** — pino-based logging to console (pretty) and file. Logs all API requests (method, path, status, duration), cache hits/misses/sets, Gelbooru API fetches, and rate limit events. Config in `conf.json.log`.
-- **No accounts, no database** — settings/favorites/blacklist in localStorage.
-- **Media proxy** — `/api/media` streams from Gelbooru CDN with `Referer: https://gelbooru.com/`. Client can optionally use a Cloudflare Worker (set via `conf.json.client.worker_base`) with server fallback. Server-side proxy can be disabled entirely via `conf.json.server.server_proxy` (returns 503).
-- **S3-backed media caching** — `/api/media` caches media to an S3-compatible service (MinIO, AWS S3, etc.) using the `minio` client. On miss, `response.body.tee()` splits the Web ReadableStream — one stream to the client, one uploaded to S3. On hit, streamed from S3 directly to the client. Config in `conf.json.server.media_cache`, S3 credentials in `S3_*` env vars. If env vars are missing, cache is silently disabled and media is always fetched from origin.
+### Config & env
+- `conf.json` — read once at startup via `readFileSync`. Server **must restart** for changes.
+- `dotenv/config` loaded at top of `server/index.js` — `.env` for local dev, `.env.prod` for Docker.
+- Both `conf.json` and `.env*` are gitignored (`.env.example` and `.env.prod.example` exceptions tracked).
+- S3 env vars (`S3_*`) go in `.env`/`.env.prod`, not `conf.json`.
+- Gelbooru API credentials required for `dapi` endpoints (posts, tags); autocomplete2 works without auth.
 
-## Backend (`server/`)
+### Rate limiting
+- `tags_search` must NOT have a separate `app.use('/api/tags/search', ...)` limiter. Express prefix-mounts `/api/tags` and `/api/tags/search` — same request hits both, causing `ERR_ERL_DOUBLE_COUNT`. Single `/api/tags` limiter covers both routes.
+- Redis store uses slot-based INCR + PEXPIRE. Falls back to `express-rate-limit` memory store if `REDIS_URL` unset.
 
-| Route | Gelbooru mapping | Rate limit (default) |
-|---|---|---|
-| `GET /api/posts?page=&q=` | `dapi&s=post&q=index&json=1` (100 per page) | 30/min |
-| `GET /api/tags?t=` | `dapi&s=tag&q=index&json=1` | 15/min |
-| `GET /api/tags/search?q=` | `autocomplete2&term=` | 30/min |
-| `GET /api/media?url=` | Proxies CDN media with `Referer: https://gelbooru.com/` | 60/min |
-| `GET /api/config` | Returns client config from conf.json | 10/min |
+### Logging (pino v10)
+- `transport.targets` array mode **silently drops debug messages** regardless of top-level `level`. Use `pino.transport({ targets: [...] })` function API with `level` on each target.
+- `getLogger()` function (not a proxy/wrapper) returns current `_instance` — avoids stale reference across ES module boundaries.
 
-Gelbooru API calls are cached in Redis (or in-memory if `REDIS_URL` unset) with per-endpoint TTL from `conf.json.server.cache`.
+### Server-side include/blacklist
+- `conf.json.server.include` — tags silently appended (prepended) to every Gelbooru query in `posts.js:21`.
+- `conf.json.server.blacklist` — tags silently excluded as `-tag` entries; strips `-` and `~` prefixes before matching in `posts.js:17`.
 
-**`.env`** — `GELBOORU_USER_ID`, `GELBOORU_API_KEY`, `HOST`, `PORT`, `REDIS_URL` (optional), `S3_ENDPOINT`, `S3_PORT`, `S3_USE_SSL`, `S3_REGION`, `S3_ACCESS_KEY`, `S3_SECRET_KEY`, `S3_BUCKET` (all optional). Credentials required for dapi endpoints (posts, tags). Autocomplete2 works without auth.
+### Client-side include/blacklist toggles
+- `conf.json.client.include` — tags prepended to search URL when "Default tags" setting is ON (visible as chips, removable).
+- `conf.json.client.blacklist` — merged into `settings.blacklist` when "Default blacklist" setting is ON.
+- Both settings default to `true`; toggling OFF does not remove existing tags.
 
-Post field mapping in `server/gelbooru.js`:
-- `file_url` → `image_url` (with `video-cdn3` → `video-cdn4` rewrite)
-- `sample_url` → `sample_url`
-- `preview_url` → `thumbnail_url`
+### Media proxy
+- Gelbooru CDN (`.gelbooru.com`) requires `Referer: https://gelbooru.com/` — enforced in `media.js:28` and the Cloudflare Worker.
+- `wsrv.nl` blocks gelbooru.com by policy — unusable.
+- Fallback chain: Worker URL -> `/api/media` (if `client.server_proxy` is true). Controlled by `setProxyConfig()` and `mediaProxyUrls()` in `api.js`.
+- `/api/media` returns `503` when `conf.json.server.server_proxy` is `false`.
 
-### Media caching (`server/media-cache.js`)
-- `initMediaCache(config)` — creates MinIO `Client` from `S3_*` env vars; sets `_enabled = false` and logs warning if vars missing. Reads `config.max_age_days` (default 1), stores as `_maxAgeDays`.
-- `ensureBucket()` — called after init; creates bucket if missing, then applies S3 lifecycle rule (`Expiration.Days = _maxAgeDays`) via `setBucketLifecycle`. Objects under `media/` prefix are auto-deleted by MinIO/S3 after N days.
-- `mediaCacheGet(url)` — `statObject` + `getObject` to stream from S3; returns `{ stream, contentType }` or `null` on `NotFound`
-- `mediaCacheSave(url, contentType, stream)` — fire-and-forget `putObject` to S3; errors logged at warn level
-- Key: `media/{md5[0..2]}/{md5[2..4]}/{md5}`
+### S3 media cache
+- Key: `media/{md5[0..2]}/{md5[2..4]}/{md5}` (MD5 of URL).
+- `response.body.tee()` splits Web ReadableStream — one to client, one to S3 (fire-and-forget `putObject`).
+- Auto-creates bucket + sets lifecycle rule on init. Silently disabled if `S3_*` env vars are missing.
+- TTL managed by S3 lifecycle (`Expiration.Days`), not app config.
 
-## Frontend (`client/`)
-
-### Components
-- `Sidebar.jsx` — tag search input, autocomplete dropdown, active tag chips, settings, blacklist
-- `PostGrid.jsx` — dynamic masonry layout (ResizeObserver, auto-columns based on `columnWidth` setting)
-- `PostCard.jsx` — thumbnail with fallback chain (`thumbnail_url` → `sample_url` → `image_url`), video play icon overlay, fav/blacklist buttons
-- `FullscreenView.jsx` — overlay viewer with fallback chain (`image_url` → `sample_url` → `thumbnail_url`), escape to close
-- `Pagination.jsx` — prev/next with page info
-- `FavoritesModal.jsx` — Bootstrap modal with saved posts grid
-
-### Key gotchas
-- PostCard and FullscreenView cycle through fallback URLs on `onError`. Media elements have `referrerPolicy="no-referrer"`.
-- SearchPage parses URL params directly (`useMemo`) for search, not React state — avoids stale closure on initial navigation.
-- Video detection: regex `/\.(mp4|webm|mov)$/i` on `post.image_url`. PostCard shows thumbnail + play icon overlay. FullscreenView renders `<video>` with `poster` attribute for preview, no fallback to thumbnail on error.
-- Image fallback chain (`FullscreenView`): `image_url` → `sample_url` → `thumbnail_url`. Videos use only `image_url` — if it fails, `Failed to load media` is shown (matching booruview behavior).
-- Gelbooru's `preview_url` is always a static image even for videos — used as `poster` attribute on `<video>` elements.
+### Frontend quirks
+- Gelbooru `preview_url` is always a static image, even for videos — used as `<video poster>`.
+- Video detection: `/\.(mp4|webm|mov)$/i` on `post.image_url`.
+- Post field mapping in `gelbooru.js`: `file_url` -> `image_url` (with `video-cdn3` -> `video-cdn4` rewrite), `sample_url` -> `sample_url`, `preview_url` -> `thumbnail_url`.
+- autocomplete2 returns `category` as string (`"tag"`, `"artist"`, etc.), not number.
+- Page max is 200 (hard Gelbooru limit).
+- FullscreenView `z-index: 1060` (above Bootstrap modal at 1055).
+- `dvh` unit accounts for mobile browser chrome.
+- SearchPage parses URL params via `useMemo` (not state) — avoids stale closure on initial nav.

@@ -22,7 +22,7 @@ Production: `yarn build && node server/index.js` — Express serves both.
 - **Structured logging** — pino-based logging to console (pretty) and file. Logs all API requests (method, path, status, duration), cache hits/misses/sets, Gelbooru API fetches, and rate limit events. Config in `conf.json.log`.
 - **No accounts, no database** — settings/favorites/blacklist in localStorage.
 - **Media proxy** — `/api/media` streams from Gelbooru CDN with `Referer: https://gelbooru.com/`. Client can optionally use a Cloudflare Worker (set via `conf.json.client.worker_base`) with server fallback.
-- **Disk-based media caching** — `/api/media` caches files to disk (`conf.json.server.media_cache.dir`) using `md5(url)` with 2-level subdirectory. On miss, the `response.body` Web ReadableStream is tee'd via `.tee()` — one stream to the client, one to disk. Background write is fire-and-forget. Expired files are cleaned on startup (sweep) and lazily on read. Config in `conf.json.server.media_cache`.
+- **S3-backed media caching** — `/api/media` caches media to an S3-compatible service (MinIO, AWS S3, etc.) using the `minio` client. On miss, `response.body.tee()` splits the Web ReadableStream — one stream to the client, one uploaded to S3. On hit, streamed from S3 directly to the client. Config in `conf.json.server.media_cache`, S3 credentials in `S3_*` env vars. If env vars are missing, cache is silently disabled and media is always fetched from origin.
 
 ## Backend (`server/`)
 
@@ -36,7 +36,7 @@ Production: `yarn build && node server/index.js` — Express serves both.
 
 Gelbooru API calls are cached in Redis (or in-memory if `REDIS_URL` unset) with per-endpoint TTL from `conf.json.server.cache`.
 
-**`.env`** — `GELBOORU_USER_ID`, `GELBOORU_API_KEY`, `HOST`, `PORT`, `REDIS_URL` (optional). Credentials required for dapi endpoints (posts, tags). Autocomplete2 works without auth.
+**`.env`** — `GELBOORU_USER_ID`, `GELBOORU_API_KEY`, `HOST`, `PORT`, `REDIS_URL` (optional), `S3_ENDPOINT`, `S3_PORT`, `S3_USE_SSL`, `S3_REGION`, `S3_ACCESS_KEY`, `S3_SECRET_KEY`, `S3_BUCKET` (all optional). Credentials required for dapi endpoints (posts, tags). Autocomplete2 works without auth.
 
 Post field mapping in `server/gelbooru.js`:
 - `file_url` → `image_url` (with `video-cdn3` → `video-cdn4` rewrite)
@@ -44,11 +44,10 @@ Post field mapping in `server/gelbooru.js`:
 - `preview_url` → `thumbnail_url`
 
 ### Media caching (`server/media-cache.js`)
-- `initMediaCache(config)` — creates dir, sweeps expired files, cleans up leftover `.tmp.*` files
-- `mediaCacheGet(url)` — checks disk; returns `{ stream, contentType }` or `null`; lazy-expires stale entries
-- `mediaCacheSave(url, contentType, stream)` — fire-and-forget write to temp file, atomically renamed on completion
-- Cache path: `{dir}/{hash[0..2]}/{hash[2..4]}/{hash}` with `{hash}.meta` sidecar storing `{ url, content_type, cached_at }`
-- File collision: content hash not URL hash — same URL always maps to same path
+- `initMediaCache(config)` — creates MinIO `Client` from `S3_*` env vars; sets `_enabled = false` and logs warning if vars missing
+- `mediaCacheGet(url)` — `statObject` + `getObject` to stream from S3; returns `{ stream, contentType }` or `null` on `NotFound`
+- `mediaCacheSave(url, contentType, stream)` — fire-and-forget `putObject` to S3; errors logged at warn level
+- Key: `media/{md5[0..2]}/{md5[2..4]}/{md5}` — same structure as previous disk cache, just S3 keys
 
 ## Frontend (`client/`)
 

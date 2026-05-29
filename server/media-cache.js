@@ -1,129 +1,72 @@
 import crypto from 'node:crypto'
-import fs from 'node:fs'
-import fsp from 'node:fs/promises'
-import path from 'node:path'
-import { PassThrough } from 'node:stream'
+import { Client } from 'minio'
 import { getLogger } from './logger.js'
 
-let _config = null
+let _client = null
+let _bucket = null
+let _enabled = false
 
 export function initMediaCache(config) {
-  _config = config
-  if (!config || config.enabled === false) return
-  fs.mkdirSync(config.dir, { recursive: true })
-  cleanupTempFiles()
-  sweepExpired()
+  if (!config || config.enabled === false) {
+    _enabled = false
+    return
+  }
+
+  const endPoint = process.env.S3_ENDPOINT
+  const port = parseInt(process.env.S3_PORT, 10) || 443
+  const useSSL = process.env.S3_USE_SSL !== 'false'
+  const region = process.env.S3_REGION || 'us-east-1'
+  const accessKey = process.env.S3_ACCESS_KEY
+  const secretKey = process.env.S3_SECRET_KEY
+  _bucket = process.env.S3_BUCKET
+
+  if (!endPoint || !accessKey || !secretKey || !_bucket) {
+    getLogger().warn('Media cache disabled: missing S3_* environment variables')
+    _enabled = false
+    return
+  }
+
+  try {
+    _client = new Client({ endPoint, port, useSSL, region, accessKey, secretKey })
+    _enabled = true
+    getLogger().info({ endPoint, bucket: _bucket }, 'S3 media cache initialized')
+  } catch (err) {
+    getLogger().warn({ err: err.message }, 'S3 media cache init failed')
+    _enabled = false
+  }
 }
 
-function cachePath(url) {
+function objectKey(url) {
   const hash = crypto.createHash('md5').update(url).digest('hex')
-  return path.join(_config.dir, hash.slice(0, 2), hash.slice(2, 4), hash)
-}
-
-function metaPath(file) {
-  return file + '.meta'
+  return `media/${hash.slice(0, 2)}/${hash.slice(2, 4)}/${hash}`
 }
 
 export async function mediaCacheGet(url) {
-  if (!_config || !_config.enabled) return null
+  if (!_enabled) return null
 
-  const file = cachePath(url)
-  const meta = metaPath(file)
-
+  const key = objectKey(url)
   try {
-    const m = JSON.parse(await fsp.readFile(meta, 'utf-8'))
-    if (Date.now() - m.cached_at > _config.max_age_ms) {
-      await fsp.unlink(file).catch(() => {})
-      await fsp.unlink(meta).catch(() => {})
-      getLogger().debug({ url }, 'MEDIA CACHE EXPIRED')
-      return null
-    }
+    const stat = await _client.statObject(_bucket, key)
+    const stream = await _client.getObject(_bucket, key)
     return {
-      stream: fs.createReadStream(file),
-      contentType: m.content_type
+      stream,
+      contentType: stat.metaData?.['content-type'] || 'application/octet-stream'
     }
-  } catch {
+  } catch (err) {
+    if (err.code === 'NotFound') return null
+    getLogger().warn({ err: err.message, url }, 'S3 GET failed')
     return null
   }
 }
 
-export function mediaCacheSave(url, contentType, stream) {
-  if (!_config || !_config.enabled) return
+export async function mediaCacheSave(url, contentType, stream) {
+  if (!_enabled) return
 
-  const file = cachePath(url)
-  const tmp = file + '.tmp.' + process.pid
-
-  fsp.mkdir(path.dirname(file), { recursive: true })
-    .then(() => {
-      const ws = fs.createWriteStream(tmp)
-      stream.pipe(ws)
-
-      ws.on('finish', () => {
-        fsp.rename(tmp, file)
-          .then(() => fsp.writeFile(metaPath(file), JSON.stringify({
-            url,
-            content_type: contentType,
-            cached_at: Date.now()
-          })))
-          .then(() => getLogger().debug({ url }, 'MEDIA CACHED'))
-          .catch(err => {
-            getLogger().warn({ err: err.message, url }, 'MEDIA CACHE SAVE FAILED')
-            fsp.unlink(tmp).catch(() => {})
-          })
-      })
-
-      ws.on('error', err => {
-        getLogger().warn({ err: err.message, url }, 'MEDIA CACHE WRITE FAILED')
-        fsp.unlink(tmp).catch(() => {})
-      })
-    })
-    .catch(err => {
-      getLogger().warn({ err: err.message, url }, 'MEDIA CACHE MKDIR FAILED')
-      stream.resume()
-    })
-}
-
-function cleanupTempFiles() {
-  const dir = _config.dir
-  function walk(d) {
-    let entries
-    try { entries = fs.readdirSync(d, { withFileTypes: true }) } catch { return }
-    for (const e of entries) {
-      const p = path.join(d, e.name)
-      if (e.isDirectory()) walk(p)
-      else if (e.name.includes('.tmp.')) {
-        fs.unlinkSync(p)
-      }
-    }
-  }
-  walk(dir)
-}
-
-function sweepExpired() {
-  if (!_config || _config.enabled === false) return
-  let total = 0
-  let expired = 0
-  function walk(d) {
-    let entries
-    try { entries = fs.readdirSync(d, { withFileTypes: true }) } catch { return }
-    for (const e of entries) {
-      const p = path.join(d, e.name)
-      if (e.isDirectory()) walk(p)
-      else if (e.name.endsWith('.meta')) {
-        total++
-        try {
-          const m = JSON.parse(fs.readFileSync(p, 'utf-8'))
-          if (Date.now() - m.cached_at > _config.max_age_ms) {
-            fs.unlinkSync(p.replace(/\.meta$/, ''))
-            fs.unlinkSync(p)
-            expired++
-          }
-        } catch {}
-      }
-    }
-  }
-  walk(_config.dir)
-  if (total > 0) {
-    getLogger().info({ total, expired }, 'Media cache sweep')
+  const key = objectKey(url)
+  try {
+    await _client.putObject(_bucket, key, stream, null, { 'Content-Type': contentType })
+    getLogger().debug({ url }, 'MEDIA CACHED to S3')
+  } catch (err) {
+    getLogger().warn({ err: err.message, url }, 'S3 PUT failed')
   }
 }

@@ -147,6 +147,3 @@ conf.json
 
 # Logs
 logs/
-
-# Media cache
-cache/

@@ -27,9 +27,7 @@
       }
     },
     "media_cache": {
-      "enabled": true,
-      "dir": "cache/media",
-      "max_age_ms": 86400000
+      "enabled": true
     },
     "include": [],
     "blacklist": [],

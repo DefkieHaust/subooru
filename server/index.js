@@ -11,7 +11,7 @@ import configRouter from './routes/config.js'
 import { initCache } from './cache.js'
 import { createRateLimiter } from './rate-limit.js'
 import { initGelbooruClient } from './gelbooru.js'
-import { initLogger, logger } from './logger.js'
+import { initLogger, getLogger } from './logger.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const app = express()
@@ -27,14 +27,14 @@ const redis = process.env.REDIS_URL ? new Redis(process.env.REDIS_URL) : null
 initCache(redis)
 initGelbooruClient(conf.server.cache)
 
-logger.info({ port: PORT, host: HOST, redis: !!redis, node: process.version }, 'Starting subooru')
+getLogger().info({ port: PORT, host: HOST, redis: !!redis, node: process.version }, 'Starting subooru')
 
 app.use(express.json())
 
 app.use((req, res, next) => {
   const start = Date.now()
   res.on('finish', () => {
-    logger.info({ method: req.method, path: req.originalUrl, status: res.statusCode, duration: Date.now() - start })
+    getLogger().info({ method: req.method, path: req.originalUrl, status: res.statusCode, duration: Date.now() - start })
   })
   next()
 })
@@ -64,5 +64,5 @@ app.get('*', (req, res) => {
 })
 
 app.listen(PORT, HOST, () => {
-  logger.info({ port: PORT, host: HOST }, `subooru running on http://${HOST}:${PORT}`)
+  getLogger().info({ port: PORT, host: HOST }, `subooru running on http://${HOST}:${PORT}`)
 })

@@ -2,12 +2,8 @@ import pino from 'pino'
 
 let _instance = pino({ level: 'silent' })
 
-export const logger = {
-  info: (o, m) => _instance.info(o, m),
-  warn: (o, m) => _instance.warn(o, m),
-  error: (o, m) => _instance.error(o, m),
-  debug: (o, m) => _instance.debug(o, m),
-  child: (b) => _instance.child(b)
+export function getLogger() {
+  return _instance
 }
 
 export function initLogger(config) {

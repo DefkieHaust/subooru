@@ -1,5 +1,5 @@
 import { cacheGet, cacheSet } from './cache.js'
-import { logger } from './logger.js'
+import { getLogger } from './logger.js'
 
 const GELBOORU_API = 'https://gelbooru.com/index.php'
 
@@ -34,10 +34,10 @@ export async function fetchGelbooru(params) {
     if (ttl) {
       const cached = await cacheGet(cacheKey)
       if (cached) {
-        logger.debug({ endpoint, cache: 'hit' }, `CACHE HIT — ${endpoint}`)
+        getLogger().debug({ endpoint, cache: 'hit' }, `CACHE HIT — ${endpoint}`)
         return cached
       }
-      logger.debug({ endpoint, cache: 'miss' }, `CACHE MISS — ${endpoint}`)
+      getLogger().debug({ endpoint, cache: 'miss' }, `CACHE MISS — ${endpoint}`)
     }
   }
 
@@ -49,11 +49,11 @@ export async function fetchGelbooru(params) {
   const url = `${GELBOORU_API}?${query}`
   const res = await fetch(url)
   if (!res.ok) {
-    logger.error({ endpoint, status: res.status }, `Gelbooru API error — ${endpoint}`)
+    getLogger().error({ endpoint, status: res.status }, `Gelbooru API error — ${endpoint}`)
     throw new Error(`Gelbooru API error: ${res.status}`)
   }
   const data = await res.json()
-  logger.info({ endpoint }, `FETCHED — ${endpoint}`)
+  getLogger().info({ endpoint }, `FETCHED — ${endpoint}`)
 
   if (_cacheConf.enabled !== false) {
     const ttl = _cacheConf.endpoints?.[endpoint] || _cacheConf.default_ttl_ms

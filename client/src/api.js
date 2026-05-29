@@ -35,12 +35,13 @@ export async function fetchConfig() {
 }
 
 const WORKER_BASE = import.meta.env.VITE_WORKER_BASE || null
+const SERVER_PROXY = import.meta.env.VITE_SERVER_PROXY !== 'false'
 
 export function mediaProxyUrls(url) {
   const server = `/api/media?url=${encodeURIComponent(url)}`
   if (WORKER_BASE) {
     const worker = `${WORKER_BASE}?url=${encodeURIComponent(url)}`
-    return [worker, server]
+    return SERVER_PROXY ? [worker, server] : [worker]
   }
-  return [server]
+  return SERVER_PROXY ? [server] : []
 }

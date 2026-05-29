@@ -146,5 +146,8 @@ vite.config.ts.timestamp-*
 # Project config (per-environment)
 conf.json
 
+# Wrangler cache
+.wrangler
+
 # Logs
 logs/

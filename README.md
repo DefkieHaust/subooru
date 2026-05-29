@@ -281,6 +281,69 @@ These values are returned to the frontend via `GET /api/config`.
 
 ---
 
+## Media Proxy Worker (Cloudflare Workers)
+
+An optional Cloudflare Worker in `subooru-worker/` that proxies media from Gelbooru CDN. Offloads bandwidth from the Express server and reduces latency by serving from Cloudflare's edge.
+
+### How it works
+
+When `client.worker_base` is set in `conf.json`, the frontend requests media through the Worker URL first. If the Worker fails and `client.server_proxy` is `true`, it falls back to the Express server's `/api/media`.
+
+### Prerequisites
+
+- [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/) — `npm install -g wrangler`
+- A Cloudflare account
+
+### Setup
+
+```sh
+# Authenticate Wrangler with your Cloudflare account
+wrangler login
+
+# Or set a token for CI/deployment scripts
+# export CLOUDFLARE_API_TOKEN=your-token
+```
+
+### Configure
+
+Edit `subooru-worker/wrangler.toml`:
+
+```toml
+name = "subooru-media"                  # your worker name
+main = "src/index.js"
+compatibility_date = "2025-01-01"
+
+# Optional — route through a custom domain
+# [routes]
+# pattern = "media.yourdomain.com/*"
+# zone_id = "your-zone-id"
+```
+
+### Deploy
+
+```sh
+cd subooru-worker
+wrangler deploy
+```
+
+This outputs a URL like `https://subooru-media.your-name.workers.dev`.
+
+### Link to frontend
+
+Set the Worker URL in `conf.json.client`:
+
+```json
+"client": {
+  "worker_base": "https://subooru-media.your-name.workers.dev",
+  "server_proxy": true
+}
+```
+
+- `worker_base` — the frontend sends media requests to this URL first
+- `server_proxy` — when `true`, the frontend falls back to Express `/api/media` if the Worker fails. When `false`, media fails to load if the Worker is unavailable
+
+---
+
 ## API Routes
 
 | Route | Description | Rate limit (default) |

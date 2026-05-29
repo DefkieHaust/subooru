@@ -27,7 +27,8 @@
       }
     },
     "media_cache": {
-      "enabled": true
+      "enabled": true,
+      "max_age_days": 1
     },
     "server_proxy": true,
     "include": [],

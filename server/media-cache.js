@@ -5,6 +5,7 @@ import { getLogger } from './logger.js'
 let _client = null
 let _bucket = null
 let _region = null
+let _maxAgeDays = 1
 let _enabled = false
 
 export function initMediaCache(config) {
@@ -12,6 +13,8 @@ export function initMediaCache(config) {
     _enabled = false
     return
   }
+
+  _maxAgeDays = Math.max(0, parseInt(config.max_age_days, 10) || 1)
 
   const endPoint = process.env.S3_ENDPOINT
   const port = parseInt(process.env.S3_PORT, 10) || 443
@@ -30,7 +33,7 @@ export function initMediaCache(config) {
   try {
     _client = new Client({ endPoint, port, useSSL, region: _region, accessKey, secretKey })
     _enabled = true
-    getLogger().info({ endPoint, bucket: _bucket }, 'S3 media cache initialized')
+    getLogger().info({ endPoint, bucket: _bucket, maxAgeDays: _maxAgeDays }, 'S3 media cache initialized')
     ensureBucket()
   } catch (err) {
     getLogger().warn({ err: err.message }, 'S3 media cache init failed')
@@ -45,8 +48,19 @@ async function ensureBucket() {
       await _client.makeBucket(_bucket, _region)
       getLogger().info({ bucket: _bucket }, 'S3 bucket created')
     }
+    if (_maxAgeDays > 0) {
+      await _client.setBucketLifecycle(_bucket, {
+        Rule: {
+          ID: 'expire-media',
+          Filter: { Prefix: 'media/' },
+          Status: 'Enabled',
+          Expiration: { Days: _maxAgeDays }
+        }
+      })
+      getLogger().info({ bucket: _bucket, maxAgeDays: _maxAgeDays }, 'S3 lifecycle set')
+    }
   } catch (err) {
-    getLogger().warn({ err: err.message }, 'S3 bucket check failed')
+    getLogger().warn({ err: err.message }, 'S3 lifecycle config failed')
   }
 }
 

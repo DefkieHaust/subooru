@@ -1,3 +1,5 @@
+name: subooru
+
 services:
   app:
     build: .

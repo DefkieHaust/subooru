@@ -44,10 +44,11 @@ Post field mapping in `server/gelbooru.js`:
 - `preview_url` → `thumbnail_url`
 
 ### Media caching (`server/media-cache.js`)
-- `initMediaCache(config)` — creates MinIO `Client` from `S3_*` env vars; sets `_enabled = false` and logs warning if vars missing
+- `initMediaCache(config)` — creates MinIO `Client` from `S3_*` env vars; sets `_enabled = false` and logs warning if vars missing. Reads `config.max_age_days` (default 1), stores as `_maxAgeDays`.
+- `ensureBucket()` — called after init; creates bucket if missing, then applies S3 lifecycle rule (`Expiration.Days = _maxAgeDays`) via `setBucketLifecycle`. Objects under `media/` prefix are auto-deleted by MinIO/S3 after N days.
 - `mediaCacheGet(url)` — `statObject` + `getObject` to stream from S3; returns `{ stream, contentType }` or `null` on `NotFound`
 - `mediaCacheSave(url, contentType, stream)` — fire-and-forget `putObject` to S3; errors logged at warn level
-- Key: `media/{md5[0..2]}/{md5[2..4]}/{md5}` — same structure as previous disk cache, just S3 keys
+- Key: `media/{md5[0..2]}/{md5[2..4]}/{md5}`
 
 ## Frontend (`client/`)
 

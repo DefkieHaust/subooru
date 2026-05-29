@@ -187,6 +187,12 @@ All configuration lives in `conf.json` (gitignored). `conf.json.example` is the 
 | `window_ms` | number | `60000` | Rate limit window in milliseconds |
 | `endpoints.*` | number | — | Max requests per `window_ms` per IP for each route |
 
+### `server.trust_proxy`
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `trust_proxy` | boolean | `false` | Set `true` when behind Cloudflare or a reverse proxy. Enables `X-Forwarded-For` trust so `req.ip` reflects the real visitor IP for rate limiting and logging. |
+
 ### `server.cache`
 
 ```json

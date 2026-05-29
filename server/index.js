@@ -22,6 +22,10 @@ const HOST = process.env.HOST || '0.0.0.0'
 const conf = JSON.parse(readFileSync(join(__dirname, '..', 'conf.json'), 'utf-8'))
 app.locals.conf = conf
 
+if (conf.server.trust_proxy) {
+  app.set('trust proxy', 1)
+}
+
 initLogger(conf.log)
 
 const redis = process.env.REDIS_URL ? new Redis(process.env.REDIS_URL) : null

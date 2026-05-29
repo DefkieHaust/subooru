@@ -5,6 +5,7 @@
     "file": "logs/subooru.log"
   },
   "server": {
+    "trust_proxy": false,
     "rate_limit": {
       "enabled": true,
       "window_ms": 60000,

@@ -175,7 +175,6 @@ All configuration lives in `conf.json` (gitignored). `conf.json.example` is the 
   "endpoints": {
     "posts": 30,
     "tags": 15,
-    "tags_search": 30,
     "media": 60,
     "config": 10
   }

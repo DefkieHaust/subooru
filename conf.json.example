@@ -1,5 +1,26 @@
 {
   "server": {
+    "rate_limit": {
+      "enabled": true,
+      "window_ms": 60000,
+      "default_max": 30,
+      "endpoints": {
+        "posts": 30,
+        "tags": 15,
+        "tags_search": 30,
+        "media": 60,
+        "config": 10
+      }
+    },
+    "cache": {
+      "enabled": true,
+      "default_ttl_ms": 300000,
+      "endpoints": {
+        "posts": 300000,
+        "tags": 3600000,
+        "tags_search": 3600000
+      }
+    },
     "include": [],
     "blacklist": [],
     "metatags": [

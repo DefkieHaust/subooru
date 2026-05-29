@@ -1,3 +1,5 @@
+import { cacheGet, cacheSet } from './cache.js'
+
 const GELBOORU_API = 'https://gelbooru.com/index.php'
 
 const TAG_TYPE_MAP = {
@@ -9,7 +11,31 @@ const TAG_TYPE_MAP = {
   6: 'deprecated'
 }
 
+let _cacheConf = { enabled: true }
+
+export function initGelbooruClient(cacheConf) {
+  _cacheConf = cacheConf || _cacheConf
+}
+
+function endpointForParams(params) {
+  if (params.s === 'post') return 'posts'
+  if (params.s === 'tag') return 'tags'
+  if (params.page === 'autocomplete2') return 'tags_search'
+  return 'default'
+}
+
 export async function fetchGelbooru(params) {
+  const cacheKey = JSON.stringify(Object.entries(params).sort())
+  const endpoint = endpointForParams(params)
+
+  if (_cacheConf.enabled !== false) {
+    const ttl = _cacheConf.endpoints?.[endpoint] || _cacheConf.default_ttl_ms
+    if (ttl) {
+      const cached = await cacheGet(cacheKey)
+      if (cached) return cached
+    }
+  }
+
   const query = new URLSearchParams(params)
   if (process.env.GELBOORU_USER_ID && process.env.GELBOORU_API_KEY) {
     query.set('user_id', process.env.GELBOORU_USER_ID)
@@ -20,7 +46,16 @@ export async function fetchGelbooru(params) {
   if (!res.ok) {
     throw new Error(`Gelbooru API error: ${res.status}`)
   }
-  return res.json()
+  const data = await res.json()
+
+  if (_cacheConf.enabled !== false) {
+    const ttl = _cacheConf.endpoints?.[endpoint] || _cacheConf.default_ttl_ms
+    if (ttl) {
+      cacheSet(cacheKey, data, ttl).catch(() => {})
+    }
+  }
+
+  return data
 }
 
 export async function listPosts(tags, page) {

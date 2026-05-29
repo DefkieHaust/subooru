@@ -1,5 +1,6 @@
 import 'dotenv/config'
 import express from 'express'
+import { Redis } from 'ioredis'
 import { readFileSync } from 'fs'
 import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
@@ -7,6 +8,9 @@ import postsRouter from './routes/posts.js'
 import tagsRouter from './routes/tags.js'
 import mediaRouter from './routes/media.js'
 import configRouter from './routes/config.js'
+import { initCache } from './cache.js'
+import { createRateLimiter } from './rate-limit.js'
+import { initGelbooruClient } from './gelbooru.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const app = express()
@@ -16,7 +20,20 @@ const HOST = process.env.HOST || '0.0.0.0'
 const conf = JSON.parse(readFileSync(join(__dirname, '..', 'conf.json'), 'utf-8'))
 app.locals.conf = conf
 
+const redis = process.env.REDIS_URL ? new Redis(process.env.REDIS_URL) : null
+initCache(redis)
+initGelbooruClient(conf.server.cache)
+
 app.use(express.json())
+
+const rl = conf.server.rate_limit
+if (rl?.enabled !== false) {
+  app.use('/api/posts', createRateLimiter({ ...rl, max: rl.endpoints.posts }, redis))
+  app.use('/api/tags/search', createRateLimiter({ ...rl, max: rl.endpoints.tags_search }, redis))
+  app.use('/api/tags', createRateLimiter({ ...rl, max: rl.endpoints.tags }, redis))
+  app.use('/api/media', createRateLimiter({ ...rl, max: rl.endpoints.media }, redis))
+  app.use('/api/config', createRateLimiter({ ...rl, max: rl.endpoints.config }, redis))
+}
 
 app.use('/api/posts', postsRouter)
 app.use('/api/tags', tagsRouter)

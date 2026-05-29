@@ -151,3 +151,9 @@ conf.json
 
 # Logs
 logs/
+
+# Old
+*.old
+
+# Docker Compose override (local-only, not committed)
+compose.override.yml

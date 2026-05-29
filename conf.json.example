@@ -26,6 +26,11 @@
         "tags_search": 3600000
       }
     },
+    "media_cache": {
+      "enabled": true,
+      "dir": "cache/media",
+      "max_age_ms": 86400000
+    },
     "include": [],
     "blacklist": [],
     "metatags": [

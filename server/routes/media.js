@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import { Readable } from 'stream'
 import { pipeline } from 'stream/promises'
+import { mediaCacheGet, mediaCacheSave } from '../media-cache.js'
 
 const router = Router()
 
@@ -8,6 +9,14 @@ router.get('/', async (req, res) => {
   const { url } = req.query
   if (!url) {
     return res.status(400).json({ error: 'url parameter required' })
+  }
+
+  const cached = await mediaCacheGet(url)
+  if (cached) {
+    res.set('Content-Type', cached.contentType)
+    res.set('Cache-Control', 'public, max-age=86400')
+    res.set('X-Cache', 'hit')
+    return pipeline(cached.stream, res)
   }
 
   try {
@@ -26,8 +35,13 @@ router.get('/', async (req, res) => {
       res.set('Content-Type', contentType)
     }
     res.set('Cache-Control', 'public, max-age=86400')
+    res.set('X-Cache', 'miss')
 
-    await pipeline(Readable.fromWeb(response.body), res)
+    const [webCache, webClient] = response.body.tee()
+    const cacheStream = Readable.fromWeb(webCache)
+    const clientStream = Readable.fromWeb(webClient)
+    mediaCacheSave(url, contentType, cacheStream)
+    await pipeline(clientStream, res)
   } catch (err) {
     if (!res.headersSent) {
       res.status(500).json({ error: err.message })

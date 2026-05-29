@@ -22,6 +22,7 @@ Production: `yarn build && node server/index.js` — Express serves both.
 - **Structured logging** — pino-based logging to console (pretty) and file. Logs all API requests (method, path, status, duration), cache hits/misses/sets, Gelbooru API fetches, and rate limit events. Config in `conf.json.log`.
 - **No accounts, no database** — settings/favorites/blacklist in localStorage.
 - **Media proxy** — `/api/media` streams from Gelbooru CDN with `Referer: https://gelbooru.com/`. Client can optionally use a Cloudflare Worker (set via `conf.json.client.worker_base`) with server fallback.
+- **Disk-based media caching** — `/api/media` caches files to disk (`conf.json.server.media_cache.dir`) using `md5(url)` with 2-level subdirectory. On miss, the `response.body` Web ReadableStream is tee'd via `.tee()` — one stream to the client, one to disk. Background write is fire-and-forget. Expired files are cleaned on startup (sweep) and lazily on read. Config in `conf.json.server.media_cache`.
 
 ## Backend (`server/`)
 
@@ -41,6 +42,13 @@ Post field mapping in `server/gelbooru.js`:
 - `file_url` → `image_url` (with `video-cdn3` → `video-cdn4` rewrite)
 - `sample_url` → `sample_url`
 - `preview_url` → `thumbnail_url`
+
+### Media caching (`server/media-cache.js`)
+- `initMediaCache(config)` — creates dir, sweeps expired files, cleans up leftover `.tmp.*` files
+- `mediaCacheGet(url)` — checks disk; returns `{ stream, contentType }` or `null`; lazy-expires stale entries
+- `mediaCacheSave(url, contentType, stream)` — fire-and-forget write to temp file, atomically renamed on completion
+- Cache path: `{dir}/{hash[0..2]}/{hash[2..4]}/{hash}` with `{hash}.meta` sidecar storing `{ url, content_type, cached_at }`
+- File collision: content hash not URL hash — same URL always maps to same path
 
 ## Frontend (`client/`)
 

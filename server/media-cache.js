@@ -4,6 +4,7 @@ import { getLogger } from './logger.js'
 
 let _client = null
 let _bucket = null
+let _region = null
 let _enabled = false
 
 export function initMediaCache(config) {
@@ -15,7 +16,7 @@ export function initMediaCache(config) {
   const endPoint = process.env.S3_ENDPOINT
   const port = parseInt(process.env.S3_PORT, 10) || 443
   const useSSL = process.env.S3_USE_SSL !== 'false'
-  const region = process.env.S3_REGION || 'us-east-1'
+  _region = process.env.S3_REGION || 'us-east-1'
   const accessKey = process.env.S3_ACCESS_KEY
   const secretKey = process.env.S3_SECRET_KEY
   _bucket = process.env.S3_BUCKET
@@ -27,12 +28,25 @@ export function initMediaCache(config) {
   }
 
   try {
-    _client = new Client({ endPoint, port, useSSL, region, accessKey, secretKey })
+    _client = new Client({ endPoint, port, useSSL, region: _region, accessKey, secretKey })
     _enabled = true
     getLogger().info({ endPoint, bucket: _bucket }, 'S3 media cache initialized')
+    ensureBucket()
   } catch (err) {
     getLogger().warn({ err: err.message }, 'S3 media cache init failed')
     _enabled = false
+  }
+}
+
+async function ensureBucket() {
+  try {
+    const exists = await _client.bucketExists(_bucket)
+    if (!exists) {
+      await _client.makeBucket(_bucket, _region)
+      getLogger().info({ bucket: _bucket }, 'S3 bucket created')
+    }
+  } catch (err) {
+    getLogger().warn({ err: err.message }, 'S3 bucket check failed')
   }
 }
 

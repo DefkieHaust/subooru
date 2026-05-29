@@ -1,4 +1,5 @@
 import rateLimit from 'express-rate-limit'
+import { logger } from './logger.js'
 
 export function createRateLimiter(config, redis) {
   if (!config || config.enabled === false) {
@@ -9,7 +10,11 @@ export function createRateLimiter(config, redis) {
     windowMs: config.window_ms || 60000,
     max: config.max || config.default_max || 30,
     standardHeaders: true,
-    legacyHeaders: false
+    legacyHeaders: false,
+    handler: (req, res) => {
+      logger.warn({ ip: req.ip, path: req.path, max: opts.max, windowMs: opts.windowMs }, 'RATE LIMITED')
+      res.status(429).json({ error: 'Too many requests' })
+    }
   }
 
   if (redis) {

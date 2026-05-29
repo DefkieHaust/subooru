@@ -1,4 +1,9 @@
 {
+  "log": {
+    "level": "info",
+    "console": true,
+    "file": "logs/subooru.log"
+  },
   "server": {
     "rate_limit": {
       "enabled": true,

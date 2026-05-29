@@ -144,3 +144,6 @@ vite.config.ts.timestamp-*
 
 # Project config (per-environment)
 conf.json
+
+# Logs
+logs/

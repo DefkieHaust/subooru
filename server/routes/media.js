@@ -11,6 +11,10 @@ router.get('/', async (req, res) => {
     return res.status(400).json({ error: 'url parameter required' })
   }
 
+  if (req.app.locals.conf.server.server_proxy === false) {
+    return res.status(503).json({ error: 'Server media proxy is disabled' })
+  }
+
   const cached = await mediaCacheGet(url)
   if (cached) {
     res.set('Content-Type', cached.contentType)

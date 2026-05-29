@@ -21,7 +21,7 @@ Production: `yarn build && node server/index.js` — Express serves both.
 - **Per-IP rate limiting** — Applied per-route via `express-rate-limit`, backed by Redis (or memory). Config in `conf.json.server.rate_limit`.
 - **Structured logging** — pino-based logging to console (pretty) and file. Logs all API requests (method, path, status, duration), cache hits/misses/sets, Gelbooru API fetches, and rate limit events. Config in `conf.json.log`.
 - **No accounts, no database** — settings/favorites/blacklist in localStorage.
-- **Media proxy** — `/api/media` streams from Gelbooru CDN with `Referer: https://gelbooru.com/`. Client can optionally use a Cloudflare Worker (set via `conf.json.client.worker_base`) with server fallback.
+- **Media proxy** — `/api/media` streams from Gelbooru CDN with `Referer: https://gelbooru.com/`. Client can optionally use a Cloudflare Worker (set via `conf.json.client.worker_base`) with server fallback. Server-side proxy can be disabled entirely via `conf.json.server.server_proxy` (returns 503).
 - **S3-backed media caching** — `/api/media` caches media to an S3-compatible service (MinIO, AWS S3, etc.) using the `minio` client. On miss, `response.body.tee()` splits the Web ReadableStream — one stream to the client, one uploaded to S3. On hit, streamed from S3 directly to the client. Config in `conf.json.server.media_cache`, S3 credentials in `S3_*` env vars. If env vars are missing, cache is silently disabled and media is always fetched from origin.
 
 ## Backend (`server/`)

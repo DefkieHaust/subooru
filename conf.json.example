@@ -29,6 +29,7 @@
     "media_cache": {
       "enabled": true
     },
+    "server_proxy": true,
     "include": [],
     "blacklist": [],
     "metatags": [

@@ -19,6 +19,7 @@ Production: `yarn build && node server/index.js` — Express serves both.
 
 - **In-memory or Redis caching** — Gelbooru API responses cached with per-endpoint TTL from `conf.json.server.cache.endpoints`. Falls back to in-memory Map if `REDIS_URL` is unset.
 - **Per-IP rate limiting** — Applied per-route via `express-rate-limit`, backed by Redis (or memory). Config in `conf.json.server.rate_limit`.
+- **Structured logging** — pino-based logging to console (pretty) and file. Logs all API requests (method, path, status, duration), cache hits/misses/sets, Gelbooru API fetches, and rate limit events. Config in `conf.json.log`.
 - **No accounts, no database** — settings/favorites/blacklist in localStorage.
 - **Media proxy** — `/api/media` streams from Gelbooru CDN with `Referer: https://gelbooru.com/`. Client can optionally use a Cloudflare Worker (set via `conf.json.client.worker_base`) with server fallback.
 

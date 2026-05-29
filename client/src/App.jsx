@@ -4,7 +4,7 @@ import Sidebar from './components/Sidebar.jsx'
 import SearchPage from './views/SearchPage.jsx'
 import FullscreenView from './views/FullscreenView.jsx'
 import FavoritesModal from './components/FavoritesModal.jsx'
-import { tagAutocomplete, fetchConfig } from './api.js'
+import { tagAutocomplete, fetchConfig, setProxyConfig } from './api.js'
 import { tagBadgeColor, tagTextColor } from './utils.js'
 
 function loadJSON(key, fallback) {
@@ -46,6 +46,7 @@ export default function App() {
 
   useEffect(() => {
     fetchConfig().then(cfg => {
+      setProxyConfig(cfg.worker_base, cfg.server_proxy)
       if (cfg.blacklist?.length) {
         saveSettings(s => {
           const existing = new Set(s.blacklist.map(t => t.name))

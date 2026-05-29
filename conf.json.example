@@ -9,6 +9,8 @@
     ]
   },
   "client": {
-    "blacklist": []
+    "blacklist": [],
+    "worker_base": null,
+    "server_proxy": true
   }
 }

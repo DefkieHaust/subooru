@@ -8,15 +8,18 @@ export function getLogger() {
 
 export function initLogger(config) {
   if (!config) return
+  const level = config.level || 'info'
   const targets = []
   if (config.console !== false) {
-    targets.push({ target: 'pino-pretty', options: { colorize: true } })
+    targets.push({ target: 'pino-pretty', options: { colorize: true }, level })
   }
   if (config.file) {
-    targets.push({ target: 'pino/file', options: { destination: config.file, mkdir: true } })
+    targets.push({ target: 'pino/file', options: { destination: config.file, mkdir: true }, level })
   }
-  _instance = pino({
-    level: config.level || 'info',
-    transport: targets.length ? { targets } : undefined
-  })
+  if (targets.length) {
+    const transport = pino.transport({ targets })
+    _instance = pino({ level }, transport)
+  } else {
+    _instance = pino({ level })
+  }
 }

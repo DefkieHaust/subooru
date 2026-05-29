@@ -26,9 +26,12 @@ export default function App() {
     blacklist: [],
     favorites: [],
     autoplayVideo: true,
-    muteVideo: true
+    muteVideo: true,
+    defaultTags: true,
+    defaultBlacklist: true
   }))
 
+  const [clientConfig, setClientConfig] = useState({ include: [], blacklist: [] })
   const [fullscreenPost, setFullscreenPost] = useState(null)
   const [blacklistInput, setBlacklistInput] = useState('')
   const [blSuggestions, setBlSuggestions] = useState([])
@@ -47,19 +50,31 @@ export default function App() {
   useEffect(() => {
     fetchConfig().then(cfg => {
       setProxyConfig(cfg.worker_base, cfg.server_proxy)
-      if (cfg.blacklist?.length) {
-        saveSettings(s => {
-          const existing = new Set(s.blacklist.map(t => t.name))
-          const toAdd = cfg.blacklist.filter(name => !existing.has(name))
-          if (!toAdd.length) return s
-          return {
-            ...s,
-            blacklist: [...s.blacklist, ...toAdd.map(name => ({ name, type: 'general', count: 0 }))]
-          }
-        })
-      }
+      setClientConfig({ include: cfg.include || [], blacklist: cfg.blacklist || [] })
     }).catch(() => {})
   }, [])
+
+  useEffect(() => {
+    if (settings.defaultTags === false) return
+    if (!clientConfig.include.length) return
+    setQuery(q => {
+      const existing = new Set(q.include.map(t => t.name))
+      const toAdd = clientConfig.include.filter(name => !existing.has(name))
+      if (!toAdd.length) return q
+      return { ...q, include: [...q.include, ...toAdd.map(name => ({ name, type: 'general', count: 0 }))] }
+    })
+  }, [clientConfig.include, settings.defaultTags])
+
+  useEffect(() => {
+    if (settings.defaultBlacklist === false) return
+    if (!clientConfig.blacklist.length) return
+    saveSettings(s => {
+      const existing = new Set(s.blacklist.map(t => t.name))
+      const toAdd = clientConfig.blacklist.filter(name => !existing.has(name))
+      if (!toAdd.length) return s
+      return { ...s, blacklist: [...s.blacklist, ...toAdd.map(name => ({ name, type: 'general', count: 0 }))] }
+    })
+  }, [clientConfig.blacklist, settings.defaultBlacklist])
 
   useEffect(() => {
     if (!blacklistInput.trim()) {
@@ -245,6 +260,7 @@ export default function App() {
           onSettingsChange={saveSettings}
           onCloseMobile={() => setShowSidebar(false)}
           show={showSidebar}
+          clientInclude={clientConfig.include}
         />
 
         <main className="overflow-auto app-main" style={{ paddingBottom: '60px' }}>

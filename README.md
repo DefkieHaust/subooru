@@ -265,6 +265,7 @@ Autocomplete suggestions for prefix-based tags. When the user types `rating:`, t
 
 ```json
 "client": {
+  "include": [],
   "blacklist": [],
   "worker_base": null,
   "server_proxy": true
@@ -272,8 +273,9 @@ Autocomplete suggestions for prefix-based tags. When the user types `rating:`, t
 ```
 
 | Field | Type | Description |
-|---|---|---|
-| `blacklist` | string[] | Client-side tag blacklist (applied in addition to server blacklist) |
+|---|---|---|---|
+| `include` | string[] | Default tags added to every search when the "Default tags" toggle is on. These appear as removable tag chips in the sidebar. `"Default tags"` toggle in Settings controls whether these are prepended to the search URL. |
+| `blacklist` | string[] | Client-side tag blacklist (applied when "Default blacklist" toggle is on, in addition to server blacklist) |
 | `worker_base` | string \| null | Cloudflare Worker URL for media proxying. `null` disables worker |
 | `server_proxy` | boolean | Tells the frontend whether to fall back to `/api/media` when the worker fails |
 

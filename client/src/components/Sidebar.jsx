@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { tagAutocomplete } from '../api.js'
 import { tagBadgeColor, tagTextColor } from '../utils.js'
 
-export default function Sidebar({ query, onQueryChange, settings, onSettingsChange, onCloseMobile, show }) {
+export default function Sidebar({ query, onQueryChange, settings, onSettingsChange, onCloseMobile, show, clientInclude }) {
   const [input, setInput] = useState('')
   const [suggestions, setSuggestions] = useState([])
   const [showSuggestions, setShowSuggestions] = useState(false)
@@ -45,6 +45,15 @@ export default function Sidebar({ query, onQueryChange, settings, onSettingsChan
       ...query.include.map(t => t.name),
       ...query.exclude.map(t => `-${t.name}`)
     ]
+    if (settings.defaultTags !== false && clientInclude?.length) {
+      const existing = new Set(tags)
+      for (const name of clientInclude) {
+        if (!existing.has(name) && !existing.has(`-${name}`)) {
+          tags.unshift(name)
+          existing.add(name)
+        }
+      }
+    }
     if (input.trim()) {
       const parts = input.trim().split(/\s+/)
       for (const p of parts) {
@@ -56,7 +65,7 @@ export default function Sidebar({ query, onQueryChange, settings, onSettingsChan
     }
     navigate(`/search/1/${tags.join(',')}`)
     onCloseMobile?.()
-  }, [input, query, navigate, onCloseMobile])
+  }, [input, query, navigate, onCloseMobile, settings.defaultTags, clientInclude])
 
   const addTag = useCallback((name, exclude = false, type) => {
     const resolvedType = type || (name.includes(':') ? 'metadata' : 'general')
@@ -190,6 +199,14 @@ export default function Sidebar({ query, onQueryChange, settings, onSettingsChan
           <div className="form-check form-check-inline">
             <input className="form-check-input" type="checkbox" id="muteVideo" checked={settings.muteVideo} onChange={() => toggleSetting('muteVideo')} />
             <label className="form-check-label small" htmlFor="muteVideo">Mute video</label>
+          </div>
+          <div className="form-check form-check-inline">
+            <input className="form-check-input" type="checkbox" id="defaultTags" checked={settings.defaultTags !== false} onChange={() => toggleSetting('defaultTags')} />
+            <label className="form-check-label small" htmlFor="defaultTags">Default tags</label>
+          </div>
+          <div className="form-check form-check-inline">
+            <input className="form-check-input" type="checkbox" id="defaultBlacklist" checked={settings.defaultBlacklist !== false} onChange={() => toggleSetting('defaultBlacklist')} />
+            <label className="form-check-label small" htmlFor="defaultBlacklist">Default blacklist</label>
           </div>
         </div>
       </div>

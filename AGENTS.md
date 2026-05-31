@@ -64,3 +64,4 @@ No test, lint, or typecheck tooling exists. Node 22+ required.
 - FullscreenView `z-index: 1060` (above Bootstrap modal at 1055).
 - `dvh` unit accounts for mobile browser chrome.
 - SearchPage parses URL params via `useMemo` (not state) — avoids stale closure on initial nav.
+- SearchPage Effect B (`useEffect` that runs search) must include `pageParam` in its dependency array. If excluded, navigating from `/` to `/search/1/` (empty search) leaves `queryParam` and `currentPage` unchanged, so the effect is skipped and no API call is made — infinite spinner.

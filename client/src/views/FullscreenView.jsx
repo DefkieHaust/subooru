@@ -1,4 +1,5 @@
 import { useEffect, useCallback, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { mediaProxyUrls, getProxyThumbnails } from '../api.js'
 
 export default function FullscreenView({ post, onClose, settings, onToggleFavorite }) {

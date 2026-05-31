@@ -74,7 +74,7 @@ export default function SearchPage({ query, onQueryChange, settings, onToggleBla
 
     doSearch()
     return () => { cancelled = true }
-  }, [currentPage, queryParam, parsedTags, settings.blacklist])
+  }, [currentPage, pageParam, queryParam, parsedTags, settings.blacklist])
 
   const handlePageChange = useCallback((page) => {
     const params = query.include.map(t => t.name).concat(query.exclude.map(t => `-${t.name}`))

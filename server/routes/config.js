@@ -8,7 +8,8 @@ router.get('/', (req, res) => {
     include: c.include || [],
     blacklist: c.blacklist,
     worker_base: c.worker_base || null,
-    server_proxy: c.server_proxy !== false
+    server_proxy: c.server_proxy !== false,
+    proxy_thumbnails: c.proxy_thumbnails === true
   })
 })
 

@@ -1,11 +1,13 @@
 import { useState, useCallback } from 'react'
+import { mediaProxyUrls, getProxyThumbnails } from '../api.js'
 
 function isVideo(url) {
   return /\.(mp4|webm|mov)$/i.test(url)
 }
 
 export default function PostCard({ post, settings, onToggleBlacklist, onToggleFavorite, onOpenFullscreen }) {
-  const sources = [post.thumbnail_url, post.sample_url, post.image_url].filter(Boolean)
+  const rawSources = [post.thumbnail_url, post.sample_url, post.image_url].filter(Boolean)
+  const sources = getProxyThumbnails() ? rawSources.flatMap(u => mediaProxyUrls(u)) : rawSources
   const [srcIndex, setSrcIndex] = useState(0)
   const [loaded, setLoaded] = useState(false)
   const isFav = settings.favorites.some(p => p.id === post.id)

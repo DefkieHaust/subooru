@@ -49,7 +49,7 @@ export default function App() {
 
   useEffect(() => {
     fetchConfig().then(cfg => {
-      setProxyConfig(cfg.worker_base, cfg.server_proxy)
+      setProxyConfig(cfg.worker_base, cfg.server_proxy, cfg.proxy_thumbnails)
       setClientConfig({ include: cfg.include || [], blacklist: cfg.blacklist || [] })
     }).catch(() => {})
   }, [])

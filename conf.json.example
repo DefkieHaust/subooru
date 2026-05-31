@@ -43,6 +43,7 @@
     "include": [],
     "blacklist": [],
     "worker_base": null,
-    "server_proxy": true
+    "server_proxy": true,
+    "proxy_thumbnails": false
   }
 }

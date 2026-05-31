@@ -36,10 +36,16 @@ export async function fetchConfig() {
 
 let _workerBase = null
 let _serverProxy = true
+let _proxyThumbnails = false
 
-export function setProxyConfig(workerBase, serverProxy) {
+export function setProxyConfig(workerBase, serverProxy, proxyThumbnails) {
   _workerBase = workerBase || null
   _serverProxy = serverProxy !== false
+  _proxyThumbnails = proxyThumbnails === true
+}
+
+export function getProxyThumbnails() {
+  return _proxyThumbnails
 }
 
 export function mediaProxyUrls(url) {

@@ -1,6 +1,5 @@
 import { useEffect, useCallback, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { mediaProxyUrls } from '../api.js'
+import { mediaProxyUrls, getProxyThumbnails } from '../api.js'
 
 export default function FullscreenView({ post, onClose, settings, onToggleFavorite }) {
   const navigate = useNavigate()
@@ -71,7 +70,8 @@ export default function FullscreenView({ post, onClose, settings, onToggleFavori
     )
   }
 
-  const posterUrl = video ? (post.thumbnail_url || '') : undefined
+  const posterRaw = post.thumbnail_url || ''
+  const posterUrl = video ? (getProxyThumbnails() && posterRaw ? mediaProxyUrls(posterRaw)[0] : posterRaw) : undefined
 
   return (
     <div

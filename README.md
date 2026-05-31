@@ -268,7 +268,8 @@ Autocomplete suggestions for prefix-based tags. When the user types `rating:`, t
   "include": [],
   "blacklist": [],
   "worker_base": null,
-  "server_proxy": true
+  "server_proxy": true,
+  "proxy_thumbnails": false
 }
 ```
 
@@ -278,6 +279,7 @@ Autocomplete suggestions for prefix-based tags. When the user types `rating:`, t
 | `blacklist` | string[] | Client-side tag blacklist (applied when "Default blacklist" toggle is on, in addition to server blacklist) |
 | `worker_base` | string \| null | Cloudflare Worker URL for media proxying. `null` disables worker |
 | `server_proxy` | boolean | Tells the frontend whether to fall back to `/api/media` when the worker fails |
+| `proxy_thumbnails` | boolean | When `true`, grid thumbnails, video posters, and favorites thumbnails are fetched through the media proxy chain (Worker → `/api/media`) instead of directly from Gelbooru |
 
 These values are returned to the frontend via `GET /api/config`.
 

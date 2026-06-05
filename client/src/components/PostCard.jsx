@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react'
 import { mediaProxyUrls, getProxyThumbnails } from '../api.js'
+import './post-card.css'
 
 function isVideo(url) {
   return /\.(mp4|webm|mov)$/i.test(url)
@@ -22,9 +23,10 @@ export default function PostCard({ post, settings, onToggleBlacklist, onToggleFa
   return (
     <div className="position-relative overflow-hidden rounded bg-dark" style={{ height: post.renderHeight, cursor: 'pointer' }}>
       <div className="w-100 h-100 position-relative" onClick={() => onOpenFullscreen(post)}>
-        <div className="w-100 h-100 position-absolute top-0 start-0" style={{ background: '#0f3460', opacity: loaded ? 0 : 1, transition: 'opacity 0.3s' }} />
+        <div className="w-100 h-100 position-absolute top-0 start-0 skeleton-placeholder" style={{ opacity: loaded ? 0 : 1, transition: 'opacity 0.3s' }} />
         <img
           src={currentSrc}
+          loading="lazy"
           alt=""
           onLoad={() => setLoaded(true)}
           onError={handleError}

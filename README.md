@@ -7,7 +7,7 @@ Proxy booru client for [Gelbooru](https://gelbooru.com/) — Express backend + R
 - [Node.js](https://nodejs.org/) 22+
 - [Yarn](https://yarnpkg.com/) 1.x
 - (Optional) [Docker](https://docker.com/) + [Docker Compose](https://docs.docker.com/compose/) for deployment
-- (Optional) A Gelbooru account for API credentials (required for `dapi` endpoints)
+- A Gelbooru account for API credentials (required; `dapi` endpoints won't work without it)
 
 ## Quick Start
 
@@ -24,8 +24,8 @@ cp .env.example .env                  # add API keys
 
 | Variable | Required | Default | Description |
 |---|---|---|---|
-| `GELBOORU_USER_ID` | Yes (for dapi) | — | Gelbooru account ID |
-| `GELBOORU_API_KEY` | Yes (for dapi) | — | Gelbooru API key |
+| `GELBOORU_USER_ID` | Yes | — | Gelbooru account ID |
+| `GELBOORU_API_KEY` | Yes | — | Gelbooru API key |
 | `HOST` | No | `0.0.0.0` | Server bind address |
 | `PORT` | No | `3000` | Server port |
 | `REDIS_URL` | No | — | Redis connection string (`redis://...`). Falls back to in-memory cache/rate-limiting if unset |

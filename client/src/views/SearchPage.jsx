@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useMemo } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { fetchPosts } from '../api.js'
+import { fetchPosts, fetchTags } from '../api.js'
+import { getCachedTagType, getUncachedTagNames, updateTagTypeCache } from '../utils.js'
 import PostGrid from '../components/PostGrid.jsx'
 
 export default function SearchPage({ query, onQueryChange, settings, onToggleBlacklist, onToggleFavorite, onOpenFullscreen }) {
@@ -33,10 +34,38 @@ export default function SearchPage({ query, onQueryChange, settings, onToggleBla
     const include = []
     const exclude = []
     for (const p of queryParam.split(',')) {
-      if (p.startsWith('-')) exclude.push({ name: p.slice(1), type: 'general', count: 0 })
-      else include.push({ name: p, type: 'general', count: 0 })
+      if (p.startsWith('-')) {
+        const name = p.slice(1)
+        exclude.push({ name, type: getCachedTagType(name) || 'general', count: 0 })
+      } else {
+        include.push({ name: p, type: getCachedTagType(p) || 'general', count: 0 })
+      }
     }
     onQueryChange({ include, exclude })
+  }, [queryParam, onQueryChange])
+
+  useEffect(() => {
+    if (!queryParam) return
+    const names = getUncachedTagNames(queryParam.split(',').filter(t => !t.startsWith('-')))
+    if (!names.length) return
+    let cancelled = false
+    fetchTags(names).then(data => {
+      if (cancelled) return
+      const updates = {}
+      for (const r of (data.results || [])) {
+        if (r.name && r.type && r.type !== 'general') {
+          updateTagTypeCache(r.name, r.type)
+          updates[r.name] = r.type
+        }
+      }
+      if (Object.keys(updates).length === 0) return
+      onQueryChange(q => {
+        const include = q.include.map(t => ({ ...t, type: updates[t.name] || t.type }))
+        const exclude = q.exclude.map(t => ({ ...t, type: updates[t.name] || t.type }))
+        return { include, exclude }
+      })
+    }).catch(() => {})
+    return () => { cancelled = true }
   }, [queryParam, onQueryChange])
 
   useEffect(() => {

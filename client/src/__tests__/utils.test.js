@@ -1,5 +1,9 @@
-import { describe, it, expect } from 'vitest'
-import { resolveTagType, tagBadgeColor, tagTextColor } from '../utils.js'
+import { describe, it, expect, beforeEach } from 'vitest'
+import { resolveTagType, tagBadgeColor, tagTextColor, getCachedTagType, updateTagTypeCache, getUncachedTagNames } from '../utils.js'
+
+beforeEach(() => {
+  localStorage.removeItem('subooru-tag-types')
+})
 
 describe('utils.js', () => {
   describe('resolveTagType', () => {
@@ -50,6 +54,43 @@ describe('utils.js', () => {
 
     it('returns empty string as default', () => {
       expect(tagTextColor('general')).toBe('')
+    })
+  })
+
+  describe('tag type cache', () => {
+    it('getCachedTagType returns metadata for colon-prefixed names', () => {
+      expect(getCachedTagType('rating:general')).toBe('metadata')
+    })
+
+    it('getCachedTagType returns null for uncached non-metadata names', () => {
+      expect(getCachedTagType('cat')).toBeNull()
+    })
+
+    it('getCachedTagType returns cached type after update', () => {
+      updateTagTypeCache('hakurei_reimu', 'character')
+      expect(getCachedTagType('hakurei_reimu')).toBe('character')
+    })
+
+    it('updateTagTypeCache skips metadata and general types', () => {
+      updateTagTypeCache('rating:general', 'metadata')
+      expect(getCachedTagType('rating:general')).toBe('metadata')
+    })
+
+    it('updateTagTypeCache skips general type', () => {
+      updateTagTypeCache('cat', 'general')
+      expect(getCachedTagType('cat')).toBeNull()
+    })
+
+    it('updateTagTypeCache does not overwrite with general', () => {
+      updateTagTypeCache('hakurei_reimu', 'character')
+      updateTagTypeCache('hakurei_reimu', 'general')
+      expect(getCachedTagType('hakurei_reimu')).toBe('character')
+    })
+
+    it('getUncachedTagNames filters metadata and cached names', () => {
+      updateTagTypeCache('hakurei_reimu', 'character')
+      const result = getUncachedTagNames(['rating:general', 'hakurei_reimu', 'cat', 'hat'])
+      expect(result).toEqual(['cat', 'hat'])
     })
   })
 })

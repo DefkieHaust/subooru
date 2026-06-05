@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { tagAutocomplete } from '../api.js'
-import { tagBadgeColor, tagTextColor } from '../utils.js'
+import { tagBadgeColor, tagTextColor, updateTagTypeCache } from '../utils.js'
 
 export default function Sidebar({ query, onQueryChange, settings, onSettingsChange, onCloseMobile, show, clientInclude }) {
   const [input, setInput] = useState('')
@@ -69,6 +69,7 @@ export default function Sidebar({ query, onQueryChange, settings, onSettingsChan
 
   const addTag = useCallback((name, exclude = false, type) => {
     const resolvedType = type || (name.includes(':') ? 'metadata' : 'general')
+    updateTagTypeCache(name, resolvedType)
     const key = exclude ? 'exclude' : 'include'
     if (query[key].some(t => t.name === name)) return
     onQueryChange(q => ({
@@ -138,7 +139,7 @@ export default function Sidebar({ query, onQueryChange, settings, onSettingsChan
                 style={{ fontSize: '0.85rem' }}
                 onMouseEnter={e => e.currentTarget.style.background = '#0f3460'}
                 onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
-                onClick={() => { addTag(t.name, false, t.type); setInput(''); setShowSuggestions(false); inputRef.current?.focus() }}
+                onClick={() => { updateTagTypeCache(t.name, t.type); addTag(t.name, false, t.type); setInput(''); setShowSuggestions(false); inputRef.current?.focus() }}
               >
                 <span className={`${tagTextColor(t.type, t.name)}`}>{t.name}</span>
                 {t.type !== 'metadata' && <span className="text-light opacity-75 small">{t.count.toLocaleString()}</span>}

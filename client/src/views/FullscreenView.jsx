@@ -6,6 +6,11 @@ export default function FullscreenView({ post, onClose, settings, onToggleFavori
   const navigate = useNavigate()
   const isFav = settings.favorites.some(p => p.id === post.id)
   const video = /\.(mp4|webm|mov)$/i.test(post.image_url)
+  const postSource = post.source || 'gelbooru'
+  const sourceUrl = postSource === 'danbooru'
+    ? `https://danbooru.donmai.us/posts/${post.id}`
+    : `https://gelbooru.com/index.php?page=post&s=view&id=${post.id}`
+  const sourceLabel = postSource === 'danbooru' ? 'Danbooru' : 'Gelbooru'
 
   const handleTagClick = useCallback((tag) => {
     onClose()
@@ -151,12 +156,12 @@ export default function FullscreenView({ post, onClose, settings, onToggleFavori
               {isFav ? '\u2605 Favorited' : '\u2606 Favorite'}
             </button>
             <a
-              href={`https://gelbooru.com/index.php?page=post&s=view&id=${post.id}`}
+              href={sourceUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-sm btn-outline-light"
             >
-              Open on Gelbooru
+              Open on {sourceLabel}
             </a>
           </div>
 

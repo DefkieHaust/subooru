@@ -28,7 +28,8 @@ export default function App() {
     autoplayVideo: true,
     muteVideo: true,
     defaultTags: true,
-    defaultBlacklist: true
+    defaultBlacklist: true,
+    highResPreview: true
   }))
 
   const [clientConfig, setClientConfig] = useState({ include: [], blacklist: [] })

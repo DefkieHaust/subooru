@@ -17,4 +17,9 @@ describe('GET /api/config', () => {
     const res = await supertest(app).get('/api/config')
     expect(typeof res.body.server_proxy).toBe('boolean')
   })
+
+  it('returns primary_source field', async () => {
+    const res = await supertest(app).get('/api/config')
+    expect(res.body).toHaveProperty('primary_source')
+  })
 })

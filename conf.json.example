@@ -5,6 +5,7 @@
     "file": "logs/subooru.log"
   },
   "server": {
+    "primary_source": "gelbooru",
     "trust_proxy": false,
     "rate_limit": {
       "enabled": true,

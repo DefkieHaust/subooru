@@ -7,7 +7,10 @@ function isVideo(url) {
 }
 
 export default function PostCard({ post, settings, onToggleBlacklist, onToggleFavorite, onOpenFullscreen }) {
-  const rawSources = [post.thumbnail_url, post.sample_url, post.image_url].filter(Boolean)
+  const rawSources = (settings.highResPreview !== false
+    ? [post.sample_url, post.thumbnail_url, post.image_url]
+    : [post.thumbnail_url, post.sample_url, post.image_url]
+  ).filter(Boolean)
   const sources = getProxyThumbnails() ? rawSources.flatMap(u => mediaProxyUrls(u)) : rawSources
   const [srcIndex, setSrcIndex] = useState(0)
   const [loaded, setLoaded] = useState(false)

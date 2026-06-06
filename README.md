@@ -1,6 +1,6 @@
 # subooru
 
-Proxy booru client for [Gelbooru](https://gelbooru.com/) — Express backend + React (Vite) frontend. Features configurable API caching, rate limiting, and S3-backed media proxy.
+Proxy booru client for [Gelbooru](https://gelbooru.com/) and [Danbooru](https://danbooru.donmai.us/) — Express backend + React (Vite) frontend. Features configurable API caching, rate limiting, and S3-backed media proxy.
 
 ## Prerequisites
 
@@ -8,6 +8,7 @@ Proxy booru client for [Gelbooru](https://gelbooru.com/) — Express backend + R
 - [Yarn](https://yarnpkg.com/) 1.x
 - (Optional) [Docker](https://docker.com/) + [Docker Compose](https://docs.docker.com/compose/) for deployment
 - A Gelbooru account for API credentials (required; `dapi` endpoints won't work without it)
+- (Optional) A Danbooru account for API credentials (needed only if `primary_source` is `"danbooru"` or as fallback)
 
 ## Quick Start
 
@@ -26,6 +27,8 @@ cp .env.example .env                  # add API keys
 |---|---|---|---|
 | `GELBOORU_USER_ID` | Yes | — | Gelbooru account ID |
 | `GELBOORU_API_KEY` | Yes | — | Gelbooru API key |
+| `DANBOORU_USERNAME` | No | — | Danbooru username (for HTTP Basic auth) |
+| `DANBOORU_API_KEY` | No | — | Danbooru API key (for HTTP Basic auth) |
 | `HOST` | No | `0.0.0.0` | Server bind address |
 | `PORT` | No | `3000` | Server port |
 | `REDIS_URL` | No | — | Redis connection string (`redis://...`). Falls back to in-memory cache/rate-limiting if unset |
@@ -114,6 +117,10 @@ GELBOORU_API_KEY=your-api-key
 HOST=0.0.0.0
 PORT=3000
 
+# Optional — Danbooru (for danbooru source or fallback)
+# DANBOORU_USERNAME=your-username
+# DANBOORU_API_KEY=your-api-key
+
 # Optional — Redis (local or remote)
 REDIS_URL=redis://localhost:6379
 
@@ -133,6 +140,11 @@ S3_BUCKET=subooru-media
 GELBOORU_USER_ID=12345
 GELBOORU_API_KEY=your-api-key
 REDIS_URL=redis://redis:6379
+
+# Optional — Danbooru (for danbooru source or fallback)
+# DANBOORU_USERNAME=your-username
+# DANBOORU_API_KEY=your-api-key
+
 S3_ENDPOINT=minio
 S3_PORT=9000
 S3_USE_SSL=false
@@ -215,6 +227,16 @@ All configuration lives in `conf.json` (gitignored). `conf.json.example` is the 
 
 Backend: Redis if `REDIS_URL` is set, otherwise in-memory `Map`.
 
+### `server.primary_source`
+
+```json
+"primary_source": "gelbooru"
+```
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `primary_source` | string | `"gelbooru"` | Which source to try first. Options: `"gelbooru"`, `"danbooru"`. On failure, the server automatically falls back to the other source. The client can override per-request via `?source=` query param (stored in localStorage). |
+
 ### `server.media_cache`
 
 ```json
@@ -229,7 +251,7 @@ Backend: Redis if `REDIS_URL` is set, otherwise in-memory `Map`.
 | `enabled` | boolean | `true` | Set `false` to disable S3 media caching (always fetches from Gelbooru) |
 | `max_age_days` | number | `1` | S3 lifecycle expiration in days. Set `0` to disable auto-expiry. Objects are deleted by MinIO/S3 after this many days |
 
-S3 credentials (`S3_ENDPOINT`, `S3_ACCESS_KEY`, etc.) are set in `.env` / `.env.prod`, not in `conf.json`. If env vars are missing, the cache logs a warning and media is always fetched directly from Gelbooru.
+S3 credentials (`S3_ENDPOINT`, `S3_ACCESS_KEY`, etc.) are set in `.env` / `.env.prod`, not in `conf.json`. If env vars are missing, the cache logs a warning and media is always fetched directly from the source.
 
 ### `server.server_proxy`
 
@@ -246,7 +268,7 @@ Controls the `/api/media` endpoint. When `false`, the route returns `503 Service
 "blacklist": ["guro", "scat"]
 ```
 
-- `include` — tags silently appended to every Gelbooru query (server-side, client cannot circumvent)
+- `include` — tags silently appended to every query (server-side, client cannot circumvent)
 - `blacklist` — tags silently excluded from results (server-side, strips `-` and `~` prefixes before matching)
 
 ### `server.metatags`
@@ -279,7 +301,7 @@ Autocomplete suggestions for prefix-based tags. When the user types `rating:`, t
 | `blacklist` | string[] | Client-side tag blacklist (applied when "Default blacklist" toggle is on, in addition to server blacklist) |
 | `worker_base` | string \| null | Cloudflare Worker URL for media proxying. `null` disables worker |
 | `server_proxy` | boolean | Tells the frontend whether to fall back to `/api/media` when the worker fails |
-| `proxy_thumbnails` | boolean | When `true`, grid thumbnails, video posters, and favorites thumbnails are fetched through the media proxy chain (Worker → `/api/media`) instead of directly from Gelbooru |
+| `proxy_thumbnails` | boolean | When `true`, grid thumbnails, video posters, and favorites thumbnails are fetched through the media proxy chain (Worker → `/api/media`) instead of directly from the CDN |
 
 These values are returned to the frontend via `GET /api/config`.
 
@@ -287,11 +309,13 @@ These values are returned to the frontend via `GET /api/config`.
 
 ## Media Proxy Worker (Cloudflare Workers)
 
-An optional Cloudflare Worker in `subooru-worker/` that proxies media from Gelbooru CDN. Offloads bandwidth from the Express server and reduces latency by serving from Cloudflare's edge.
+An optional Cloudflare Worker in `subooru-worker/` that proxies media from booru CDNs (Gelbooru or Danbooru). Offloads bandwidth from the Express server and reduces latency by serving from Cloudflare's edge.
 
 ### How it works
 
 When `client.worker_base` is set in `conf.json`, the frontend requests media through the Worker URL first. If the Worker fails and `client.server_proxy` is `true`, it falls back to the Express server's `/api/media`.
+
+The required `Referer` header is set dynamically based on the source of each post (`https://gelbooru.com/` for Gelbooru, `https://danbooru.donmai.us/` for Danbooru), both in the Worker and in `/api/media`.
 
 ### Prerequisites
 
@@ -352,11 +376,11 @@ Set the Worker URL in `conf.json.client`:
 
 | Route | Description | Rate limit (default) |
 |---|---|---|
-| `GET /api/posts?page=&q=` | Search posts (100 per page) | 30/min |
-| `GET /api/tags?t=` | Lookup tags by name | 15/min |
-| `GET /api/tags/search?q=` | Autocomplete tags | 30/min |
-| `GET /api/media?url=` | Proxy media from Gelbooru CDN (with S3 caching) | 60/min |
+| `GET /api/posts?page=&q=&source=` | Search posts (100 per page). Optional `source` overrides configured `primary_source` | 30/min |
+| `GET /api/tags?t=&source=` | Lookup tags by name | 15/min |
+| `GET /api/tags/search?q=&source=` | Autocomplete tags | 30/min |
+| `GET /api/media?url=` | Proxy media from booru CDN (with S3 caching) | 60/min |
 | `GET /api/config` | Returns client-side config | 10/min |
 | `GET /api/version` | Returns `{ "version": "0.1.0" }` | — |
 
-Gelbooru API responses (`posts`, `tags`) are cached in Redis/memory per `server.cache`. Media files are cached in S3 per `server.media_cache`.
+API responses (`posts`, `tags`) are cached in Redis/memory per `server.cache`. Media files are cached in S3 per `server.media_cache`.

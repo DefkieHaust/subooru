@@ -209,6 +209,10 @@ export default function Sidebar({ query, onQueryChange, settings, onSettingsChan
             <input className="form-check-input" type="checkbox" id="defaultBlacklist" checked={settings.defaultBlacklist !== false} onChange={() => toggleSetting('defaultBlacklist')} />
             <label className="form-check-label small" htmlFor="defaultBlacklist">Default blacklist</label>
           </div>
+          <div className="form-check form-check-inline">
+            <input className="form-check-input" type="checkbox" id="highResPreview" checked={settings.highResPreview !== false} onChange={() => toggleSetting('highResPreview')} />
+            <label className="form-check-label small" htmlFor="highResPreview">High res preview</label>
+          </div>
         </div>
       </div>
     </aside>

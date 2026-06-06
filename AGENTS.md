@@ -102,3 +102,38 @@ No test, lint, or typecheck tooling exists. Node 22+ required.
 
 - Always use Context7 when I need library/API documentation, code generation, setup or configuration steps without me having to explicitly ask.
 - If changes are made to the project configuration or deployment then properly document them in @README.md
+
+## Danbooru API support
+
+### Source selection
+- `conf.json.server.primary_source` — `"gelbooru"` or `"danbooru"` (default `"gelbooru"`). Determines which source is tried first when no `?source=` param is given.
+- Client setting in sidebar → localStorage → passed as `?source=` query param on every API call.
+- Both sources share the same `include`/`blacklist` config.
+
+### Fallback mechanism
+- `server/source-fallback.js` provides `withSourceFallback(primarySource, fetchFn)`.
+- If the targeted source returns a non-2xx status or throws, the other source is tried automatically.
+- The response includes a `source` field indicating which source actually served the data.
+
+### Danbooru client (`server/danbooru.js`)
+- Mirrors `gelbooru.js` exports: `listPosts`, `listTags`, `searchTags`.
+- API base: `https://danbooru.donmai.us`.
+- Auth: HTTP Basic via `DANBOORU_USERNAME`/`DANBOORU_API_KEY` env vars (optional).
+- Field mapping documented inline and in the `feat/danbooru` PR description.
+
+### Key differences from Gelbooru
+| Aspect | Gelbooru | Danbooru |
+|---|---|---|
+| API endpoint | `index.php?page=dapi&s=post&q=index&json=1` | `/posts.json` |
+| Post list response | `{ "@attributes": { count }, "post": [...] }` | `[...]` JSON array + `X-Total-Count` header |
+| Tag autocomplete | `page=autocomplete2&term=...` | `/autocomplete.json?search[query]=...` |
+| Auth method | URL params (`user_id` + `api_key`) | HTTP Basic (`username` + `api_key`) |
+| HTML entities in tags | Yes (`&amp;`, `&gt;`, etc.) | No |
+| CDN rewrite needed | `video-cdn3` → `video-cdn4` | No |
+| Media Referer | `https://gelbooru.com/` | `https://danbooru.donmai.us/` |
+
+### Backward compatibility
+- `?source=gelbooru` is the default when param is omitted.
+- New `source` field in responses is ignored by old clients.
+- All existing routes, config keys, and env vars remain unchanged.
+- `DANBOORU_USERNAME`/`DANBOORU_API_KEY` are optional.

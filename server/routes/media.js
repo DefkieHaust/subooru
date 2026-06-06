@@ -24,9 +24,12 @@ router.get('/', async (req, res) => {
   }
 
   try {
+    const source = req.query.source || 'gelbooru'
+    const referer = source === 'danbooru' ? 'https://danbooru.donmai.us/' : 'https://gelbooru.com/'
+
     const response = await fetch(url, {
       headers: {
-        'Referer': 'https://gelbooru.com/'
+        'Referer': referer
       }
     })
 

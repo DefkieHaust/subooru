@@ -1,5 +1,7 @@
 import { Router } from 'express'
-import { listPosts } from '../gelbooru.js'
+import { listPosts as gelbooruListPosts } from '../gelbooru.js'
+import { listPosts as danbooruListPosts } from '../danbooru.js'
+import { withSourceFallback } from '../source-fallback.js'
 
 const router = Router()
 
@@ -25,11 +27,20 @@ router.get('/', async (req, res) => {
     ]
     const tags = allTags.join(' ')
 
-    const result = await listPosts(tags, page)
-    res.json(result)
+    const target = req.query.source || conf.primary_source || 'gelbooru'
+
+    const { data, source } = await withSourceFallback(target, (source) => {
+      if (source === 'danbooru') return danbooruListPosts(tags, page)
+      return gelbooruListPosts(tags, page)
+    })
+    res.json({
+      ...data,
+      results: data.results.map(p => ({ ...p, source })),
+      source
+    })
   } catch (err) {
     console.error('Failed to fetch posts:', err)
-    res.status(502).json({ error: 'failed to fetch posts from gelbooru' })
+    res.status(502).json({ error: 'failed to fetch posts' })
   }
 })
 

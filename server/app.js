@@ -11,6 +11,7 @@ import configRouter from './routes/config.js'
 import { initCache } from './cache.js'
 import { createRateLimiter } from './rate-limit.js'
 import { initGelbooruClient } from './gelbooru.js'
+import { initDanbooruClient } from './danbooru.js'
 import { initMediaCache } from './media-cache.js'
 import { initLogger, getLogger } from './logger.js'
 
@@ -30,6 +31,7 @@ initLogger(isTest ? { level: 'silent', console: false } : conf.log)
 const redis = process.env.REDIS_URL ? new Redis(process.env.REDIS_URL) : null
 initCache(redis)
 initGelbooruClient(conf.server.cache)
+initDanbooruClient(conf.server.cache)
 initMediaCache(conf.server.media_cache)
 
 getLogger().info({ redis: !!redis, node: process.version }, 'Starting subooru')

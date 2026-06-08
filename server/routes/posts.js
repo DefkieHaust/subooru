@@ -13,6 +13,11 @@ router.get('/', async (req, res) => {
     }
 
     const conf = req.app.locals.conf.server
+    const sources = conf.sources && conf.sources.length ? conf.sources : ['gelbooru', 'danbooru']
+    if (sources.length === 0) {
+      return res.status(503).json({ error: 'no sources enabled' })
+    }
+
     const userTags = [].concat(req.query.q || []).filter(Boolean)
 
     const filteredTags = userTags.filter(t => {
@@ -27,9 +32,12 @@ router.get('/', async (req, res) => {
     ]
     const tags = allTags.join(' ')
 
-    const target = req.query.source || conf.primary_source || 'gelbooru'
+    const explicitSource = req.query.source
+    const orderedSources = explicitSource && sources.includes(explicitSource)
+      ? [explicitSource, ...sources.filter(s => s !== explicitSource)]
+      : sources
 
-    const { data, source } = await withSourceFallback(target, (source) => {
+    const { data, source } = await withSourceFallback(orderedSources, (source) => {
       if (source === 'danbooru') return danbooruListPosts(tags, page)
       return gelbooruListPosts(tags, page)
     })

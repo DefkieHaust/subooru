@@ -11,7 +11,7 @@ export default function PostCard({ post, settings, onToggleBlacklist, onToggleFa
     ? [post.sample_url, post.thumbnail_url, post.image_url]
     : [post.thumbnail_url, post.sample_url, post.image_url]
   ).filter(Boolean)
-  const sources = getProxyThumbnails() ? rawSources.flatMap(u => mediaProxyUrls(u)) : rawSources
+  const sources = getProxyThumbnails() ? rawSources.flatMap(u => mediaProxyUrls(u, post.source)) : rawSources
   const [srcIndex, setSrcIndex] = useState(0)
   const [loaded, setLoaded] = useState(false)
   const isFav = settings.favorites.some(p => p.id === post.id)

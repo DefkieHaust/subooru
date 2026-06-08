@@ -8,7 +8,7 @@ Proxy booru client for [Gelbooru](https://gelbooru.com/) and [Danbooru](https://
 - [Yarn](https://yarnpkg.com/) 1.x
 - (Optional) [Docker](https://docker.com/) + [Docker Compose](https://docs.docker.com/compose/) for deployment
 - A Gelbooru account for API credentials (required; `dapi` endpoints won't work without it)
-- (Optional) A Danbooru account for API credentials (needed only if `primary_source` is `"danbooru"` or as fallback)
+- (Optional) A Danbooru account for API credentials (needed only if `"danbooru"` is in the `sources` array)
 
 ## Quick Start
 
@@ -227,15 +227,15 @@ All configuration lives in `conf.json` (gitignored). `conf.json.example` is the 
 
 Backend: Redis if `REDIS_URL` is set, otherwise in-memory `Map`.
 
-### `server.primary_source`
+### `server.sources`
 
 ```json
-"primary_source": "gelbooru"
+"sources": ["gelbooru", "danbooru"]
 ```
 
 | Field | Type | Default | Description |
 |---|---|---|---|
-| `primary_source` | string | `"gelbooru"` | Which source to try first. Options: `"gelbooru"`, `"danbooru"`. On failure, the server automatically falls back to the other source. The client can override per-request via `?source=` query param (stored in localStorage). |
+| `sources` | string[] | `["gelbooru", "danbooru"]` | Ordered list of enabled sources. The first entry is tried first; on failure the next is used as fallback. Entries can be removed to disable a source. Empty array results in `503 No sources enabled` on all API routes. The client can override per-request via `?source=` query param (stored in localStorage). |
 
 ### `server.media_cache`
 
@@ -376,7 +376,7 @@ Set the Worker URL in `conf.json.client`:
 
 | Route | Description | Rate limit (default) |
 |---|---|---|
-| `GET /api/posts?page=&q=&source=` | Search posts (100 per page). Optional `source` overrides configured `primary_source` | 30/min |
+| `GET /api/posts?page=&q=&source=` | Search posts (100 per page). Optional `source` overrides the configured `sources` order | 30/min |
 | `GET /api/tags?t=&source=` | Lookup tags by name | 15/min |
 | `GET /api/tags/search?q=&source=` | Autocomplete tags | 30/min |
 | `GET /api/media?url=` | Proxy media from booru CDN (with S3 caching) | 60/min |

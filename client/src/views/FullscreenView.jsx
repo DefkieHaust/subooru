@@ -30,12 +30,12 @@ export default function FullscreenView({ post, onClose, settings, onToggleFavori
     }
   }, [handleKey])
 
-  const videoSources = video ? mediaProxyUrls(post.image_url) : []
+  const videoSources = video ? mediaProxyUrls(post.image_url, post.source) : []
   const imageSources = video
     ? []
     : [post.image_url, post.sample_url, post.thumbnail_url]
         .filter(Boolean)
-        .flatMap(u => mediaProxyUrls(u))
+        .flatMap(u => mediaProxyUrls(u, post.source))
 
   const [videoSrcIndex, setVideoSrcIndex] = useState(0)
   const [fallbackIndex, setFallbackIndex] = useState(0)
@@ -77,7 +77,7 @@ export default function FullscreenView({ post, onClose, settings, onToggleFavori
   }
 
   const posterRaw = post.thumbnail_url || ''
-  const posterUrl = video ? (getProxyThumbnails() && posterRaw ? mediaProxyUrls(posterRaw)[0] : posterRaw) : undefined
+  const posterUrl = video ? (getProxyThumbnails() && posterRaw ? mediaProxyUrls(posterRaw, post.source)[0] : posterRaw) : undefined
 
   return (
     <div

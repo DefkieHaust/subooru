@@ -54,6 +54,7 @@ export async function fetchDanbooru(pathname, params) {
   const query = new URLSearchParams(params)
   const url = `${DANBOORU_API}${pathname}?${query}`
   const headers = {
+    'User-Agent': 'subooru/0.1.0',
     ...authHeaders(),
     ...(pathname === '/autocomplete.json' ? { Accept: 'application/json' } : {})
   }
@@ -76,13 +77,23 @@ export async function fetchDanbooru(pathname, params) {
 }
 
 export async function listPosts(tags, page) {
+  const allTags = tags.split(' ').filter(Boolean)
+  const positiveTags = allTags.filter(t => !t.startsWith('-'))
+  const excludeTags = allTags.filter(t => t.startsWith('-')).map(t => t.slice(1))
+
+  const nonMetaTags = positiveTags.filter(t => !t.includes(':'))
+  const queryTags = nonMetaTags.length > 2
+    ? [...positiveTags.filter(t => t.includes(':')), ...nonMetaTags.slice(0, 2)]
+    : positiveTags
+
   const { data } = await fetchDanbooru('/posts.json', {
-    tags,
+    tags: queryTags.join(' '),
+    ...(excludeTags.length ? { 'exclude_tags': excludeTags.join(',') } : {}),
     page: String(page),
     limit: '100'
   })
 
-  const countTags = tags.split(' ').filter(t => !t.startsWith('-')).join(' ')
+  const countTags = queryTags.join(' ')
   let totalCount
   try {
     const { data: countData } = await fetchDanbooru('/counts/posts.json', { tags: countTags })
@@ -122,7 +133,7 @@ export async function listTags(names) {
 
   return (data || []).filter(t => t.name).map(t => ({
     name: t.name,
-    type: TAG_TYPE_MAP[t.type] || 'unknown',
+    type: TAG_TYPE_MAP[t.category] || 'general',
     count: t.post_count || 0
   }))
 }

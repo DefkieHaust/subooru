@@ -1,10 +1,6 @@
 import { getLogger } from './logger.js'
 
-export async function withSourceFallback(primarySource, fetchFn) {
-  const sources = [
-    primarySource,
-    primarySource === 'gelbooru' ? 'danbooru' : 'gelbooru'
-  ]
+export async function withSourceFallback(sources, fetchFn) {
   let lastError
   for (const source of sources) {
     try {

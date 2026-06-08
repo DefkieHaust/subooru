@@ -18,8 +18,9 @@ describe('GET /api/config', () => {
     expect(typeof res.body.server_proxy).toBe('boolean')
   })
 
-  it('returns primary_source field', async () => {
+  it('returns sources array', async () => {
     const res = await supertest(app).get('/api/config')
-    expect(res.body).toHaveProperty('primary_source')
+    expect(Array.isArray(res.body.sources)).toBe(true)
+    expect(res.body.sources.length).toBeGreaterThan(0)
   })
 })

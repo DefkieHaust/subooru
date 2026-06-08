@@ -21,7 +21,7 @@ export default function FavoritesModal({ show, onClose, favorites, onToggleFavor
                   <div className="card bg-secondary border-0 h-100" style={{ cursor: 'pointer' }} onClick={() => onOpenFullscreen(p)}>
                     <div className="position-relative">
                       <img
-                        src={getProxyThumbnails() ? mediaProxyUrls(p.thumbnail_url)[0] : p.thumbnail_url}
+                        src={getProxyThumbnails() ? mediaProxyUrls(p.thumbnail_url, p.source)[0] : p.thumbnail_url}
                         alt=""
                         className="card-img-top"
                         style={{ objectFit: 'cover', height: '120px', width: '100%' }}

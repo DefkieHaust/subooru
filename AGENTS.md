@@ -106,7 +106,7 @@ No test, lint, or typecheck tooling exists. Node 22+ required.
 ## Danbooru API support
 
 ### Source selection
-- `conf.json.server.primary_source` — `"gelbooru"` or `"danbooru"` (default `"gelbooru"`). Determines which source is tried first when no `?source=` param is given.
+- `conf.json.server.sources` — ordered array `["gelbooru", "danbooru"]`. First entry is primary; subsequent entries are fallbacks in order. Remove entries to disable sources.
 - Client setting in sidebar → localStorage → passed as `?source=` query param on every API call.
 - Both sources share the same `include`/`blacklist` config.
 

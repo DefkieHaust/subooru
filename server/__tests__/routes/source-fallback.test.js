@@ -2,8 +2,8 @@ import { describe, it, expect } from 'vitest'
 import { withSourceFallback } from '../../source-fallback.js'
 
 describe('withSourceFallback', () => {
-  it('returns data from primary source on success', async () => {
-    const result = await withSourceFallback('gelbooru', (s) =>
+  it('returns data from first source on success', async () => {
+    const result = await withSourceFallback(['gelbooru', 'danbooru'], (s) =>
       Promise.resolve({ items: [1] })
     )
 
@@ -13,8 +13,8 @@ describe('withSourceFallback', () => {
     })
   })
 
-  it('falls back to secondary when primary fails', async () => {
-    const result = await withSourceFallback('gelbooru', (s) =>
+  it('falls back to next source when first fails', async () => {
+    const result = await withSourceFallback(['gelbooru', 'danbooru'], (s) =>
       s === 'gelbooru'
         ? Promise.reject(new Error('fail'))
         : Promise.resolve({ items: [2] })
@@ -26,16 +26,16 @@ describe('withSourceFallback', () => {
     })
   })
 
-  it('throws when both sources fail', async () => {
-    const promise = withSourceFallback('gelbooru', (s) =>
+  it('throws when all sources fail', async () => {
+    const promise = withSourceFallback(['gelbooru', 'danbooru'], (s) =>
       Promise.reject(new Error('fail'))
     )
 
     await expect(promise).rejects.toThrow('fail')
   })
 
-  it('works in reverse (primary danbooru falls back to gelbooru)', async () => {
-    const result = await withSourceFallback('danbooru', (s) =>
+  it('respects array order (danbooru first falls back to gelbooru)', async () => {
+    const result = await withSourceFallback(['danbooru', 'gelbooru'], (s) =>
       s === 'danbooru'
         ? Promise.reject(new Error('fail'))
         : Promise.resolve({ items: [3] })
@@ -45,5 +45,24 @@ describe('withSourceFallback', () => {
       data: { items: [3] },
       source: 'gelbooru'
     })
+  })
+
+  it('works with single source in array', async () => {
+    const result = await withSourceFallback(['gelbooru'], (s) =>
+      Promise.resolve({ items: [4] })
+    )
+
+    expect(result).toEqual({
+      data: { items: [4] },
+      source: 'gelbooru'
+    })
+  })
+
+  it('throws when single source fails', async () => {
+    const promise = withSourceFallback(['danbooru'], (s) =>
+      Promise.reject(new Error('fail'))
+    )
+
+    await expect(promise).rejects.toThrow('fail')
   })
 })

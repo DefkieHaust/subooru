@@ -19,9 +19,17 @@ router.get('/', async (req, res) => {
     }
 
     const conf = req.app.locals.conf.server
-    const source = req.query.source || conf.primary_source || 'gelbooru'
+    const sources = conf.sources && conf.sources.length ? conf.sources : ['gelbooru', 'danbooru']
+    if (sources.length === 0) {
+      return res.status(503).json({ error: 'no sources enabled' })
+    }
 
-    const { data } = await withSourceFallback(source, (src) => {
+    const explicitSource = req.query.source
+    const orderedSources = explicitSource && sources.includes(explicitSource)
+      ? [explicitSource, ...sources.filter(s => s !== explicitSource)]
+      : sources
+
+    const { data } = await withSourceFallback(orderedSources, (src) => {
       if (src === 'danbooru') return danbooruListTags(names.join(' '))
       return gelbooruListTags(names.join(' '))
     })
@@ -40,9 +48,17 @@ router.get('/search', async (req, res) => {
     }
 
     const conf = req.app.locals.conf.server
-    const source = req.query.source || conf.primary_source || 'gelbooru'
+    const sources = conf.sources && conf.sources.length ? conf.sources : ['gelbooru', 'danbooru']
+    if (sources.length === 0) {
+      return res.status(503).json({ error: 'no sources enabled' })
+    }
 
-    const { data } = await withSourceFallback(source, (src) => {
+    const explicitSource = req.query.source
+    const orderedSources = explicitSource && sources.includes(explicitSource)
+      ? [explicitSource, ...sources.filter(s => s !== explicitSource)]
+      : sources
+
+    const { data } = await withSourceFallback(orderedSources, (src) => {
       if (src === 'danbooru') return danbooruSearchTags(query)
       return gelbooruSearchTags(query, conf.metatags)
     })

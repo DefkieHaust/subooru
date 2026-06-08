@@ -48,10 +48,10 @@ export function getProxyThumbnails() {
   return _proxyThumbnails
 }
 
-export function mediaProxyUrls(url) {
-  const server = `/api/media?url=${encodeURIComponent(url)}`
+export function mediaProxyUrls(url, source) {
+  const server = `/api/media?url=${encodeURIComponent(url)}${source ? `&source=${source}` : ''}`
   if (_workerBase) {
-    const worker = `${_workerBase}?url=${encodeURIComponent(url)}`
+    const worker = `${_workerBase}?url=${encodeURIComponent(url)}${source ? `&source=${source}` : ''}`
     return _serverProxy ? [worker, server] : [worker]
   }
   return _serverProxy ? [server] : []

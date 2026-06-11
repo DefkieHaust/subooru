@@ -8,6 +8,34 @@
         "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
       },
       "enabled": true
+    },
+    "fetch": {
+      "type": "local",
+      "command": [
+        "uvx",
+        "mcp-server-fetch",
+        "--ignore-robots-txt"
+      ],
+      "enabled": true
+    },
+    "sequential-thinking": {
+      "type": "local",
+      "command": [
+	"npx",
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ],
+      "enabled": false
+    },
+    "filesystem": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "."
+      ],
+      "enabled": true
     }
   },
   "command": {

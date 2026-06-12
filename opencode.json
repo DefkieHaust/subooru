@@ -37,13 +37,6 @@
       ],
       "enabled": true
     }
-  },
-  "command": {
-    "commit": {
-      "description": "Review staged changes, generate a conventional commit message, and commit.",
-      "agent": "build",
-      "template": "Review the current state of our Git repository and assist with creating a clean commit. Follow these steps sequentially:\n\n1. First, check what files are currently staged:\n!`git status`\n\n2. Next, review the exact changes in the staged files:\n!`git diff --staged`\n\n3. Look at the last few commits to understand the repository's messaging style and context:\n!`git log --oneline -5`\n\n4. Analyze the diff and formulate a concise, professional commit message. Follow the Conventional Commits specification (e.g., `feat(scope): ...`, `fix(scope): ...`). Focus heavily on *why* the change was made, not just *what* changed.\n\n5. Present the proposed commit message to the user clearly.\n\n6. IMPORTANT: You must ask the user for explicit confirmation before committing. If they approve, use your terminal tool to run `git commit -m \"<your message>\"`. If they ask for adjustments, update the message and ask again."
-    }
   }
 }
 

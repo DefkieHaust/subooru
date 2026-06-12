@@ -89,7 +89,7 @@ On first startup, the app auto-creates the S3 bucket (`subooru-media` by default
 ### 3. Update
 
 ```sh
-make build           # rebuild with latest base images, tag with git hash
+make rebuild         # rebuild with latest base images, tag with git hash, restart containers
 # or:
 docker compose build --pull   # rebuild with latest base images
 docker compose up -d          # restart

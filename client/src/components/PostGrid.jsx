@@ -48,7 +48,7 @@ export default function PostGrid({ posts, settings, onToggleBlacklist, onToggleF
   }, [posts, containerWidth, settings, blacklistedTags])
 
   return (
-    <div className="d-flex gap-1" ref={containerRef}>
+    <div className="d-flex gap-1" ref={containerRef} style={{ marginBottom: '48px' }}>
       {columns.map((col, i) => (
         <div className="d-flex flex-column flex-grow-1 gap-1" key={i}>
           {col.posts.map(p => (

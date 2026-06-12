@@ -144,23 +144,24 @@ export async function searchTags(query, metatags = []) {
     'search[type]': 'tag'
   })
 
-  const results = (data || []).map(t => ({
+  const sourceResults = (data || []).map(t => ({
     name: t.value,
     type: TAG_TYPE_MAP[t.category] || 'general',
     count: t.post_count || 0
   }))
 
   const lower = query.toLowerCase()
+  const metaResults = []
   for (const { prefix, tags } of metatags) {
     if (lower.startsWith(prefix)) {
       const suffix = lower.slice(prefix.length)
       for (const tag of tags) {
         if (tag.toLowerCase().includes(suffix)) {
-          results.push({ name: tag, type: 'metadata', count: 0 })
+          metaResults.push({ name: tag, type: 'metadata', count: 0 })
         }
       }
     }
   }
 
-  return results
+  return [...metaResults, ...sourceResults]
 }

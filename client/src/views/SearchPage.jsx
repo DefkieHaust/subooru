@@ -148,16 +148,14 @@ export default function SearchPage({ query, onQueryChange, settings, onToggleBla
 
   return (
     <>
-      <div style={{ paddingBottom: '48px' }}>
-        <PostGrid
-          posts={posts}
-          settings={settings}
-          onToggleBlacklist={onToggleBlacklist}
-          onToggleFavorite={onToggleFavorite}
-          onOpenFullscreen={onOpenFullscreen}
-          blacklistedTags={blacklistedNames}
-        />
-      </div>
+      <PostGrid
+        posts={posts}
+        settings={settings}
+        onToggleBlacklist={onToggleBlacklist}
+        onToggleFavorite={onToggleFavorite}
+        onOpenFullscreen={onOpenFullscreen}
+        blacklistedTags={blacklistedNames}
+      />
 
       <div
         className="d-flex justify-content-between align-items-center px-3"

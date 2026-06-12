@@ -69,8 +69,12 @@ cp .env.prod.example .env.prod              # add API keys
 ### 2. Start
 
 ```sh
-docker compose up -d
+make up              # builds (if needed) and starts containers
+# or:
+docker compose up -d # skip Makefile, just start
 ```
+
+Images are tagged with the short git commit hash (e.g. `subooru:abc1234`) and also aliased as `subooru:latest`. The commit hash is baked into the image and exposed via `GIT_COMMIT` at runtime — logged at startup and available on `GET /api/config`.
 
 This starts three containers:
 
@@ -85,6 +89,8 @@ On first startup, the app auto-creates the S3 bucket (`subooru-media` by default
 ### 3. Update
 
 ```sh
+make build           # rebuild with latest base images, tag with git hash
+# or:
 docker compose build --pull   # rebuild with latest base images
 docker compose up -d          # restart
 ```
@@ -92,6 +98,8 @@ docker compose up -d          # restart
 ### 4. Stop
 
 ```sh
+make down            # stops containers, preserves volumes
+# or:
 docker compose down           # stops containers, preserves volumes
 docker compose down -v        # stops and deletes volumes (cache wiped)
 ```

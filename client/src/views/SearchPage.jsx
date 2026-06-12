@@ -111,7 +111,8 @@ export default function SearchPage({ query, onQueryChange, settings, onToggleBla
   }, [query, navigate])
 
   const blacklistedNames = (settings.blacklist || []).map(t => t.name)
-  const maxPage = totalCount > 0 ? Math.ceil(totalCount / 100) : 0
+  const countPerPage = 100
+  const maxPage = totalCount > 0 ? Math.ceil(totalCount / countPerPage) : null
 
   if (pageParam === undefined) {
     return (
@@ -137,7 +138,7 @@ export default function SearchPage({ query, onQueryChange, settings, onToggleBla
     )
   }
 
-  if (totalCount === 0) {
+  if (!totalCount && posts.length === 0) {
     return (
       <div className="d-flex align-items-center justify-content-center text-light" style={{ height: '200px' }}>
         No results found
@@ -170,7 +171,7 @@ export default function SearchPage({ query, onQueryChange, settings, onToggleBla
         }}
       >
         <span className="text-light small">
-          {totalCount > 0 ? `${totalCount.toLocaleString()} posts` : ''}
+          {totalCount > 0 ? `${totalCount.toLocaleString()} posts` : posts.length > 0 ? `${posts.length} posts` : ''}
         </span>
         <div className="d-flex align-items-center gap-2">
           <button
@@ -181,11 +182,11 @@ export default function SearchPage({ query, onQueryChange, settings, onToggleBla
             Prev
           </button>
           <span className="text-light small">
-            Page {currentPage}{maxPage > 0 ? ` / ${Math.min(maxPage, 200)}` : ''}
+            Page {currentPage}{maxPage != null ? ` / ${Math.min(maxPage, 200)}` : ''}
           </span>
           <button
             className="btn btn-sm btn-outline-light"
-            disabled={currentPage >= maxPage || currentPage >= 200 || loading}
+            disabled={(maxPage != null && currentPage >= maxPage) || currentPage >= 200 || loading}
             onClick={() => handlePageChange(currentPage + 1)}
           >
             Next

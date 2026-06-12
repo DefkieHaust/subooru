@@ -138,15 +138,29 @@ export async function listTags(names) {
   }))
 }
 
-export async function searchTags(query) {
+export async function searchTags(query, metatags = []) {
   const { data } = await fetchDanbooru('/autocomplete.json', {
     'search[query]': query,
     'search[type]': 'tag'
   })
 
-  return (data || []).map(t => ({
+  const results = (data || []).map(t => ({
     name: t.value,
     type: TAG_TYPE_MAP[t.category] || 'general',
     count: t.post_count || 0
   }))
+
+  const lower = query.toLowerCase()
+  for (const { prefix, tags } of metatags) {
+    if (lower.startsWith(prefix)) {
+      const suffix = lower.slice(prefix.length)
+      for (const tag of tags) {
+        if (tag.toLowerCase().includes(suffix)) {
+          results.push({ name: tag, type: 'metadata', count: 0 })
+        }
+      }
+    }
+  }
+
+  return results
 }

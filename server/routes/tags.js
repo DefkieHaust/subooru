@@ -59,7 +59,7 @@ router.get('/search', async (req, res) => {
       : sources
 
     const { data } = await withSourceFallback(orderedSources, (src) => {
-      if (src === 'danbooru') return danbooruSearchTags(query)
+      if (src === 'danbooru') return danbooruSearchTags(query, conf.metatags)
       return gelbooruSearchTags(query, conf.metatags)
     })
     res.json({ results: data })

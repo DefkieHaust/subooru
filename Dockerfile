@@ -1,3 +1,5 @@
+ARG GIT_COMMIT=unknown
+
 FROM node:22-alpine AS builder
 WORKDIR /app
 COPY client/package.json client/yarn.lock ./client/
@@ -6,6 +8,8 @@ COPY client/ ./client/
 RUN cd client && yarn build
 
 FROM node:22-alpine AS runner
+ARG GIT_COMMIT
+ENV GIT_COMMIT=${GIT_COMMIT}
 WORKDIR /app
 COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile --production

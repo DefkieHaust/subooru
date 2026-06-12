@@ -11,7 +11,8 @@ router.get('/', (req, res) => {
     blacklist: c.blacklist,
     worker_base: c.worker_base || null,
     server_proxy: c.server_proxy !== false,
-    proxy_thumbnails: c.proxy_thumbnails === true
+    proxy_thumbnails: c.proxy_thumbnails === true,
+    git_commit: process.env.GIT_COMMIT || null
   })
 })
 

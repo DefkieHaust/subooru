@@ -157,6 +157,8 @@ export default function SearchPage({ query, onQueryChange, settings, onToggleBla
         blacklistedTags={blacklistedNames}
       />
 
+      <div style={{ height: '96px' }} />
+
       <div
         className="d-flex justify-content-between align-items-center px-3"
         style={{

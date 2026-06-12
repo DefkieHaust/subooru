@@ -277,44 +277,14 @@
   },
   "nodes": [
     {
-      "label": "index.js",
-      "file_type": "code",
-      "source_file": "server/index.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "server_index",
-      "community": 0,
-      "norm_label": "index.js"
-    },
-    {
-      "label": "config.js",
-      "file_type": "code",
-      "source_file": "server/routes/config.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "routes_config",
-      "community": 0,
-      "norm_label": "config.js"
-    },
-    {
-      "label": "router",
-      "file_type": "code",
-      "source_file": "server/routes/config.js",
-      "source_location": "L3",
-      "_origin": "ast",
-      "id": "routes_config_router",
-      "community": 0,
-      "norm_label": "router"
-    },
-    {
       "label": "opencode.json",
       "file_type": "code",
       "source_file": ".opencode/opencode.json",
       "source_location": "L1",
       "_origin": "ast",
+      "id": "opencode_opencode",
       "community": 21,
-      "norm_label": "opencode.json",
-      "id": "opencode_opencode"
+      "norm_label": "opencode.json"
     },
     {
       "label": "$schema",
@@ -322,9 +292,9 @@
       "source_file": ".opencode/opencode.json",
       "source_location": "L2",
       "_origin": "ast",
+      "id": "opencode_opencode_schema",
       "community": 21,
-      "norm_label": "$schema",
-      "id": "opencode_opencode_schema"
+      "norm_label": "$schema"
     },
     {
       "label": "plugin",
@@ -332,9 +302,619 @@
       "source_file": ".opencode/opencode.json",
       "source_location": "L3",
       "_origin": "ast",
+      "id": "opencode_opencode_plugin",
       "community": 21,
-      "norm_label": "plugin",
-      "id": "opencode_opencode_plugin"
+      "norm_label": "plugin"
+    },
+    {
+      "label": "graphify.js",
+      "file_type": "code",
+      "source_file": ".opencode/plugins/graphify.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "plugins_graphify",
+      "community": 25,
+      "norm_label": "graphify.js"
+    },
+    {
+      "label": "GraphifyPlugin()",
+      "file_type": "code",
+      "source_file": ".opencode/plugins/graphify.js",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "plugins_graphify_graphifyplugin",
+      "community": 25,
+      "norm_label": "graphifyplugin()"
+    },
+    {
+      "label": "SKILL.md",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "graphify_skill",
+      "community": 4,
+      "norm_label": "skill.md"
+    },
+    {
+      "label": "/graphify",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "graphify_skill_graphify",
+      "community": 4,
+      "norm_label": "/graphify"
+    },
+    {
+      "label": "Usage",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "graphify_skill_usage",
+      "community": 4,
+      "norm_label": "usage"
+    },
+    {
+      "label": "What graphify is for",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "graphify_skill_what_graphify_is_for",
+      "community": 4,
+      "norm_label": "what graphify is for"
+    },
+    {
+      "label": "What You Must Do When Invoked",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L47",
+      "_origin": "ast",
+      "id": "graphify_skill_what_you_must_do_when_invoked",
+      "community": 4,
+      "norm_label": "what you must do when invoked"
+    },
+    {
+      "label": "Step 0 - GitHub repos and multi-path merge (only if a URL or several paths)",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L59",
+      "_origin": "ast",
+      "id": "graphify_skill_step_0_github_repos_and_multi_path_merge_only_if_a_url_or_several_paths",
+      "community": 4,
+      "norm_label": "step 0 - github repos and multi-path merge (only if a url or several paths)"
+    },
+    {
+      "label": "Step 1 - Ensure graphify is installed",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L63",
+      "_origin": "ast",
+      "id": "graphify_skill_step_1_ensure_graphify_is_installed",
+      "community": 4,
+      "norm_label": "step 1 - ensure graphify is installed"
+    },
+    {
+      "label": "Step 2 - Detect files",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L105",
+      "_origin": "ast",
+      "id": "graphify_skill_step_2_detect_files",
+      "community": 4,
+      "norm_label": "step 2 - detect files"
+    },
+    {
+      "label": "Step 2.5 - Video and audio (only if video files detected)",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L142",
+      "_origin": "ast",
+      "id": "graphify_skill_step_2_5_video_and_audio_only_if_video_files_detected",
+      "community": 4,
+      "norm_label": "step 2.5 - video and audio (only if video files detected)"
+    },
+    {
+      "label": "Step 3 - Extract entities and relationships",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L146",
+      "_origin": "ast",
+      "id": "graphify_skill_step_3_extract_entities_and_relationships",
+      "community": 4,
+      "norm_label": "step 3 - extract entities and relationships"
+    },
+    {
+      "label": "Part A - Structural extraction for code files",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L163",
+      "_origin": "ast",
+      "id": "graphify_skill_part_a_structural_extraction_for_code_files",
+      "community": 4,
+      "norm_label": "part a - structural extraction for code files"
+    },
+    {
+      "label": "Part B - Semantic extraction (parallel subagents)",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L189",
+      "_origin": "ast",
+      "id": "graphify_skill_part_b_semantic_extraction_parallel_subagents",
+      "community": 4,
+      "norm_label": "part b - semantic extraction (parallel subagents)"
+    },
+    {
+      "label": "Part C - Merge AST + semantic into final extraction",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L326",
+      "_origin": "ast",
+      "id": "graphify_skill_part_c_merge_ast_semantic_into_final_extraction",
+      "community": 4,
+      "norm_label": "part c - merge ast + semantic into final extraction"
+    },
+    {
+      "label": "Step 4 - Build graph, cluster, analyze, generate outputs",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L360",
+      "_origin": "ast",
+      "id": "graphify_skill_step_4_build_graph_cluster_analyze_generate_outputs",
+      "community": 4,
+      "norm_label": "step 4 - build graph, cluster, analyze, generate outputs"
+    },
+    {
+      "label": "Step 5 - Label communities",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L412",
+      "_origin": "ast",
+      "id": "graphify_skill_step_5_label_communities",
+      "community": 4,
+      "norm_label": "step 5 - label communities"
+    },
+    {
+      "label": "Step 6 - Generate Obsidian vault (opt-in) + HTML",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L452",
+      "_origin": "ast",
+      "id": "graphify_skill_step_6_generate_obsidian_vault_opt_in_html",
+      "community": 4,
+      "norm_label": "step 6 - generate obsidian vault (opt-in) + html"
+    },
+    {
+      "label": "Steps 6b-8 - Wiki, Neo4j, SVG, GraphML, MCP, benchmark (only on their flags)",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L472",
+      "_origin": "ast",
+      "id": "graphify_skill_steps_6b_8_wiki_neo4j_svg_graphml_mcp_benchmark_only_on_their_flags",
+      "community": 4,
+      "norm_label": "steps 6b-8 - wiki, neo4j, svg, graphml, mcp, benchmark (only on their flags)"
+    },
+    {
+      "label": "Step 9 - Save manifest, update cost tracker, clean up, and report",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L478",
+      "_origin": "ast",
+      "id": "graphify_skill_step_9_save_manifest_update_cost_tracker_clean_up_and_report",
+      "community": 4,
+      "norm_label": "step 9 - save manifest, update cost tracker, clean up, and report"
+    },
+    {
+      "label": "Interpreter guard for subcommands",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L553",
+      "_origin": "ast",
+      "id": "graphify_skill_interpreter_guard_for_subcommands",
+      "community": 4,
+      "norm_label": "interpreter guard for subcommands"
+    },
+    {
+      "label": "For --update and --cluster-only",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L571",
+      "_origin": "ast",
+      "id": "graphify_skill_for_update_and_cluster_only",
+      "community": 4,
+      "norm_label": "for --update and --cluster-only"
+    },
+    {
+      "label": "For /graphify query",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L577",
+      "_origin": "ast",
+      "id": "graphify_skill_for_graphify_query",
+      "community": 4,
+      "norm_label": "for /graphify query"
+    },
+    {
+      "label": "For /graphify add and --watch",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L589",
+      "_origin": "ast",
+      "id": "graphify_skill_for_graphify_add_and_watch",
+      "community": 4,
+      "norm_label": "for /graphify add and --watch"
+    },
+    {
+      "label": "For the commit hook and native CLAUDE.md integration",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L595",
+      "_origin": "ast",
+      "id": "graphify_skill_for_the_commit_hook_and_native_claude_md_integration",
+      "community": 4,
+      "norm_label": "for the commit hook and native claude.md integration"
+    },
+    {
+      "label": "Honesty Rules",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L601",
+      "_origin": "ast",
+      "id": "graphify_skill_honesty_rules",
+      "community": 4,
+      "norm_label": "honesty rules"
+    },
+    {
+      "label": "add-watch.md",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/references/add-watch.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "references_add_watch",
+      "community": 94,
+      "norm_label": "add-watch.md"
+    },
+    {
+      "label": "graphify reference: add a URL and watch a folder",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/references/add-watch.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "references_add_watch_graphify_reference_add_a_url_and_watch_a_folder",
+      "community": 94,
+      "norm_label": "graphify reference: add a url and watch a folder"
+    },
+    {
+      "label": "For /graphify add",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/references/add-watch.md",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "references_add_watch_for_graphify_add",
+      "community": 94,
+      "norm_label": "for /graphify add"
+    },
+    {
+      "label": "For --watch",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/references/add-watch.md",
+      "source_location": "L39",
+      "_origin": "ast",
+      "id": "references_add_watch_for_watch",
+      "community": 94,
+      "norm_label": "for --watch"
+    },
+    {
+      "label": "exports.md",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/references/exports.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "references_exports",
+      "community": 86,
+      "norm_label": "exports.md"
+    },
+    {
+      "label": "graphify reference: extra exports and benchmark",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/references/exports.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "references_exports_graphify_reference_extra_exports_and_benchmark",
+      "community": 86,
+      "norm_label": "graphify reference: extra exports and benchmark"
+    },
+    {
+      "label": "Step 6b - Wiki (only if --wiki flag)",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/references/exports.md",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "references_exports_step_6b_wiki_only_if_wiki_flag",
+      "community": 86,
+      "norm_label": "step 6b - wiki (only if --wiki flag)"
+    },
+    {
+      "label": "Step 7 - Neo4j export (only if --neo4j or --neo4j-push flag)",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/references/exports.md",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "references_exports_step_7_neo4j_export_only_if_neo4j_or_neo4j_push_flag",
+      "community": 86,
+      "norm_label": "step 7 - neo4j export (only if --neo4j or --neo4j-push flag)"
+    },
+    {
+      "label": "Step 7b - SVG export (only if --svg flag)",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/references/exports.md",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "references_exports_step_7b_svg_export_only_if_svg_flag",
+      "community": 86,
+      "norm_label": "step 7b - svg export (only if --svg flag)"
+    },
+    {
+      "label": "Step 7c - GraphML export (only if --graphml flag)",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/references/exports.md",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "references_exports_step_7c_graphml_export_only_if_graphml_flag",
+      "community": 86,
+      "norm_label": "step 7c - graphml export (only if --graphml flag)"
+    },
+    {
+      "label": "Step 7d - MCP server (only if --mcp flag)",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/references/exports.md",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "references_exports_step_7d_mcp_server_only_if_mcp_flag",
+      "community": 86,
+      "norm_label": "step 7d - mcp server (only if --mcp flag)"
+    },
+    {
+      "label": "Step 8 - Token reduction benchmark (only if total_words > 5000)",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/references/exports.md",
+      "source_location": "L63",
+      "_origin": "ast",
+      "id": "references_exports_step_8_token_reduction_benchmark_only_if_total_words_5000",
+      "community": 86,
+      "norm_label": "step 8 - token reduction benchmark (only if total_words > 5000)"
+    },
+    {
+      "label": "extraction-spec.md",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/references/extraction-spec.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "references_extraction_spec",
+      "community": 103,
+      "norm_label": "extraction-spec.md"
+    },
+    {
+      "label": "graphify reference: extraction subagent prompt",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/references/extraction-spec.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "references_extraction_spec_graphify_reference_extraction_subagent_prompt",
+      "community": 103,
+      "norm_label": "graphify reference: extraction subagent prompt"
+    },
+    {
+      "label": "github-and-merge.md",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/references/github-and-merge.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "references_github_and_merge",
+      "community": 100,
+      "norm_label": "github-and-merge.md"
+    },
+    {
+      "label": "graphify reference: GitHub clone and cross-repo merge",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/references/github-and-merge.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "references_github_and_merge_graphify_reference_github_clone_and_cross_repo_merge",
+      "community": 100,
+      "norm_label": "graphify reference: github clone and cross-repo merge"
+    },
+    {
+      "label": "Step 0 - Clone GitHub repo(s) (only if a GitHub URL was given)",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/references/github-and-merge.md",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "references_github_and_merge_step_0_clone_github_repo_s_only_if_a_github_url_was_given",
+      "community": 100,
+      "norm_label": "step 0 - clone github repo(s) (only if a github url was given)"
+    },
+    {
+      "label": "hooks.md",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/references/hooks.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "references_hooks",
+      "community": 95,
+      "norm_label": "hooks.md"
+    },
+    {
+      "label": "graphify reference: commit hook and native CLAUDE.md integration",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/references/hooks.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "references_hooks_graphify_reference_commit_hook_and_native_claude_md_integration",
+      "community": 95,
+      "norm_label": "graphify reference: commit hook and native claude.md integration"
+    },
+    {
+      "label": "For git commit hook",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/references/hooks.md",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "references_hooks_for_git_commit_hook",
+      "community": 95,
+      "norm_label": "for git commit hook"
+    },
+    {
+      "label": "For native CLAUDE.md integration",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/references/hooks.md",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "references_hooks_for_native_claude_md_integration",
+      "community": 95,
+      "norm_label": "for native claude.md integration"
+    },
+    {
+      "label": "query.md",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/references/query.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "references_query",
+      "community": 96,
+      "norm_label": "query.md"
+    },
+    {
+      "label": "graphify reference: query, path, explain",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/references/query.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "references_query_graphify_reference_query_path_explain",
+      "community": 96,
+      "norm_label": "graphify reference: query, path, explain"
+    },
+    {
+      "label": "For /graphify path",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/references/query.md",
+      "source_location": "L136",
+      "_origin": "ast",
+      "id": "references_query_for_graphify_path",
+      "community": 96,
+      "norm_label": "for /graphify path"
+    },
+    {
+      "label": "For /graphify explain",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/references/query.md",
+      "source_location": "L198",
+      "_origin": "ast",
+      "id": "references_query_for_graphify_explain",
+      "community": 96,
+      "norm_label": "for /graphify explain"
+    },
+    {
+      "label": "transcribe.md",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/references/transcribe.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "references_transcribe",
+      "community": 102,
+      "norm_label": "transcribe.md"
+    },
+    {
+      "label": "graphify reference: transcribe video and audio",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/references/transcribe.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "references_transcribe_graphify_reference_transcribe_video_and_audio",
+      "community": 102,
+      "norm_label": "graphify reference: transcribe video and audio"
+    },
+    {
+      "label": "Step 2.5 - Transcribe video / audio files (only if video files detected)",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/references/transcribe.md",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "references_transcribe_step_2_5_transcribe_video_audio_files_only_if_video_files_detected",
+      "community": 102,
+      "norm_label": "step 2.5 - transcribe video / audio files (only if video files detected)"
+    },
+    {
+      "label": "update.md",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/references/update.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "references_update",
+      "community": 97,
+      "norm_label": "update.md"
+    },
+    {
+      "label": "graphify reference: incremental update and cluster-only",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/references/update.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "references_update_graphify_reference_incremental_update_and_cluster_only",
+      "community": 97,
+      "norm_label": "graphify reference: incremental update and cluster-only"
+    },
+    {
+      "label": "For --update (incremental re-extraction)",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/references/update.md",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "references_update_for_update_incremental_re_extraction",
+      "community": 97,
+      "norm_label": "for --update (incremental re-extraction)"
+    },
+    {
+      "label": "For --cluster-only",
+      "file_type": "document",
+      "source_file": ".opencode/skills/graphify/references/update.md",
+      "source_location": "L171",
+      "_origin": "ast",
+      "id": "references_update_for_cluster_only",
+      "community": 97,
+      "norm_label": "for --cluster-only"
+    },
+    {
+      "label": "index.js",
+      "file_type": "code",
+      "source_file": "server/index.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "index.js",
+      "id": "server_index"
+    },
+    {
+      "label": "config.js",
+      "file_type": "code",
+      "source_file": "server/routes/config.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "config.js",
+      "id": "routes_config"
+    },
+    {
+      "label": "router",
+      "file_type": "code",
+      "source_file": "server/routes/config.js",
+      "source_location": "L3",
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "router",
+      "id": "routes_config_router"
     },
     {
       "label": "package.json",
@@ -365,26 +945,6 @@
       "community": 22,
       "norm_label": "@opencode-ai/plugin",
       "id": "opencode_package_dependencies_opencode_ai_plugin"
-    },
-    {
-      "label": "graphify.js",
-      "file_type": "code",
-      "source_file": ".opencode/plugins/graphify.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "graphify.js",
-      "id": "plugins_graphify"
-    },
-    {
-      "label": "GraphifyPlugin()",
-      "file_type": "code",
-      "source_file": ".opencode/plugins/graphify.js",
-      "source_location": "L6",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "graphifyplugin()",
-      "id": "plugins_graphify_graphifyplugin"
     },
     {
       "label": "package.json",
@@ -11477,566 +12037,6 @@
       "id": "rules_server_serialization_minimize_serialization_at_rsc_boundaries"
     },
     {
-      "label": "SKILL.md",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "skill.md",
-      "id": "graphify_skill"
-    },
-    {
-      "label": "/graphify",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L6",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "/graphify",
-      "id": "graphify_skill_graphify"
-    },
-    {
-      "label": "Usage",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L10",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "usage",
-      "id": "graphify_skill_usage"
-    },
-    {
-      "label": "What graphify is for",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L43",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "what graphify is for",
-      "id": "graphify_skill_what_graphify_is_for"
-    },
-    {
-      "label": "What You Must Do When Invoked",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L47",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "what you must do when invoked",
-      "id": "graphify_skill_what_you_must_do_when_invoked"
-    },
-    {
-      "label": "Step 0 - GitHub repos and multi-path merge (only if a URL or several paths)",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L59",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "step 0 - github repos and multi-path merge (only if a url or several paths)",
-      "id": "graphify_skill_step_0_github_repos_and_multi_path_merge_only_if_a_url_or_several_paths"
-    },
-    {
-      "label": "Step 1 - Ensure graphify is installed",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L63",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "step 1 - ensure graphify is installed",
-      "id": "graphify_skill_step_1_ensure_graphify_is_installed"
-    },
-    {
-      "label": "Step 2 - Detect files",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L105",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "step 2 - detect files",
-      "id": "graphify_skill_step_2_detect_files"
-    },
-    {
-      "label": "Step 2.5 - Video and audio (only if video files detected)",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L142",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "step 2.5 - video and audio (only if video files detected)",
-      "id": "graphify_skill_step_2_5_video_and_audio_only_if_video_files_detected"
-    },
-    {
-      "label": "Step 3 - Extract entities and relationships",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L146",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "step 3 - extract entities and relationships",
-      "id": "graphify_skill_step_3_extract_entities_and_relationships"
-    },
-    {
-      "label": "Part A - Structural extraction for code files",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L163",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "part a - structural extraction for code files",
-      "id": "graphify_skill_part_a_structural_extraction_for_code_files"
-    },
-    {
-      "label": "Part B - Semantic extraction (parallel subagents)",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L189",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "part b - semantic extraction (parallel subagents)",
-      "id": "graphify_skill_part_b_semantic_extraction_parallel_subagents"
-    },
-    {
-      "label": "Part C - Merge AST + semantic into final extraction",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L326",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "part c - merge ast + semantic into final extraction",
-      "id": "graphify_skill_part_c_merge_ast_semantic_into_final_extraction"
-    },
-    {
-      "label": "Step 4 - Build graph, cluster, analyze, generate outputs",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L360",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "step 4 - build graph, cluster, analyze, generate outputs",
-      "id": "graphify_skill_step_4_build_graph_cluster_analyze_generate_outputs"
-    },
-    {
-      "label": "Step 5 - Label communities",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L412",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "step 5 - label communities",
-      "id": "graphify_skill_step_5_label_communities"
-    },
-    {
-      "label": "Step 6 - Generate Obsidian vault (opt-in) + HTML",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L452",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "step 6 - generate obsidian vault (opt-in) + html",
-      "id": "graphify_skill_step_6_generate_obsidian_vault_opt_in_html"
-    },
-    {
-      "label": "Steps 6b-8 - Wiki, Neo4j, SVG, GraphML, MCP, benchmark (only on their flags)",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L472",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "steps 6b-8 - wiki, neo4j, svg, graphml, mcp, benchmark (only on their flags)",
-      "id": "graphify_skill_steps_6b_8_wiki_neo4j_svg_graphml_mcp_benchmark_only_on_their_flags"
-    },
-    {
-      "label": "Step 9 - Save manifest, update cost tracker, clean up, and report",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L478",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "step 9 - save manifest, update cost tracker, clean up, and report",
-      "id": "graphify_skill_step_9_save_manifest_update_cost_tracker_clean_up_and_report"
-    },
-    {
-      "label": "Interpreter guard for subcommands",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L553",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "interpreter guard for subcommands",
-      "id": "graphify_skill_interpreter_guard_for_subcommands"
-    },
-    {
-      "label": "For --update and --cluster-only",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L571",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "for --update and --cluster-only",
-      "id": "graphify_skill_for_update_and_cluster_only"
-    },
-    {
-      "label": "For /graphify query",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L577",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "for /graphify query",
-      "id": "graphify_skill_for_graphify_query"
-    },
-    {
-      "label": "For /graphify add and --watch",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L589",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "for /graphify add and --watch",
-      "id": "graphify_skill_for_graphify_add_and_watch"
-    },
-    {
-      "label": "For the commit hook and native CLAUDE.md integration",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L595",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "for the commit hook and native claude.md integration",
-      "id": "graphify_skill_for_the_commit_hook_and_native_claude_md_integration"
-    },
-    {
-      "label": "Honesty Rules",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L601",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "honesty rules",
-      "id": "graphify_skill_honesty_rules"
-    },
-    {
-      "label": "add-watch.md",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/references/add-watch.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 94,
-      "norm_label": "add-watch.md",
-      "id": "references_add_watch"
-    },
-    {
-      "label": "graphify reference: add a URL and watch a folder",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/references/add-watch.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 94,
-      "norm_label": "graphify reference: add a url and watch a folder",
-      "id": "references_add_watch_graphify_reference_add_a_url_and_watch_a_folder"
-    },
-    {
-      "label": "For /graphify add",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/references/add-watch.md",
-      "source_location": "L5",
-      "_origin": "ast",
-      "community": 94,
-      "norm_label": "for /graphify add",
-      "id": "references_add_watch_for_graphify_add"
-    },
-    {
-      "label": "For --watch",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/references/add-watch.md",
-      "source_location": "L39",
-      "_origin": "ast",
-      "community": 94,
-      "norm_label": "for --watch",
-      "id": "references_add_watch_for_watch"
-    },
-    {
-      "label": "exports.md",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/references/exports.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 86,
-      "norm_label": "exports.md",
-      "id": "references_exports"
-    },
-    {
-      "label": "graphify reference: extra exports and benchmark",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/references/exports.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 86,
-      "norm_label": "graphify reference: extra exports and benchmark",
-      "id": "references_exports_graphify_reference_extra_exports_and_benchmark"
-    },
-    {
-      "label": "Step 6b - Wiki (only if --wiki flag)",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/references/exports.md",
-      "source_location": "L5",
-      "_origin": "ast",
-      "community": 86,
-      "norm_label": "step 6b - wiki (only if --wiki flag)",
-      "id": "references_exports_step_6b_wiki_only_if_wiki_flag"
-    },
-    {
-      "label": "Step 7 - Neo4j export (only if --neo4j or --neo4j-push flag)",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/references/exports.md",
-      "source_location": "L15",
-      "_origin": "ast",
-      "community": 86,
-      "norm_label": "step 7 - neo4j export (only if --neo4j or --neo4j-push flag)",
-      "id": "references_exports_step_7_neo4j_export_only_if_neo4j_or_neo4j_push_flag"
-    },
-    {
-      "label": "Step 7b - SVG export (only if --svg flag)",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/references/exports.md",
-      "source_location": "L31",
-      "_origin": "ast",
-      "community": 86,
-      "norm_label": "step 7b - svg export (only if --svg flag)",
-      "id": "references_exports_step_7b_svg_export_only_if_svg_flag"
-    },
-    {
-      "label": "Step 7c - GraphML export (only if --graphml flag)",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/references/exports.md",
-      "source_location": "L37",
-      "_origin": "ast",
-      "community": 86,
-      "norm_label": "step 7c - graphml export (only if --graphml flag)",
-      "id": "references_exports_step_7c_graphml_export_only_if_graphml_flag"
-    },
-    {
-      "label": "Step 7d - MCP server (only if --mcp flag)",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/references/exports.md",
-      "source_location": "L43",
-      "_origin": "ast",
-      "community": 86,
-      "norm_label": "step 7d - mcp server (only if --mcp flag)",
-      "id": "references_exports_step_7d_mcp_server_only_if_mcp_flag"
-    },
-    {
-      "label": "Step 8 - Token reduction benchmark (only if total_words > 5000)",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/references/exports.md",
-      "source_location": "L63",
-      "_origin": "ast",
-      "community": 86,
-      "norm_label": "step 8 - token reduction benchmark (only if total_words > 5000)",
-      "id": "references_exports_step_8_token_reduction_benchmark_only_if_total_words_5000"
-    },
-    {
-      "label": "extraction-spec.md",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/references/extraction-spec.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 103,
-      "norm_label": "extraction-spec.md",
-      "id": "references_extraction_spec"
-    },
-    {
-      "label": "graphify reference: extraction subagent prompt",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/references/extraction-spec.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 103,
-      "norm_label": "graphify reference: extraction subagent prompt",
-      "id": "references_extraction_spec_graphify_reference_extraction_subagent_prompt"
-    },
-    {
-      "label": "github-and-merge.md",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/references/github-and-merge.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 100,
-      "norm_label": "github-and-merge.md",
-      "id": "references_github_and_merge"
-    },
-    {
-      "label": "graphify reference: GitHub clone and cross-repo merge",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/references/github-and-merge.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 100,
-      "norm_label": "graphify reference: github clone and cross-repo merge",
-      "id": "references_github_and_merge_graphify_reference_github_clone_and_cross_repo_merge"
-    },
-    {
-      "label": "Step 0 - Clone GitHub repo(s) (only if a GitHub URL was given)",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/references/github-and-merge.md",
-      "source_location": "L5",
-      "_origin": "ast",
-      "community": 100,
-      "norm_label": "step 0 - clone github repo(s) (only if a github url was given)",
-      "id": "references_github_and_merge_step_0_clone_github_repo_s_only_if_a_github_url_was_given"
-    },
-    {
-      "label": "hooks.md",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/references/hooks.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 95,
-      "norm_label": "hooks.md",
-      "id": "references_hooks"
-    },
-    {
-      "label": "graphify reference: commit hook and native CLAUDE.md integration",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/references/hooks.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 95,
-      "norm_label": "graphify reference: commit hook and native claude.md integration",
-      "id": "references_hooks_graphify_reference_commit_hook_and_native_claude_md_integration"
-    },
-    {
-      "label": "For git commit hook",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/references/hooks.md",
-      "source_location": "L5",
-      "_origin": "ast",
-      "community": 95,
-      "norm_label": "for git commit hook",
-      "id": "references_hooks_for_git_commit_hook"
-    },
-    {
-      "label": "For native CLAUDE.md integration",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/references/hooks.md",
-      "source_location": "L21",
-      "_origin": "ast",
-      "community": 95,
-      "norm_label": "for native claude.md integration",
-      "id": "references_hooks_for_native_claude_md_integration"
-    },
-    {
-      "label": "query.md",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/references/query.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 96,
-      "norm_label": "query.md",
-      "id": "references_query"
-    },
-    {
-      "label": "graphify reference: query, path, explain",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/references/query.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 96,
-      "norm_label": "graphify reference: query, path, explain",
-      "id": "references_query_graphify_reference_query_path_explain"
-    },
-    {
-      "label": "For /graphify path",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/references/query.md",
-      "source_location": "L136",
-      "_origin": "ast",
-      "community": 96,
-      "norm_label": "for /graphify path",
-      "id": "references_query_for_graphify_path"
-    },
-    {
-      "label": "For /graphify explain",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/references/query.md",
-      "source_location": "L198",
-      "_origin": "ast",
-      "community": 96,
-      "norm_label": "for /graphify explain",
-      "id": "references_query_for_graphify_explain"
-    },
-    {
-      "label": "transcribe.md",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/references/transcribe.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 102,
-      "norm_label": "transcribe.md",
-      "id": "references_transcribe"
-    },
-    {
-      "label": "graphify reference: transcribe video and audio",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/references/transcribe.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 102,
-      "norm_label": "graphify reference: transcribe video and audio",
-      "id": "references_transcribe_graphify_reference_transcribe_video_and_audio"
-    },
-    {
-      "label": "Step 2.5 - Transcribe video / audio files (only if video files detected)",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/references/transcribe.md",
-      "source_location": "L5",
-      "_origin": "ast",
-      "community": 102,
-      "norm_label": "step 2.5 - transcribe video / audio files (only if video files detected)",
-      "id": "references_transcribe_step_2_5_transcribe_video_audio_files_only_if_video_files_detected"
-    },
-    {
-      "label": "update.md",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/references/update.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 97,
-      "norm_label": "update.md",
-      "id": "references_update"
-    },
-    {
-      "label": "graphify reference: incremental update and cluster-only",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/references/update.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 97,
-      "norm_label": "graphify reference: incremental update and cluster-only",
-      "id": "references_update_graphify_reference_incremental_update_and_cluster_only"
-    },
-    {
-      "label": "For --update (incremental re-extraction)",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/references/update.md",
-      "source_location": "L5",
-      "_origin": "ast",
-      "community": 97,
-      "norm_label": "for --update (incremental re-extraction)",
-      "id": "references_update_for_update_incremental_re_extraction"
-    },
-    {
-      "label": "For --cluster-only",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/references/update.md",
-      "source_location": "L171",
-      "_origin": "ast",
-      "community": 97,
-      "norm_label": "for --cluster-only",
-      "id": "references_update_for_cluster_only"
-    },
-    {
       "label": "AGENTS.md",
       "file_type": "document",
       "source_file": "AGENTS.md",
@@ -13861,370 +13861,6 @@
       "id": "vercel_react_best_practices_concept_server_side_performance"
     },
     {
-      "label": "Knowledge Graph",
-      "file_type": "concept",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "knowledge graph",
-      "id": "graphify_skill_knowledge_graph"
-    },
-    {
-      "label": "Community Detection",
-      "file_type": "concept",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "community detection",
-      "id": "graphify_skill_community_detection"
-    },
-    {
-      "label": "God Nodes",
-      "file_type": "concept",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "god nodes",
-      "id": "graphify_skill_god_nodes"
-    },
-    {
-      "label": "AST Extraction",
-      "file_type": "concept",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "ast extraction",
-      "id": "graphify_skill_ast_extraction"
-    },
-    {
-      "label": "Semantic Extraction",
-      "file_type": "concept",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "semantic extraction",
-      "id": "graphify_skill_semantic_extraction"
-    },
-    {
-      "label": "EXTRACTED INFERRED AMBIGUOUS Confidence Taxonomy",
-      "file_type": "concept",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "extracted inferred ambiguous confidence taxonomy",
-      "id": "graphify_skill_extracted_inferred_ambiguous"
-    },
-    {
-      "label": "GRAPH_REPORT.md",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "graph_report.md",
-      "id": "graphify_skill_graph_report_md"
-    },
-    {
-      "label": "graph.json",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "graph.json",
-      "id": "graphify_skill_graph_json"
-    },
-    {
-      "label": "graph.html",
-      "file_type": "document",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "graph.html",
-      "id": "graphify_skill_graph_html"
-    },
-    {
-      "label": "Semantic Cache",
-      "file_type": "concept",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "semantic cache",
-      "id": "graphify_skill_cache_system"
-    },
-    {
-      "label": "Cost Tracker",
-      "file_type": "concept",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 37,
-      "norm_label": "cost tracker",
-      "id": "graphify_skill_cost_tracker"
-    },
-    {
-      "label": "File Manifest",
-      "file_type": "concept",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 38,
-      "norm_label": "file manifest",
-      "id": "graphify_skill_manifest"
-    },
-    {
-      "label": "Community Cohesion Scoring",
-      "file_type": "concept",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "community cohesion scoring",
-      "id": "graphify_skill_community_cohesion"
-    },
-    {
-      "label": "Surprising Connections",
-      "file_type": "concept",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "surprising connections",
-      "id": "graphify_skill_surprising_connections"
-    },
-    {
-      "label": "Suggested Questions",
-      "file_type": "concept",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "suggested questions",
-      "id": "graphify_skill_suggested_questions"
-    },
-    {
-      "label": "Obsidian Vault Export",
-      "file_type": "concept",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "obsidian vault export",
-      "id": "graphify_skill_obsidian_vault"
-    },
-    {
-      "label": "Whisper Transcription",
-      "file_type": "concept",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "whisper transcription",
-      "id": "graphify_skill_whisper_transcription"
-    },
-    {
-      "label": "Gemini LLM Backend",
-      "file_type": "concept",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "gemini llm backend",
-      "id": "graphify_skill_gemini_backend"
-    },
-    {
-      "label": "Claude Code Subagent Dispatch",
-      "file_type": "concept",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "claude code subagent dispatch",
-      "id": "graphify_skill_claude_subagent"
-    },
-    {
-      "label": "BFS DFS Traversal Modes",
-      "file_type": "concept",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 36,
-      "norm_label": "bfs dfs traversal modes",
-      "id": "graphify_skill_bfs_dfs"
-    },
-    {
-      "label": "File Detection Step",
-      "file_type": "concept",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "file detection step",
-      "id": "graphify_skill_detect_step"
-    },
-    {
-      "label": "Extraction Step",
-      "file_type": "concept",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "extraction step",
-      "id": "graphify_skill_extract_step"
-    },
-    {
-      "label": "Graph Build Step",
-      "file_type": "concept",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "graph build step",
-      "id": "graphify_skill_build_step"
-    },
-    {
-      "label": "Clustering Step",
-      "file_type": "concept",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "clustering step",
-      "id": "graphify_skill_cluster_step"
-    },
-    {
-      "label": "Analysis Step",
-      "file_type": "concept",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "analysis step",
-      "id": "graphify_skill_analyze_step"
-    },
-    {
-      "label": "Report Generation Step",
-      "file_type": "concept",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "report generation step",
-      "id": "graphify_skill_report_step"
-    },
-    {
-      "label": "Export Step",
-      "file_type": "concept",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "export step",
-      "id": "graphify_skill_export_step"
-    },
-    {
-      "label": "OpenCode Agent Dispatch",
-      "file_type": "concept",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 39,
-      "norm_label": "opencode agent dispatch",
-      "id": "graphify_skill_openCode_dispatch"
-    },
-    {
       "label": "Subooru SPA Entry Point",
       "file_type": "code",
       "source_file": "client/index.html",
@@ -14278,6 +13914,506 @@
     }
   ],
   "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/opencode.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "opencode_opencode",
+      "target": "opencode_opencode_plugin"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/opencode.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "opencode_opencode",
+      "target": "opencode_opencode_schema"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/plugins/graphify.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "plugins_graphify",
+      "target": "plugins_graphify_graphifyplugin"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "graphify_skill",
+      "target": "graphify_skill_graphify"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L589",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "graphify_skill_graphify",
+      "target": "graphify_skill_for_graphify_add_and_watch"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L577",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "graphify_skill_graphify",
+      "target": "graphify_skill_for_graphify_query"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L595",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "graphify_skill_graphify",
+      "target": "graphify_skill_for_the_commit_hook_and_native_claude_md_integration"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L571",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "graphify_skill_graphify",
+      "target": "graphify_skill_for_update_and_cluster_only"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L601",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "graphify_skill_graphify",
+      "target": "graphify_skill_honesty_rules"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L553",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "graphify_skill_graphify",
+      "target": "graphify_skill_interpreter_guard_for_subcommands"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "graphify_skill_graphify",
+      "target": "graphify_skill_usage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L43",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "graphify_skill_graphify",
+      "target": "graphify_skill_what_graphify_is_for"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L47",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "graphify_skill_graphify",
+      "target": "graphify_skill_what_you_must_do_when_invoked"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L59",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "graphify_skill_what_you_must_do_when_invoked",
+      "target": "graphify_skill_step_0_github_repos_and_multi_path_merge_only_if_a_url_or_several_paths"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L63",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "graphify_skill_what_you_must_do_when_invoked",
+      "target": "graphify_skill_step_1_ensure_graphify_is_installed"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L142",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "graphify_skill_what_you_must_do_when_invoked",
+      "target": "graphify_skill_step_2_5_video_and_audio_only_if_video_files_detected"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L105",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "graphify_skill_what_you_must_do_when_invoked",
+      "target": "graphify_skill_step_2_detect_files"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L146",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "graphify_skill_what_you_must_do_when_invoked",
+      "target": "graphify_skill_step_3_extract_entities_and_relationships"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L360",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "graphify_skill_what_you_must_do_when_invoked",
+      "target": "graphify_skill_step_4_build_graph_cluster_analyze_generate_outputs"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L412",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "graphify_skill_what_you_must_do_when_invoked",
+      "target": "graphify_skill_step_5_label_communities"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L452",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "graphify_skill_what_you_must_do_when_invoked",
+      "target": "graphify_skill_step_6_generate_obsidian_vault_opt_in_html"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L478",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "graphify_skill_what_you_must_do_when_invoked",
+      "target": "graphify_skill_step_9_save_manifest_update_cost_tracker_clean_up_and_report"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L472",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "graphify_skill_what_you_must_do_when_invoked",
+      "target": "graphify_skill_steps_6b_8_wiki_neo4j_svg_graphml_mcp_benchmark_only_on_their_flags"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L163",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "graphify_skill_step_3_extract_entities_and_relationships",
+      "target": "graphify_skill_part_a_structural_extraction_for_code_files"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L189",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "graphify_skill_step_3_extract_entities_and_relationships",
+      "target": "graphify_skill_part_b_semantic_extraction_parallel_subagents"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/SKILL.md",
+      "source_location": "L326",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "graphify_skill_step_3_extract_entities_and_relationships",
+      "target": "graphify_skill_part_c_merge_ast_semantic_into_final_extraction"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/references/add-watch.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "references_add_watch",
+      "target": "references_add_watch_graphify_reference_add_a_url_and_watch_a_folder"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/references/add-watch.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "references_add_watch_graphify_reference_add_a_url_and_watch_a_folder",
+      "target": "references_add_watch_for_graphify_add"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/references/add-watch.md",
+      "source_location": "L39",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "references_add_watch_graphify_reference_add_a_url_and_watch_a_folder",
+      "target": "references_add_watch_for_watch"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/references/exports.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "references_exports",
+      "target": "references_exports_graphify_reference_extra_exports_and_benchmark"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/references/exports.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "references_exports_graphify_reference_extra_exports_and_benchmark",
+      "target": "references_exports_step_6b_wiki_only_if_wiki_flag"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/references/exports.md",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "references_exports_graphify_reference_extra_exports_and_benchmark",
+      "target": "references_exports_step_7_neo4j_export_only_if_neo4j_or_neo4j_push_flag"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/references/exports.md",
+      "source_location": "L31",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "references_exports_graphify_reference_extra_exports_and_benchmark",
+      "target": "references_exports_step_7b_svg_export_only_if_svg_flag"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/references/exports.md",
+      "source_location": "L37",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "references_exports_graphify_reference_extra_exports_and_benchmark",
+      "target": "references_exports_step_7c_graphml_export_only_if_graphml_flag"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/references/exports.md",
+      "source_location": "L43",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "references_exports_graphify_reference_extra_exports_and_benchmark",
+      "target": "references_exports_step_7d_mcp_server_only_if_mcp_flag"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/references/exports.md",
+      "source_location": "L63",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "references_exports_graphify_reference_extra_exports_and_benchmark",
+      "target": "references_exports_step_8_token_reduction_benchmark_only_if_total_words_5000"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/references/extraction-spec.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "references_extraction_spec",
+      "target": "references_extraction_spec_graphify_reference_extraction_subagent_prompt"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/references/github-and-merge.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "references_github_and_merge",
+      "target": "references_github_and_merge_graphify_reference_github_clone_and_cross_repo_merge"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/references/github-and-merge.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "references_github_and_merge_graphify_reference_github_clone_and_cross_repo_merge",
+      "target": "references_github_and_merge_step_0_clone_github_repo_s_only_if_a_github_url_was_given"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/references/hooks.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "references_hooks",
+      "target": "references_hooks_graphify_reference_commit_hook_and_native_claude_md_integration"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/references/hooks.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "references_hooks_graphify_reference_commit_hook_and_native_claude_md_integration",
+      "target": "references_hooks_for_git_commit_hook"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/references/hooks.md",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "references_hooks_graphify_reference_commit_hook_and_native_claude_md_integration",
+      "target": "references_hooks_for_native_claude_md_integration"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/references/query.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "references_query",
+      "target": "references_query_graphify_reference_query_path_explain"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/references/query.md",
+      "source_location": "L198",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "references_query_graphify_reference_query_path_explain",
+      "target": "references_query_for_graphify_explain"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/references/query.md",
+      "source_location": "L136",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "references_query_graphify_reference_query_path_explain",
+      "target": "references_query_for_graphify_path"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/references/transcribe.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "references_transcribe",
+      "target": "references_transcribe_graphify_reference_transcribe_video_and_audio"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/references/transcribe.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "references_transcribe_graphify_reference_transcribe_video_and_audio",
+      "target": "references_transcribe_step_2_5_transcribe_video_audio_files_only_if_video_files_detected"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/references/update.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "references_update",
+      "target": "references_update_graphify_reference_incremental_update_and_cluster_only"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/references/update.md",
+      "source_location": "L171",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "references_update_graphify_reference_incremental_update_and_cluster_only",
+      "target": "references_update_for_cluster_only"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/skills/graphify/references/update.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "references_update_graphify_reference_incremental_update_and_cluster_only",
+      "target": "references_update_for_update_incremental_re_extraction"
+    },
     {
       "relation": "imports_from",
       "context": "import",
@@ -14335,26 +14471,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": ".opencode/opencode.json",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "opencode_opencode",
-      "target": "opencode_opencode_plugin"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/opencode.json",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "opencode_opencode",
-      "target": "opencode_opencode_schema"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": ".opencode/package.json",
       "source_location": "L2",
       "weight": 1.0,
@@ -14371,16 +14487,6 @@
       "confidence_score": 1.0,
       "source": "opencode_package_dependencies",
       "target": "opencode_package_dependencies_opencode_ai_plugin"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/plugins/graphify.js",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "plugins_graphify",
-      "target": "plugins_graphify_graphifyplugin"
     },
     {
       "relation": "contains",
@@ -26473,576 +26579,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "graphify_skill",
-      "target": "graphify_skill_graphify"
-    },
-    {
-      "relation": "includes",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "graphify_skill_graphify",
-      "target": "graphify_skill_analyze_step"
-    },
-    {
-      "relation": "includes",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "graphify_skill_graphify",
-      "target": "graphify_skill_build_step"
-    },
-    {
-      "relation": "includes",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "graphify_skill_graphify",
-      "target": "graphify_skill_cluster_step"
-    },
-    {
-      "relation": "includes",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "graphify_skill_graphify",
-      "target": "graphify_skill_detect_step"
-    },
-    {
-      "relation": "includes",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "graphify_skill_graphify",
-      "target": "graphify_skill_export_step"
-    },
-    {
-      "relation": "includes",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "graphify_skill_graphify",
-      "target": "graphify_skill_extract_step"
-    },
-    {
-      "relation": "uses",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "graphify_skill_graphify",
-      "target": "graphify_skill_extracted_inferred_ambiguous"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L589",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "graphify_skill_graphify",
-      "target": "graphify_skill_for_graphify_add_and_watch"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L577",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "graphify_skill_graphify",
-      "target": "graphify_skill_for_graphify_query"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L595",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "graphify_skill_graphify",
-      "target": "graphify_skill_for_the_commit_hook_and_native_claude_md_integration"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L571",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "graphify_skill_graphify",
-      "target": "graphify_skill_for_update_and_cluster_only"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L601",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "graphify_skill_graphify",
-      "target": "graphify_skill_honesty_rules"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L553",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "graphify_skill_graphify",
-      "target": "graphify_skill_interpreter_guard_for_subcommands"
-    },
-    {
-      "relation": "produces",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "graphify_skill_graphify",
-      "target": "graphify_skill_knowledge_graph"
-    },
-    {
-      "relation": "includes",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "graphify_skill_graphify",
-      "target": "graphify_skill_report_step"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "graphify_skill_graphify",
-      "target": "graphify_skill_usage"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L43",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "graphify_skill_graphify",
-      "target": "graphify_skill_what_graphify_is_for"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L47",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "graphify_skill_graphify",
-      "target": "graphify_skill_what_you_must_do_when_invoked"
-    },
-    {
-      "relation": "uses",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "graphify_skill_graphify",
-      "target": "graphify_skill_whisper_transcription"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L59",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "graphify_skill_what_you_must_do_when_invoked",
-      "target": "graphify_skill_step_0_github_repos_and_multi_path_merge_only_if_a_url_or_several_paths"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L63",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "graphify_skill_what_you_must_do_when_invoked",
-      "target": "graphify_skill_step_1_ensure_graphify_is_installed"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L142",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "graphify_skill_what_you_must_do_when_invoked",
-      "target": "graphify_skill_step_2_5_video_and_audio_only_if_video_files_detected"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L105",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "graphify_skill_what_you_must_do_when_invoked",
-      "target": "graphify_skill_step_2_detect_files"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L146",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "graphify_skill_what_you_must_do_when_invoked",
-      "target": "graphify_skill_step_3_extract_entities_and_relationships"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L360",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "graphify_skill_what_you_must_do_when_invoked",
-      "target": "graphify_skill_step_4_build_graph_cluster_analyze_generate_outputs"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L412",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "graphify_skill_what_you_must_do_when_invoked",
-      "target": "graphify_skill_step_5_label_communities"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L452",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "graphify_skill_what_you_must_do_when_invoked",
-      "target": "graphify_skill_step_6_generate_obsidian_vault_opt_in_html"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L478",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "graphify_skill_what_you_must_do_when_invoked",
-      "target": "graphify_skill_step_9_save_manifest_update_cost_tracker_clean_up_and_report"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L472",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "graphify_skill_what_you_must_do_when_invoked",
-      "target": "graphify_skill_steps_6b_8_wiki_neo4j_svg_graphml_mcp_benchmark_only_on_their_flags"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L163",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "graphify_skill_step_3_extract_entities_and_relationships",
-      "target": "graphify_skill_part_a_structural_extraction_for_code_files"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L189",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "graphify_skill_step_3_extract_entities_and_relationships",
-      "target": "graphify_skill_part_b_semantic_extraction_parallel_subagents"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": "L326",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "graphify_skill_step_3_extract_entities_and_relationships",
-      "target": "graphify_skill_part_c_merge_ast_semantic_into_final_extraction"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/references/add-watch.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "references_add_watch",
-      "target": "references_add_watch_graphify_reference_add_a_url_and_watch_a_folder"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/references/add-watch.md",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "references_add_watch_graphify_reference_add_a_url_and_watch_a_folder",
-      "target": "references_add_watch_for_graphify_add"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/references/add-watch.md",
-      "source_location": "L39",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "references_add_watch_graphify_reference_add_a_url_and_watch_a_folder",
-      "target": "references_add_watch_for_watch"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/references/exports.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "references_exports",
-      "target": "references_exports_graphify_reference_extra_exports_and_benchmark"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/references/exports.md",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "references_exports_graphify_reference_extra_exports_and_benchmark",
-      "target": "references_exports_step_6b_wiki_only_if_wiki_flag"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/references/exports.md",
-      "source_location": "L15",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "references_exports_graphify_reference_extra_exports_and_benchmark",
-      "target": "references_exports_step_7_neo4j_export_only_if_neo4j_or_neo4j_push_flag"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/references/exports.md",
-      "source_location": "L31",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "references_exports_graphify_reference_extra_exports_and_benchmark",
-      "target": "references_exports_step_7b_svg_export_only_if_svg_flag"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/references/exports.md",
-      "source_location": "L37",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "references_exports_graphify_reference_extra_exports_and_benchmark",
-      "target": "references_exports_step_7c_graphml_export_only_if_graphml_flag"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/references/exports.md",
-      "source_location": "L43",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "references_exports_graphify_reference_extra_exports_and_benchmark",
-      "target": "references_exports_step_7d_mcp_server_only_if_mcp_flag"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/references/exports.md",
-      "source_location": "L63",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "references_exports_graphify_reference_extra_exports_and_benchmark",
-      "target": "references_exports_step_8_token_reduction_benchmark_only_if_total_words_5000"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/references/extraction-spec.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "references_extraction_spec",
-      "target": "references_extraction_spec_graphify_reference_extraction_subagent_prompt"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/references/github-and-merge.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "references_github_and_merge",
-      "target": "references_github_and_merge_graphify_reference_github_clone_and_cross_repo_merge"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/references/github-and-merge.md",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "references_github_and_merge_graphify_reference_github_clone_and_cross_repo_merge",
-      "target": "references_github_and_merge_step_0_clone_github_repo_s_only_if_a_github_url_was_given"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/references/hooks.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "references_hooks",
-      "target": "references_hooks_graphify_reference_commit_hook_and_native_claude_md_integration"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/references/hooks.md",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "references_hooks_graphify_reference_commit_hook_and_native_claude_md_integration",
-      "target": "references_hooks_for_git_commit_hook"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/references/hooks.md",
-      "source_location": "L21",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "references_hooks_graphify_reference_commit_hook_and_native_claude_md_integration",
-      "target": "references_hooks_for_native_claude_md_integration"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/references/query.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "references_query",
-      "target": "references_query_graphify_reference_query_path_explain"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/references/query.md",
-      "source_location": "L198",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "references_query_graphify_reference_query_path_explain",
-      "target": "references_query_for_graphify_explain"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/references/query.md",
-      "source_location": "L136",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "references_query_graphify_reference_query_path_explain",
-      "target": "references_query_for_graphify_path"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/references/transcribe.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "references_transcribe",
-      "target": "references_transcribe_graphify_reference_transcribe_video_and_audio"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/references/transcribe.md",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "references_transcribe_graphify_reference_transcribe_video_and_audio",
-      "target": "references_transcribe_step_2_5_transcribe_video_audio_files_only_if_video_files_detected"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/references/update.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "references_update",
-      "target": "references_update_graphify_reference_incremental_update_and_cluster_only"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/references/update.md",
-      "source_location": "L171",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "references_update_graphify_reference_incremental_update_and_cluster_only",
-      "target": "references_update_for_cluster_only"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".opencode/skills/graphify/references/update.md",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "references_update_graphify_reference_incremental_update_and_cluster_only",
-      "target": "references_update_for_update_incremental_re_extraction"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "AGENTS.md",
       "source_location": "L69",
       "weight": 1.0,
@@ -28231,146 +27767,6 @@
       "target": "agents_skills_nodejs_backend_patterns_advanced"
     },
     {
-      "relation": "performs",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "graphify_skill_cluster_step",
-      "target": "graphify_skill_community_detection"
-    },
-    {
-      "relation": "produces",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "graphify_skill_analyze_step",
-      "target": "graphify_skill_god_nodes"
-    },
-    {
-      "relation": "includes",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "graphify_skill_extract_step",
-      "target": "graphify_skill_ast_extraction"
-    },
-    {
-      "relation": "optimizes",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "graphify_skill_cache_system",
-      "target": "graphify_skill_semantic_extraction"
-    },
-    {
-      "relation": "includes",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "graphify_skill_extract_step",
-      "target": "graphify_skill_semantic_extraction"
-    },
-    {
-      "relation": "uses",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "graphify_skill_semantic_extraction",
-      "target": "graphify_skill_claude_subagent"
-    },
-    {
-      "relation": "uses",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "graphify_skill_semantic_extraction",
-      "target": "graphify_skill_gemini_backend"
-    },
-    {
-      "relation": "produces",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "graphify_skill_report_step",
-      "target": "graphify_skill_graph_report_md"
-    },
-    {
-      "relation": "produces",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "graphify_skill_report_step",
-      "target": "graphify_skill_graph_json"
-    },
-    {
-      "relation": "produces",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "graphify_skill_report_step",
-      "target": "graphify_skill_graph_html"
-    },
-    {
-      "relation": "produces",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "graphify_skill_analyze_step",
-      "target": "graphify_skill_community_cohesion"
-    },
-    {
-      "relation": "produces",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "graphify_skill_analyze_step",
-      "target": "graphify_skill_surprising_connections"
-    },
-    {
-      "relation": "produces",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "graphify_skill_analyze_step",
-      "target": "graphify_skill_suggested_questions"
-    },
-    {
-      "relation": "produces",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".opencode/skills/graphify/SKILL.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "graphify_skill_export_step",
-      "target": "graphify_skill_obsidian_vault"
-    },
-    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
@@ -28673,5 +28069,5 @@
       "source_file": ".opencode/skills/graphify/SKILL.md"
     }
   ],
-  "built_at_commit": "49a06113146e119fa43a1898c3c021207f3fc8d2"
+  "built_at_commit": "654368facbf2e30f22e660a9c525e751829b76d3"
 }

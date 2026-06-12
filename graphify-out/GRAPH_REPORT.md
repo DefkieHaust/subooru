@@ -5,12 +5,12 @@
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1370 nodes · 1397 edges · 115 communities (76 shown, 39 thin omitted)
+- 1342 nodes · 1373 edges · 111 communities (76 shown, 35 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 34 edges (avg confidence: 0.87)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `49a06113`
+- Built from commit: `654368fa`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -44,10 +44,6 @@
 - [[_COMMUNITY_Skill Discovery|Skill Discovery]]
 - [[_COMMUNITY_License Docs|License Docs]]
 - [[_COMMUNITY_Frontend Design Skill|Frontend Design Skill]]
-- [[_COMMUNITY_Graph Traversal|Graph Traversal]]
-- [[_COMMUNITY_Cost Tracking|Cost Tracking]]
-- [[_COMMUNITY_File Manifest|File Manifest]]
-- [[_COMMUNITY_Agent Dispatch|Agent Dispatch]]
 - [[_COMMUNITY_Pino Logging|Pino Logging]]
 - [[_COMMUNITY_Sub-agents|Sub-agents]]
 - [[_COMMUNITY_Early Exit|Early Exit]]
@@ -130,8 +126,8 @@
 6. `4) Rules (generation + audit)` - 22 edges
 7. `4) Rules (generation + audit)` - 22 edges
 8. `4) Rules (generation + audit)` - 21 edges
-9. `/graphify` - 20 edges
-10. `getLogger()` - 19 edges
+9. `getLogger()` - 19 edges
+10. `5. Re-render Optimization` - 16 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Dependency-Based Parallelization` --uses--> `Promise.all()`  [EXTRACTED]
@@ -167,7 +163,7 @@
 - **graphify Core Pipeline Steps** — graphify_skill_detect_step, graphify_skill_extract_step, graphify_skill_build_step, graphify_skill_cluster_step, graphify_skill_analyze_step, graphify_skill_report_step, graphify_skill_export_step [EXTRACTED 1.00]
 - **graphify Output Artifacts** — graphify_skill_graph_report_md, graphify_skill_graph_json, graphify_skill_graph_html, graphify_skill_obsidian_vault [EXTRACTED 1.00]
 
-## Communities (115 total, 39 thin omitted)
+## Communities (111 total, 35 thin omitted)
 
 ### Community 0 - "Express API Routes & Tests"
 Cohesion: 0.08
@@ -186,8 +182,8 @@ Cohesion: 0.08
 Nodes (25): command, commit, agent, description, template, enabled, headers, type (+17 more)
 
 ### Community 4 - "graphify Pipeline & Analysis"
-Cohesion: 0.04
-Nodes (47): Analysis Step, AST Extraction, Graph Build Step, Semantic Cache, Claude Code Subagent Dispatch, Clustering Step, Community Cohesion Scoring, Community Detection (+39 more)
+Cohesion: 0.08
+Nodes (23): For /graphify add and --watch, For /graphify query, For the commit hook and native CLAUDE.md integration, For --update and --cluster-only, /graphify, Honesty Rules, Interpreter guard for subcommands, Part A - Structural extraction for code files (+15 more)
 
 ### Community 5 - "Server Dependencies & Middleware"
 Cohesion: 0.08
@@ -434,17 +430,19 @@ Cohesion: 0.50
 Nodes (3): For --cluster-only, For --update (incremental re-extraction), graphify reference: incremental update and cluster-only
 
 ## Knowledge Gaps
-- **909 isolated node(s):** `router`, `$schema`, `plugin`, `@opencode-ai/plugin`, `name` (+904 more)
+- **887 isolated node(s):** `$schema`, `plugin`, `Usage`, `What graphify is for`, `Step 0 - GitHub repos and multi-path merge (only if a URL or several paths)` (+882 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **39 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **35 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `React Best Practices` connect `Community 91` to `Community 73`, `Community 74`, `Community 79`, `Community 81`, `Community 87`, `Community 88`, `Community 92`, `Community 93`?**
-  _High betweenness centrality (0.003) - this node is a cross-community bridge._
-- **What connects `router`, `$schema`, `plugin` to the rest of the system?**
-  _909 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _High betweenness centrality (0.002) - this node is a cross-community bridge._
+- **Why does `3. Server-Side Performance` connect `Community 81` to `Community 91`?**
+  _High betweenness centrality (0.002) - this node is a cross-community bridge._
+- **What connects `$schema`, `plugin`, `Usage` to the rest of the system?**
+  _887 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Express API Routes & Tests` be split into smaller, more focused modules?**
   _Cohesion score 0.07627118644067797 - nodes in this community are weakly interconnected._
 - **Should `React UI Components` be split into smaller, more focused modules?**
@@ -453,5 +451,3 @@ _Questions this graph is uniquely positioned to answer:_
   _Cohesion score 0.07142857142857142 - nodes in this community are weakly interconnected._
 - **Should `OpenCode Configuration` be split into smaller, more focused modules?**
   _Cohesion score 0.07692307692307693 - nodes in this community are weakly interconnected._
-- **Should `graphify Pipeline & Analysis` be split into smaller, more focused modules?**
-  _Cohesion score 0.041666666666666664 - nodes in this community are weakly interconnected._

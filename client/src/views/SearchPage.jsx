@@ -185,7 +185,7 @@ export default function SearchPage({ query, onQueryChange, settings, onToggleBla
           </span>
           <button
             className="btn btn-sm btn-outline-light"
-            disabled={currentPage >= 200 || loading}
+            disabled={currentPage >= maxPage || currentPage >= 200 || loading}
             onClick={() => handlePageChange(currentPage + 1)}
           >
             Next

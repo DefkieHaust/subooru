@@ -86,19 +86,24 @@ export async function listPosts(tags, page) {
     ? [...positiveTags.filter(t => t.includes(':')), ...nonMetaTags.slice(0, 2)]
     : positiveTags
 
-  const { data } = await fetchDanbooru('/posts.json', {
+  const { data, headers } = await fetchDanbooru('/posts.json', {
     tags: queryTags.join(' '),
     ...(excludeTags.length ? { 'exclude_tags': excludeTags.join(',') } : {}),
     page: String(page),
     limit: '100'
   })
 
-  const countTags = queryTags.join(' ')
   let totalCount
-  try {
-    const { data: countData } = await fetchDanbooru('/counts/posts.json', { tags: countTags })
-    totalCount = countData?.counts?.posts
-  } catch {}
+  const headerCount = headers && parseInt(headers.get('X-Total-Count'), 10)
+  if (headerCount && !Number.isNaN(headerCount)) {
+    totalCount = headerCount
+  } else {
+    try {
+      const countTags = queryTags.join(' ')
+      const { data: countData } = await fetchDanbooru('/counts/posts.json', { tags: countTags })
+      totalCount = countData?.counts?.posts
+    } catch {}
+  }
 
   const posts = (data || []).map(p => ({
     id: p.id,

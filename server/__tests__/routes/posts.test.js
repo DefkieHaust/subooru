@@ -57,7 +57,7 @@ describe('GET /api/posts', () => {
 
     const res = await supertest(app).get('/api/posts?page=1&q=real_life')
     expect(res.status).toBe(200)
-    // real_life is in conf.json.server.blacklist so it should be stripped
+    // real_life is in conf.yml.server.blacklist so it should be stripped
     // and the query sent to Danbooru should be 'rating:general'
   })
 

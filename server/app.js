@@ -4,6 +4,7 @@ import { Redis } from 'ioredis'
 import { readFileSync } from 'fs'
 import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
+import yaml from 'js-yaml'
 import postsRouter from './routes/posts.js'
 import tagsRouter from './routes/tags.js'
 import mediaRouter from './routes/media.js'
@@ -18,7 +19,7 @@ import { initLogger, getLogger } from './logger.js'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const app = express()
 
-const conf = JSON.parse(readFileSync(join(__dirname, '..', 'conf.json'), 'utf-8'))
+const conf = yaml.load(readFileSync(join(__dirname, '..', 'conf.yml'), 'utf-8'))
 app.locals.conf = conf
 
 if (conf.server.trust_proxy) {

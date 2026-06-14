@@ -20,10 +20,10 @@ No test, lint, or typecheck tooling exists. Node 22+ required.
 ## Key gotchas
 
 ### Config & env
-- `conf.json` — read once at startup via `readFileSync`. Server **must restart** for changes.
+- `conf.yml` — read once at startup via `readFileSync`. Server **must restart** for changes.
 - `dotenv/config` loaded at top of `server/index.js` — `.env` for local dev, `.env.prod` for Docker.
-- Both `conf.json` and `.env*` are gitignored (`.env.example` and `.env.prod.example` exceptions tracked).
-- S3 env vars (`S3_*`) go in `.env`/`.env.prod`, not `conf.json`.
+- Both `conf.yml` and `.env*` are gitignored (`.env.example` and `.env.prod.example` exceptions tracked).
+- S3 env vars (`S3_*`) go in `.env`/`.env.prod`, not `conf.yml`.
 - Gelbooru API credentials required for `dapi` endpoints (posts, tags); autocomplete2 works without auth.
 
 ### Rate limiting
@@ -35,19 +35,19 @@ No test, lint, or typecheck tooling exists. Node 22+ required.
 - `getLogger()` function (not a proxy/wrapper) returns current `_instance` — avoids stale reference across ES module boundaries.
 
 ### Server-side include/blacklist
-- `conf.json.server.include` — tags silently appended (prepended) to every Gelbooru query in `posts.js:21`.
-- `conf.json.server.blacklist` — tags silently excluded as `-tag` entries; strips `-` and `~` prefixes before matching in `posts.js:17`.
+- `conf.yml.server.include` — tags silently appended (prepended) to every Gelbooru query in `posts.js:21`.
+- `conf.yml.server.blacklist` — tags silently excluded as `-tag` entries; strips `-` and `~` prefixes before matching in `posts.js:17`.
 
 ### Client-side include/blacklist toggles
-- `conf.json.client.include` — tags prepended to search URL when "Default tags" setting is ON (visible as chips, removable).
-- `conf.json.client.blacklist` — merged into `settings.blacklist` when "Default blacklist" setting is ON.
+- `conf.yml.client.include` — tags prepended to search URL when "Default tags" setting is ON (visible as chips, removable).
+- `conf.yml.client.blacklist` — merged into `settings.blacklist` when "Default blacklist" setting is ON.
 - Both settings default to `true`; toggling OFF does not remove existing tags.
 
 ### Media proxy
 - Gelbooru CDN (`.gelbooru.com`) requires `Referer: https://gelbooru.com/` — enforced in `media.js:28` and the Cloudflare Worker.
 - `wsrv.nl` blocks gelbooru.com by policy — unusable.
 - Fallback chain: Worker URL -> `/api/media` (if `client.server_proxy` is true). Controlled by `setProxyConfig()` and `mediaProxyUrls()` in `api.js`.
-- `/api/media` returns `503` when `conf.json.server.server_proxy` is `false`.
+- `/api/media` returns `503` when `conf.yml.server.server_proxy` is `false`.
 
 ### S3 media cache
 - Key: `media/{md5[0..2]}/{md5[2..4]}/{md5}` (MD5 of URL).
@@ -106,7 +106,7 @@ No test, lint, or typecheck tooling exists. Node 22+ required.
 ## Danbooru API support
 
 ### Source selection
-- `conf.json.server.sources` — ordered array `["gelbooru", "danbooru"]`. First entry is primary; subsequent entries are fallbacks in order. Remove entries to disable sources.
+- `conf.yml.server.sources` — ordered array `["gelbooru", "danbooru"]`. First entry is primary; subsequent entries are fallbacks in order. Remove entries to disable sources.
 - Client setting in sidebar → localStorage → passed as `?source=` query param on every API call.
 - Both sources share the same `include`/`blacklist` config.
 

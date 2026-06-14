@@ -1,0 +1,63 @@
+log:
+  level: info
+  console: true
+  file: logs/subooru.log
+
+server:
+  sources:
+    - gelbooru
+    - danbooru
+  trust_proxy: false
+  rate_limit:
+    enabled: true
+    window_ms: 60000
+    default_max: 30
+    endpoints:
+      posts: 30
+      tags: 15
+      media: 60
+      config: 10
+  cache:
+    enabled: true
+    default_ttl_ms: 300000
+    endpoints:
+      posts: 300000
+      tags: 3600000
+      tags_search: 3600000
+  media_cache:
+    enabled: true
+    max_age_days: 1
+  server_proxy: true
+  include: []
+  blacklist: []
+  metatags:
+    - prefix: 'rating:'
+      tags:
+        - rating:general
+        - rating:safe
+        - rating:questionable
+        - rating:explicit
+    - prefix: 'sort:'
+      tags:
+        - sort:random
+        - sort:score
+        - sort:mpixels
+        - sort:filesize
+        - sort:landscape
+        - sort:portrait
+        - sort:date
+    - prefix: 'score:'
+      tags:
+        - score:>=100
+        - score:>50
+        - score:>10
+        - score:>5000
+        - score:<100
+        - score:<50
+
+client:
+  include: []
+  blacklist: []
+  worker_base: null
+  server_proxy: true
+  proxy_thumbnails: false

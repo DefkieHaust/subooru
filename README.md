@@ -15,11 +15,11 @@ Proxy booru client for [Gelbooru](https://gelbooru.com/) and [Danbooru](https://
 ### 1. Configuration
 
 ```sh
-cp conf.json.example conf.json        # edit with your preferences
+cp conf.yml.example conf.yml        # edit with your preferences
 cp .env.example .env                  # add API keys
 ```
 
-**`conf.json`** — all settings in one file (gitignored). See [Configuration reference](#configuration-reference) below.
+**`conf.yml`** — all settings in one file (gitignored). See [Configuration reference](#configuration-reference) below.
 
 **`.env`** — secrets and deployment-specific values:
 
@@ -60,7 +60,7 @@ Express serves both the API and the built client from `client/dist/`.
 ### 1. Configuration
 
 ```sh
-cp conf.json.example conf.json              # edit with your preferences
+cp conf.yml.example conf.yml              # edit with your preferences
 cp .env.prod.example .env.prod              # add API keys
 ```
 
@@ -84,7 +84,7 @@ This starts three containers:
 | `redis` | `redis:7-alpine` | API cache and rate-limiting backend, data persisted in `redis-data` volume |
 | `minio` | `minio/minio` | S3-compatible media cache, data persisted in `minio-data` volume |
 
-On first startup, the app auto-creates the S3 bucket (`subooru-media` by default) and sets a lifecycle rule to expire objects after `max_age_days` (configured in `conf.json`).
+On first startup, the app auto-creates the S3 bucket (`subooru-media` by default) and sets a lifecycle rule to expire objects after `max_age_days` (configured in `conf.yml`).
 
 ### 3. Update
 
@@ -168,16 +168,15 @@ The only difference from `.env` is the service hostnames — `redis` and `minio`
 
 ## Configuration Reference
 
-All configuration lives in `conf.json` (gitignored). `conf.json.example` is the reference template.
+All configuration lives in `conf.yml` (gitignored). `conf.yml.example` is the reference template.
 
 ### `log`
 
-```json
-"log": {
-  "level": "info",
-  "console": true,
-  "file": "logs/subooru.log"
-}
+```yaml
+log:
+  level: info
+  console: true
+  file: logs/subooru.log
 ```
 
 | Field | Type | Default | Description |
@@ -188,17 +187,15 @@ All configuration lives in `conf.json` (gitignored). `conf.json.example` is the 
 
 ### `server.rate_limit`
 
-```json
-"rate_limit": {
-  "enabled": true,
-  "window_ms": 60000,
-  "endpoints": {
-    "posts": 30,
-    "tags": 15,
-    "media": 60,
-    "config": 10
-  }
-}
+```yaml
+rate_limit:
+  enabled: true
+  window_ms: 60000
+  endpoints:
+    posts: 30
+    tags: 15
+    media: 60
+    config: 10
 ```
 
 | Field | Type | Default | Description |
@@ -215,16 +212,14 @@ All configuration lives in `conf.json` (gitignored). `conf.json.example` is the 
 
 ### `server.cache`
 
-```json
-"cache": {
-  "enabled": true,
-  "default_ttl_ms": 300000,
-  "endpoints": {
-    "posts": 300000,
-    "tags": 3600000,
-    "tags_search": 3600000
-  }
-}
+```yaml
+cache:
+  enabled: true
+  default_ttl_ms: 300000
+  endpoints:
+    posts: 300000
+    tags: 3600000
+    tags_search: 3600000
 ```
 
 | Field | Type | Default | Description |
@@ -237,8 +232,10 @@ Backend: Redis if `REDIS_URL` is set, otherwise in-memory `Map`.
 
 ### `server.sources`
 
-```json
-"sources": ["gelbooru", "danbooru"]
+```yaml
+sources:
+  - gelbooru
+  - danbooru
 ```
 
 | Field | Type | Default | Description |
@@ -247,11 +244,10 @@ Backend: Redis if `REDIS_URL` is set, otherwise in-memory `Map`.
 
 ### `server.media_cache`
 
-```json
-"media_cache": {
-  "enabled": true,
-  "max_age_days": 1
-}
+```yaml
+media_cache:
+  enabled: true
+  max_age_days: 1
 ```
 
 | Field | Type | Default | Description |
@@ -259,21 +255,24 @@ Backend: Redis if `REDIS_URL` is set, otherwise in-memory `Map`.
 | `enabled` | boolean | `true` | Set `false` to disable S3 media caching (always fetches from Gelbooru) |
 | `max_age_days` | number | `1` | S3 lifecycle expiration in days. Set `0` to disable auto-expiry. Objects are deleted by MinIO/S3 after this many days |
 
-S3 credentials (`S3_ENDPOINT`, `S3_ACCESS_KEY`, etc.) are set in `.env` / `.env.prod`, not in `conf.json`. If env vars are missing, the cache logs a warning and media is always fetched directly from the source.
+S3 credentials (`S3_ENDPOINT`, `S3_ACCESS_KEY`, etc.) are set in `.env` / `.env.prod`, not in `conf.yml`. If env vars are missing, the cache logs a warning and media is always fetched directly from the source.
 
 ### `server.server_proxy`
 
-```json
-"server_proxy": true
+```yaml
+server_proxy: true
 ```
 
 Controls the `/api/media` endpoint. When `false`, the route returns `503 Service Unavailable`. The separate `client.server_proxy` flag (returned via `/api/config`) controls the frontend's media fallback chain.
 
 ### `server.include`, `server.blacklist`
 
-```json
-"include": ["rating:safe"],
-"blacklist": ["guro", "scat"]
+```yaml
+include:
+  - rating:safe
+blacklist:
+  - guro
+  - scat
 ```
 
 - `include` — tags silently appended to every query (server-side, client cannot circumvent)
@@ -281,26 +280,38 @@ Controls the `/api/media` endpoint. When `false`, the route returns `503 Service
 
 ### `server.metatags`
 
-```json
-"metatags": [
-  { "prefix": "rating:", "tags": ["rating:general", "rating:safe", "rating:questionable", "rating:explicit"] },
-  { "prefix": "sort:", "tags": ["sort:random", "sort:score", "sort:mpixels", ...] },
-  { "prefix": "score:", "tags": ["score:>=100", "score:>50", ...] }
-]
+```yaml
+metatags:
+  - prefix: rating:
+    tags:
+      - rating:general
+      - rating:safe
+      - rating:questionable
+      - rating:explicit
+  - prefix: sort:
+    tags:
+      - sort:random
+      - sort:score
+      - sort:mpixels
+      - ...
+  - prefix: score:
+    tags:
+      - score:>=100
+      - score:>50
+      - ...
 ```
 
 Autocomplete suggestions for prefix-based tags. When the user types `rating:`, the dropdown shows the listed options.
 
 ### `client`
 
-```json
-"client": {
-  "include": [],
-  "blacklist": [],
-  "worker_base": null,
-  "server_proxy": true,
-  "proxy_thumbnails": false
-}
+```yaml
+client:
+  include: []
+  blacklist: []
+  worker_base: null
+  server_proxy: true
+  proxy_thumbnails: false
 ```
 
 | Field | Type | Description |
@@ -321,7 +332,7 @@ An optional Cloudflare Worker in `subooru-worker/` that proxies media from booru
 
 ### How it works
 
-When `client.worker_base` is set in `conf.json`, the frontend requests media through the Worker URL first. If the Worker fails and `client.server_proxy` is `true`, it falls back to the Express server's `/api/media`.
+When `client.worker_base` is set in `conf.yml`, the frontend requests media through the Worker URL first. If the Worker fails and `client.server_proxy` is `true`, it falls back to the Express server's `/api/media`.
 
 The required `Referer` header is set dynamically based on the source of each post (`https://gelbooru.com/` for Gelbooru, `https://danbooru.donmai.us/` for Danbooru), both in the Worker and in `/api/media`.
 
@@ -366,13 +377,12 @@ This outputs a URL like `https://subooru-media.your-name.workers.dev`.
 
 ### Link to frontend
 
-Set the Worker URL in `conf.json.client`:
+Set the Worker URL in `conf.yml.client`:
 
-```json
-"client": {
-  "worker_base": "https://subooru-media.your-name.workers.dev",
-  "server_proxy": true
-}
+```yaml
+client:
+  worker_base: https://subooru-media.your-name.workers.dev
+  server_proxy: true
 ```
 
 - `worker_base` — the frontend sends media requests to this URL first

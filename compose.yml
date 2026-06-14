@@ -6,7 +6,7 @@ services:
       context: .
       args:
         GIT_COMMIT: ${GIT_COMMIT:-unknown}
-    image: subooru:${GIT_COMMIT:-unknown}
+    image: subooru:${GIT_COMMIT:-latest}
     env_file: .env.prod
     volumes:
       - ./conf.yml:/app/conf.yml

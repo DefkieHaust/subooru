@@ -1,16 +1,16 @@
-# Graph Report - subooru  (2026-06-12)
+# Graph Report - subooru  (2026-06-14)
 
 ## Corpus Check
-- 165 files · ~120,582 words
+- 165 files · ~120,603 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1342 nodes · 1373 edges · 111 communities (76 shown, 35 thin omitted)
+- 1339 nodes · 1373 edges · 107 communities (75 shown, 32 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 34 edges (avg confidence: 0.87)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `654368fa`
+- Built from commit: `26e3f3ca`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -45,7 +45,6 @@
 - [[_COMMUNITY_License Docs|License Docs]]
 - [[_COMMUNITY_Frontend Design Skill|Frontend Design Skill]]
 - [[_COMMUNITY_Pino Logging|Pino Logging]]
-- [[_COMMUNITY_Sub-agents|Sub-agents]]
 - [[_COMMUNITY_Early Exit|Early Exit]]
 - [[_COMMUNITY_Regex Hoisting|Regex Hoisting]]
 - [[_COMMUNITY_Index Maps|Index Maps]]
@@ -63,8 +62,6 @@
 - [[_COMMUNITY_Rendering Section|Rendering Section]]
 - [[_COMMUNITY_Rerender Section|Rerender Section]]
 - [[_COMMUNITY_Server Section|Server Section]]
-- [[_COMMUNITY_Community 63|Community 63]]
-- [[_COMMUNITY_Community 64|Community 64]]
 - [[_COMMUNITY_Community 65|Community 65]]
 - [[_COMMUNITY_Community 66|Community 66]]
 - [[_COMMUNITY_Community 67|Community 67]]
@@ -93,7 +90,6 @@
 - [[_COMMUNITY_Community 90|Community 90]]
 - [[_COMMUNITY_Community 91|Community 91]]
 - [[_COMMUNITY_Community 92|Community 92]]
-- [[_COMMUNITY_Community 93|Community 93]]
 - [[_COMMUNITY_Community 94|Community 94]]
 - [[_COMMUNITY_Community 95|Community 95]]
 - [[_COMMUNITY_Community 96|Community 96]]
@@ -163,7 +159,7 @@
 - **graphify Core Pipeline Steps** — graphify_skill_detect_step, graphify_skill_extract_step, graphify_skill_build_step, graphify_skill_cluster_step, graphify_skill_analyze_step, graphify_skill_report_step, graphify_skill_export_step [EXTRACTED 1.00]
 - **graphify Output Artifacts** — graphify_skill_graph_report_md, graphify_skill_graph_json, graphify_skill_graph_html, graphify_skill_obsidian_vault [EXTRACTED 1.00]
 
-## Communities (111 total, 35 thin omitted)
+## Communities (107 total, 32 thin omitted)
 
 ### Community 0 - "Express API Routes & Tests"
 Cohesion: 0.08
@@ -187,7 +183,7 @@ Nodes (23): For /graphify add and --watch, For /graphify query, For the commit h
 
 ### Community 5 - "Server Dependencies & Middleware"
 Cohesion: 0.08
-Nodes (24): dependencies, dotenv, express, express-rate-limit, ioredis, minio, pino, pino-pretty (+16 more)
+Nodes (25): dependencies, dotenv, express, express-rate-limit, ioredis, js-yaml, minio, pino (+17 more)
 
 ### Community 7 - "UI Design System"
 Cohesion: 0.12
@@ -402,16 +398,12 @@ Cohesion: 0.33
 Nodes (5): Creating a New Rule, Getting Started, React Best Practices, Rule File Structure, Structure
 
 ### Community 91 - "Community 91"
-Cohesion: 0.40
-Nodes (4): Abstract, React Best Practices, References, Table of Contents
+Cohesion: 0.20
+Nodes (9): 8.1 Do Not Put Effect Events in Dependency Arrays, 8.2 Initialize App Once, Not Per Mount, 8.3 Store Event Handlers in Refs, 8.4 useEffectEvent for Stable Callback Refs, 8. Advanced Patterns, Abstract, React Best Practices, References (+1 more)
 
 ### Community 92 - "Community 92"
 Cohesion: 0.40
 Nodes (5): 4.1 Deduplicate Global Event Listeners, 4.2 Use Passive Event Listeners for Scrolling Performance, 4.3 Use SWR for Automatic Deduplication, 4.4 Version and Minimize localStorage Data, 4. Client-Side Data Fetching
-
-### Community 93 - "Community 93"
-Cohesion: 0.40
-Nodes (5): 8.1 Do Not Put Effect Events in Dependency Arrays, 8.2 Initialize App Once, Not Per Mount, 8.3 Store Event Handlers in Refs, 8.4 useEffectEvent for Stable Callback Refs, 8. Advanced Patterns
 
 ### Community 94 - "Community 94"
 Cohesion: 0.50
@@ -430,19 +422,17 @@ Cohesion: 0.50
 Nodes (3): For --cluster-only, For --update (incremental re-extraction), graphify reference: incremental update and cluster-only
 
 ## Knowledge Gaps
-- **887 isolated node(s):** `$schema`, `plugin`, `Usage`, `What graphify is for`, `Step 0 - GitHub repos and multi-path merge (only if a URL or several paths)` (+882 more)
+- **884 isolated node(s):** `Dev commands`, `Config & env`, `Rate limiting`, `Logging (pino v10)`, `Server-side include/blacklist` (+879 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **35 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **32 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `React Best Practices` connect `Community 91` to `Community 73`, `Community 74`, `Community 79`, `Community 81`, `Community 87`, `Community 88`, `Community 92`, `Community 93`?**
-  _High betweenness centrality (0.002) - this node is a cross-community bridge._
-- **Why does `3. Server-Side Performance` connect `Community 81` to `Community 91`?**
-  _High betweenness centrality (0.002) - this node is a cross-community bridge._
-- **What connects `$schema`, `plugin`, `Usage` to the rest of the system?**
-  _887 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Why does `React Best Practices` connect `Community 91` to `Community 73`, `Community 74`, `Community 79`, `Community 81`, `Community 87`, `Community 88`, `Community 92`?**
+  _High betweenness centrality (0.001) - this node is a cross-community bridge._
+- **What connects `Dev commands`, `Config & env`, `Rate limiting` to the rest of the system?**
+  _884 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Express API Routes & Tests` be split into smaller, more focused modules?**
   _Cohesion score 0.07627118644067797 - nodes in this community are weakly interconnected._
 - **Should `React UI Components` be split into smaller, more focused modules?**
@@ -451,3 +441,5 @@ _Questions this graph is uniquely positioned to answer:_
   _Cohesion score 0.07142857142857142 - nodes in this community are weakly interconnected._
 - **Should `OpenCode Configuration` be split into smaller, more focused modules?**
   _Cohesion score 0.07692307692307693 - nodes in this community are weakly interconnected._
+- **Should `graphify Pipeline & Analysis` be split into smaller, more focused modules?**
+  _Cohesion score 0.08333333333333333 - nodes in this community are weakly interconnected._

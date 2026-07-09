@@ -277,14 +277,934 @@
   },
   "nodes": [
     {
+      "label": "AGENTS.md",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "agents",
+      "community": 41,
+      "norm_label": "agents.md"
+    },
+    {
+      "label": "subooru",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "agents_subooru",
+      "community": 41,
+      "norm_label": "subooru"
+    },
+    {
+      "label": "Dev commands",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "agents_dev_commands",
+      "community": 41,
+      "norm_label": "dev commands"
+    },
+    {
+      "label": "Key gotchas",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "agents_key_gotchas",
+      "community": 41,
+      "norm_label": "key gotchas"
+    },
+    {
+      "label": "Config & env",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "agents_config_env",
+      "community": 41,
+      "norm_label": "config & env"
+    },
+    {
+      "label": "Rate limiting",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "agents_rate_limiting",
+      "community": 41,
+      "norm_label": "rate limiting"
+    },
+    {
+      "label": "Logging (pino v10)",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L33",
+      "_origin": "ast",
+      "id": "agents_logging_pino_v10",
+      "community": 41,
+      "norm_label": "logging (pino v10)"
+    },
+    {
+      "label": "Server-side include/blacklist",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "agents_server_side_include_blacklist",
+      "community": 41,
+      "norm_label": "server-side include/blacklist"
+    },
+    {
+      "label": "Client-side include/blacklist toggles",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L41",
+      "_origin": "ast",
+      "id": "agents_client_side_include_blacklist_toggles",
+      "community": 41,
+      "norm_label": "client-side include/blacklist toggles"
+    },
+    {
+      "label": "Media proxy",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L46",
+      "_origin": "ast",
+      "id": "agents_media_proxy",
+      "community": 41,
+      "norm_label": "media proxy"
+    },
+    {
+      "label": "S3 media cache",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L52",
+      "_origin": "ast",
+      "id": "agents_s3_media_cache",
+      "community": 41,
+      "norm_label": "s3 media cache"
+    },
+    {
+      "label": "Frontend quirks",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L58",
+      "_origin": "ast",
+      "id": "agents_frontend_quirks",
+      "community": 41,
+      "norm_label": "frontend quirks"
+    },
+    {
+      "label": "CRITICAL RULES - MUST FOLLOW",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L69",
+      "_origin": "ast",
+      "id": "agents_critical_rules_must_follow",
+      "community": 41,
+      "norm_label": "critical rules - must follow"
+    },
+    {
+      "label": "RESPONSES",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L71",
+      "_origin": "ast",
+      "id": "agents_responses",
+      "community": 41,
+      "norm_label": "responses"
+    },
+    {
+      "label": "PLANNING MODE",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L75",
+      "_origin": "ast",
+      "id": "agents_planning_mode",
+      "community": 41,
+      "norm_label": "planning mode"
+    },
+    {
+      "label": "CHANGE / EDIT MODE",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L82",
+      "_origin": "ast",
+      "id": "agents_change_edit_mode",
+      "community": 41,
+      "norm_label": "change / edit mode"
+    },
+    {
+      "label": "TESTING",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L90",
+      "_origin": "ast",
+      "id": "agents_testing",
+      "community": 41,
+      "norm_label": "testing"
+    },
+    {
+      "label": "UI DESIGN",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L96",
+      "_origin": "ast",
+      "id": "agents_ui_design",
+      "community": 41,
+      "norm_label": "ui design"
+    },
+    {
+      "label": "Documentation",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L101",
+      "_origin": "ast",
+      "id": "agents_documentation",
+      "community": 41,
+      "norm_label": "documentation"
+    },
+    {
+      "label": "Danbooru API support",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L106",
+      "_origin": "ast",
+      "id": "agents_danbooru_api_support",
+      "community": 41,
+      "norm_label": "danbooru api support"
+    },
+    {
+      "label": "Source selection",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L108",
+      "_origin": "ast",
+      "id": "agents_source_selection",
+      "community": 41,
+      "norm_label": "source selection"
+    },
+    {
+      "label": "Fallback mechanism",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L113",
+      "_origin": "ast",
+      "id": "agents_fallback_mechanism",
+      "community": 41,
+      "norm_label": "fallback mechanism"
+    },
+    {
+      "label": "Danbooru client (`server/danbooru.js`)",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L118",
+      "_origin": "ast",
+      "id": "agents_danbooru_client_server_danbooru_js",
+      "community": 41,
+      "norm_label": "danbooru client (`server/danbooru.js`)"
+    },
+    {
+      "label": "Key differences from Gelbooru",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L124",
+      "_origin": "ast",
+      "id": "agents_key_differences_from_gelbooru",
+      "community": 41,
+      "norm_label": "key differences from gelbooru"
+    },
+    {
+      "label": "Backward compatibility",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L135",
+      "_origin": "ast",
+      "id": "agents_backward_compatibility",
+      "community": 41,
+      "norm_label": "backward compatibility"
+    },
+    {
+      "label": "graphify",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L141",
+      "_origin": "ast",
+      "id": "agents_graphify",
+      "community": 41,
+      "norm_label": "graphify"
+    },
+    {
+      "label": "README.md",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "readme",
+      "community": 55,
+      "norm_label": "readme.md"
+    },
+    {
+      "label": "subooru",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "readme_subooru",
+      "community": 55,
+      "norm_label": "subooru"
+    },
+    {
+      "label": "Prerequisites",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "readme_prerequisites",
+      "community": 55,
+      "norm_label": "prerequisites"
+    },
+    {
+      "label": "Quick Start",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "readme_quick_start",
+      "community": 55,
+      "norm_label": "quick start"
+    },
+    {
+      "label": "1. Configuration",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "readme_1_configuration",
+      "community": 55,
+      "norm_label": "1. configuration"
+    },
+    {
+      "label": "2. Run",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "readme_2_run",
+      "community": 55,
+      "norm_label": "2. run"
+    },
+    {
+      "label": "Docker Deployment",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L58",
+      "_origin": "ast",
+      "id": "readme_docker_deployment",
+      "community": 55,
+      "norm_label": "docker deployment"
+    },
+    {
+      "label": "1. Configuration",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L60",
+      "_origin": "ast",
+      "id": "readme_1_configuration_60",
+      "community": 55,
+      "norm_label": "1. configuration"
+    },
+    {
+      "label": "2. Start",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L69",
+      "_origin": "ast",
+      "id": "readme_2_start",
+      "community": 55,
+      "norm_label": "2. start"
+    },
+    {
+      "label": "3. Update",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L89",
+      "_origin": "ast",
+      "id": "readme_3_update",
+      "community": 55,
+      "norm_label": "3. update"
+    },
+    {
+      "label": "4. Stop",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L98",
+      "_origin": "ast",
+      "id": "readme_4_stop",
+      "community": 55,
+      "norm_label": "4. stop"
+    },
+    {
+      "label": "Environment Files",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L109",
+      "_origin": "ast",
+      "id": "readme_environment_files",
+      "community": 55,
+      "norm_label": "environment files"
+    },
+    {
+      "label": "`.env` (local dev)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L120",
+      "_origin": "ast",
+      "id": "readme_env_local_dev",
+      "community": 55,
+      "norm_label": "`.env` (local dev)"
+    },
+    {
+      "label": "`.env.prod` (Docker)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L145",
+      "_origin": "ast",
+      "id": "readme_env_prod_docker",
+      "community": 55,
+      "norm_label": "`.env.prod` (docker)"
+    },
+    {
+      "label": "Configuration Reference",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L169",
+      "_origin": "ast",
+      "id": "readme_configuration_reference",
+      "community": 55,
+      "norm_label": "configuration reference"
+    },
+    {
+      "label": "`log`",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L173",
+      "_origin": "ast",
+      "id": "readme_log",
+      "community": 55,
+      "norm_label": "`log`"
+    },
+    {
+      "label": "`server.rate_limit`",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L188",
+      "_origin": "ast",
+      "id": "readme_server_rate_limit",
+      "community": 55,
+      "norm_label": "`server.rate_limit`"
+    },
+    {
+      "label": "`server.trust_proxy`",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L207",
+      "_origin": "ast",
+      "id": "readme_server_trust_proxy",
+      "community": 55,
+      "norm_label": "`server.trust_proxy`"
+    },
+    {
+      "label": "`server.cache`",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L213",
+      "_origin": "ast",
+      "id": "readme_server_cache",
+      "community": 55,
+      "norm_label": "`server.cache`"
+    },
+    {
+      "label": "`server.sources`",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L233",
+      "_origin": "ast",
+      "id": "readme_server_sources",
+      "community": 55,
+      "norm_label": "`server.sources`"
+    },
+    {
+      "label": "`server.media_cache`",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L245",
+      "_origin": "ast",
+      "id": "readme_server_media_cache",
+      "community": 55,
+      "norm_label": "`server.media_cache`"
+    },
+    {
+      "label": "`server.server_proxy`",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L260",
+      "_origin": "ast",
+      "id": "readme_server_server_proxy",
+      "community": 55,
+      "norm_label": "`server.server_proxy`"
+    },
+    {
+      "label": "`server.include`, `server.blacklist`",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L268",
+      "_origin": "ast",
+      "id": "readme_server_include_server_blacklist",
+      "community": 55,
+      "norm_label": "`server.include`, `server.blacklist`"
+    },
+    {
+      "label": "`server.metatags`",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L281",
+      "_origin": "ast",
+      "id": "readme_server_metatags",
+      "community": 55,
+      "norm_label": "`server.metatags`"
+    },
+    {
+      "label": "`client`",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L306",
+      "_origin": "ast",
+      "id": "readme_client",
+      "community": 55,
+      "norm_label": "`client`"
+    },
+    {
+      "label": "Media Proxy Worker (Cloudflare Workers)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L329",
+      "_origin": "ast",
+      "id": "readme_media_proxy_worker_cloudflare_workers",
+      "community": 55,
+      "norm_label": "media proxy worker (cloudflare workers)"
+    },
+    {
+      "label": "How it works",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L333",
+      "_origin": "ast",
+      "id": "readme_how_it_works",
+      "community": 55,
+      "norm_label": "how it works"
+    },
+    {
+      "label": "Prerequisites",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L339",
+      "_origin": "ast",
+      "id": "readme_prerequisites_339",
+      "community": 55,
+      "norm_label": "prerequisites"
+    },
+    {
+      "label": "Setup",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L344",
+      "_origin": "ast",
+      "id": "readme_setup",
+      "community": 55,
+      "norm_label": "setup"
+    },
+    {
+      "label": "Configure",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L354",
+      "_origin": "ast",
+      "id": "readme_configure",
+      "community": 55,
+      "norm_label": "configure"
+    },
+    {
+      "label": "Deploy",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L369",
+      "_origin": "ast",
+      "id": "readme_deploy",
+      "community": 55,
+      "norm_label": "deploy"
+    },
+    {
+      "label": "Link to frontend",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L378",
+      "_origin": "ast",
+      "id": "readme_link_to_frontend",
+      "community": 55,
+      "norm_label": "link to frontend"
+    },
+    {
+      "label": "API Routes",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L393",
+      "_origin": "ast",
+      "id": "readme_api_routes",
+      "community": 55,
+      "norm_label": "api routes"
+    },
+    {
+      "label": "package.json",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "package",
+      "community": 5,
+      "norm_label": "package.json"
+    },
+    {
+      "label": "name",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L2",
+      "_origin": "ast",
+      "id": "package_name",
+      "community": 5,
+      "norm_label": "name"
+    },
+    {
+      "label": "version",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "package_version",
+      "community": 5,
+      "norm_label": "version"
+    },
+    {
+      "label": "private",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "package_private",
+      "community": 5,
+      "norm_label": "private"
+    },
+    {
+      "label": "type",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "package_type",
+      "community": 5,
+      "norm_label": "type"
+    },
+    {
+      "label": "scripts",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "package_scripts",
+      "community": 5,
+      "norm_label": "scripts"
+    },
+    {
+      "label": "dev",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "package_scripts_dev",
+      "community": 5,
+      "norm_label": "dev"
+    },
+    {
+      "label": "build",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "package_scripts_build",
+      "community": 5,
+      "norm_label": "build"
+    },
+    {
+      "label": "start",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "package_scripts_start",
+      "community": 5,
+      "norm_label": "start"
+    },
+    {
+      "label": "test",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "package_scripts_test",
+      "community": 5,
+      "norm_label": "test"
+    },
+    {
+      "label": "test:watch",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "package_scripts_test_watch",
+      "community": 5,
+      "norm_label": "test:watch"
+    },
+    {
+      "label": "test:e2e",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "package_scripts_test_e2e",
+      "community": 5,
+      "norm_label": "test:e2e"
+    },
+    {
+      "label": "dependencies",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "package_dependencies",
+      "community": 5,
+      "norm_label": "dependencies"
+    },
+    {
+      "label": "dotenv",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "package_dependencies_dotenv",
+      "community": 5,
+      "norm_label": "dotenv"
+    },
+    {
+      "label": "express",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "package_dependencies_express",
+      "community": 5,
+      "norm_label": "express"
+    },
+    {
+      "label": "express-rate-limit",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "package_dependencies_express_rate_limit",
+      "community": 5,
+      "norm_label": "express-rate-limit"
+    },
+    {
+      "label": "ioredis",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "package_dependencies_ioredis",
+      "community": 5,
+      "norm_label": "ioredis"
+    },
+    {
+      "label": "js-yaml",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "package_dependencies_js_yaml",
+      "community": 5,
+      "norm_label": "js-yaml"
+    },
+    {
+      "label": "minio",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "package_dependencies_minio",
+      "community": 5,
+      "norm_label": "minio"
+    },
+    {
+      "label": "pino",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "package_dependencies_pino",
+      "community": 5,
+      "norm_label": "pino"
+    },
+    {
+      "label": "pino-pretty",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "package_dependencies_pino_pretty",
+      "community": 5,
+      "norm_label": "pino-pretty"
+    },
+    {
+      "label": "devDependencies",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "package_devdependencies",
+      "community": 5,
+      "norm_label": "devdependencies"
+    },
+    {
+      "label": "@playwright/test",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "package_devdependencies_playwright_test",
+      "community": 5,
+      "norm_label": "@playwright/test"
+    },
+    {
+      "label": "nock",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "package_devdependencies_nock",
+      "community": 5,
+      "norm_label": "nock"
+    },
+    {
+      "label": "supertest",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "package_devdependencies_supertest",
+      "community": 5,
+      "norm_label": "supertest"
+    },
+    {
+      "label": "vitest",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "package_devdependencies_vitest",
+      "community": 5,
+      "norm_label": "vitest"
+    },
+    {
+      "label": "posts.test.js",
+      "file_type": "code",
+      "source_file": "server/__tests__/routes/posts.test.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "routes_posts_test",
+      "community": 0,
+      "norm_label": "posts.test.js"
+    },
+    {
+      "label": "mockDanbooru()",
+      "file_type": "code",
+      "source_file": "server/__tests__/routes/posts.test.js",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "routes_posts_test_mockdanbooru",
+      "community": 0,
+      "norm_label": "mockdanbooru()"
+    },
+    {
+      "label": "app.js",
+      "file_type": "code",
+      "source_file": "server/app.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "server_app",
+      "community": 0,
+      "norm_label": "app.js"
+    },
+    {
+      "label": "__dirname",
+      "file_type": "code",
+      "source_file": "server/app.js",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "server_app_dirname",
+      "community": 0,
+      "norm_label": "__dirname"
+    },
+    {
+      "label": "app",
+      "file_type": "code",
+      "source_file": "server/app.js",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "server_app_app",
+      "community": 0,
+      "norm_label": "app"
+    },
+    {
+      "label": "conf",
+      "file_type": "code",
+      "source_file": "server/app.js",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "server_app_conf",
+      "community": 0,
+      "norm_label": "conf"
+    },
+    {
+      "label": "distPath",
+      "file_type": "code",
+      "source_file": "server/app.js",
+      "source_location": "L69",
+      "_origin": "ast",
+      "id": "server_app_distpath",
+      "community": 0,
+      "norm_label": "distpath"
+    },
+    {
       "label": "opencode.json",
       "file_type": "code",
       "source_file": ".opencode/opencode.json",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "opencode_opencode",
       "community": 21,
-      "norm_label": "opencode.json"
+      "norm_label": "opencode.json",
+      "id": "opencode_opencode"
     },
     {
       "label": "$schema",
@@ -292,9 +1212,9 @@
       "source_file": ".opencode/opencode.json",
       "source_location": "L2",
       "_origin": "ast",
-      "id": "opencode_opencode_schema",
       "community": 21,
-      "norm_label": "$schema"
+      "norm_label": "$schema",
+      "id": "opencode_opencode_schema"
     },
     {
       "label": "plugin",
@@ -302,9 +1222,9 @@
       "source_file": ".opencode/opencode.json",
       "source_location": "L3",
       "_origin": "ast",
-      "id": "opencode_opencode_plugin",
       "community": 21,
-      "norm_label": "plugin"
+      "norm_label": "plugin",
+      "id": "opencode_opencode_plugin"
     },
     {
       "label": "graphify.js",
@@ -312,9 +1232,9 @@
       "source_file": ".opencode/plugins/graphify.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "plugins_graphify",
       "community": 25,
-      "norm_label": "graphify.js"
+      "norm_label": "graphify.js",
+      "id": "plugins_graphify"
     },
     {
       "label": "GraphifyPlugin()",
@@ -322,9 +1242,9 @@
       "source_file": ".opencode/plugins/graphify.js",
       "source_location": "L6",
       "_origin": "ast",
-      "id": "plugins_graphify_graphifyplugin",
       "community": 25,
-      "norm_label": "graphifyplugin()"
+      "norm_label": "graphifyplugin()",
+      "id": "plugins_graphify_graphifyplugin"
     },
     {
       "label": "SKILL.md",
@@ -332,9 +1252,9 @@
       "source_file": ".opencode/skills/graphify/SKILL.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "graphify_skill",
       "community": 4,
-      "norm_label": "skill.md"
+      "norm_label": "skill.md",
+      "id": "graphify_skill"
     },
     {
       "label": "/graphify",
@@ -342,9 +1262,9 @@
       "source_file": ".opencode/skills/graphify/SKILL.md",
       "source_location": "L6",
       "_origin": "ast",
-      "id": "graphify_skill_graphify",
       "community": 4,
-      "norm_label": "/graphify"
+      "norm_label": "/graphify",
+      "id": "graphify_skill_graphify"
     },
     {
       "label": "Usage",
@@ -352,9 +1272,9 @@
       "source_file": ".opencode/skills/graphify/SKILL.md",
       "source_location": "L10",
       "_origin": "ast",
-      "id": "graphify_skill_usage",
       "community": 4,
-      "norm_label": "usage"
+      "norm_label": "usage",
+      "id": "graphify_skill_usage"
     },
     {
       "label": "What graphify is for",
@@ -362,9 +1282,9 @@
       "source_file": ".opencode/skills/graphify/SKILL.md",
       "source_location": "L43",
       "_origin": "ast",
-      "id": "graphify_skill_what_graphify_is_for",
       "community": 4,
-      "norm_label": "what graphify is for"
+      "norm_label": "what graphify is for",
+      "id": "graphify_skill_what_graphify_is_for"
     },
     {
       "label": "What You Must Do When Invoked",
@@ -372,9 +1292,9 @@
       "source_file": ".opencode/skills/graphify/SKILL.md",
       "source_location": "L47",
       "_origin": "ast",
-      "id": "graphify_skill_what_you_must_do_when_invoked",
       "community": 4,
-      "norm_label": "what you must do when invoked"
+      "norm_label": "what you must do when invoked",
+      "id": "graphify_skill_what_you_must_do_when_invoked"
     },
     {
       "label": "Step 0 - GitHub repos and multi-path merge (only if a URL or several paths)",
@@ -382,9 +1302,9 @@
       "source_file": ".opencode/skills/graphify/SKILL.md",
       "source_location": "L59",
       "_origin": "ast",
-      "id": "graphify_skill_step_0_github_repos_and_multi_path_merge_only_if_a_url_or_several_paths",
       "community": 4,
-      "norm_label": "step 0 - github repos and multi-path merge (only if a url or several paths)"
+      "norm_label": "step 0 - github repos and multi-path merge (only if a url or several paths)",
+      "id": "graphify_skill_step_0_github_repos_and_multi_path_merge_only_if_a_url_or_several_paths"
     },
     {
       "label": "Step 1 - Ensure graphify is installed",
@@ -392,9 +1312,9 @@
       "source_file": ".opencode/skills/graphify/SKILL.md",
       "source_location": "L63",
       "_origin": "ast",
-      "id": "graphify_skill_step_1_ensure_graphify_is_installed",
       "community": 4,
-      "norm_label": "step 1 - ensure graphify is installed"
+      "norm_label": "step 1 - ensure graphify is installed",
+      "id": "graphify_skill_step_1_ensure_graphify_is_installed"
     },
     {
       "label": "Step 2 - Detect files",
@@ -402,9 +1322,9 @@
       "source_file": ".opencode/skills/graphify/SKILL.md",
       "source_location": "L105",
       "_origin": "ast",
-      "id": "graphify_skill_step_2_detect_files",
       "community": 4,
-      "norm_label": "step 2 - detect files"
+      "norm_label": "step 2 - detect files",
+      "id": "graphify_skill_step_2_detect_files"
     },
     {
       "label": "Step 2.5 - Video and audio (only if video files detected)",
@@ -412,9 +1332,9 @@
       "source_file": ".opencode/skills/graphify/SKILL.md",
       "source_location": "L142",
       "_origin": "ast",
-      "id": "graphify_skill_step_2_5_video_and_audio_only_if_video_files_detected",
       "community": 4,
-      "norm_label": "step 2.5 - video and audio (only if video files detected)"
+      "norm_label": "step 2.5 - video and audio (only if video files detected)",
+      "id": "graphify_skill_step_2_5_video_and_audio_only_if_video_files_detected"
     },
     {
       "label": "Step 3 - Extract entities and relationships",
@@ -422,9 +1342,9 @@
       "source_file": ".opencode/skills/graphify/SKILL.md",
       "source_location": "L146",
       "_origin": "ast",
-      "id": "graphify_skill_step_3_extract_entities_and_relationships",
       "community": 4,
-      "norm_label": "step 3 - extract entities and relationships"
+      "norm_label": "step 3 - extract entities and relationships",
+      "id": "graphify_skill_step_3_extract_entities_and_relationships"
     },
     {
       "label": "Part A - Structural extraction for code files",
@@ -432,9 +1352,9 @@
       "source_file": ".opencode/skills/graphify/SKILL.md",
       "source_location": "L163",
       "_origin": "ast",
-      "id": "graphify_skill_part_a_structural_extraction_for_code_files",
       "community": 4,
-      "norm_label": "part a - structural extraction for code files"
+      "norm_label": "part a - structural extraction for code files",
+      "id": "graphify_skill_part_a_structural_extraction_for_code_files"
     },
     {
       "label": "Part B - Semantic extraction (parallel subagents)",
@@ -442,9 +1362,9 @@
       "source_file": ".opencode/skills/graphify/SKILL.md",
       "source_location": "L189",
       "_origin": "ast",
-      "id": "graphify_skill_part_b_semantic_extraction_parallel_subagents",
       "community": 4,
-      "norm_label": "part b - semantic extraction (parallel subagents)"
+      "norm_label": "part b - semantic extraction (parallel subagents)",
+      "id": "graphify_skill_part_b_semantic_extraction_parallel_subagents"
     },
     {
       "label": "Part C - Merge AST + semantic into final extraction",
@@ -452,9 +1372,9 @@
       "source_file": ".opencode/skills/graphify/SKILL.md",
       "source_location": "L326",
       "_origin": "ast",
-      "id": "graphify_skill_part_c_merge_ast_semantic_into_final_extraction",
       "community": 4,
-      "norm_label": "part c - merge ast + semantic into final extraction"
+      "norm_label": "part c - merge ast + semantic into final extraction",
+      "id": "graphify_skill_part_c_merge_ast_semantic_into_final_extraction"
     },
     {
       "label": "Step 4 - Build graph, cluster, analyze, generate outputs",
@@ -462,9 +1382,9 @@
       "source_file": ".opencode/skills/graphify/SKILL.md",
       "source_location": "L360",
       "_origin": "ast",
-      "id": "graphify_skill_step_4_build_graph_cluster_analyze_generate_outputs",
       "community": 4,
-      "norm_label": "step 4 - build graph, cluster, analyze, generate outputs"
+      "norm_label": "step 4 - build graph, cluster, analyze, generate outputs",
+      "id": "graphify_skill_step_4_build_graph_cluster_analyze_generate_outputs"
     },
     {
       "label": "Step 5 - Label communities",
@@ -472,9 +1392,9 @@
       "source_file": ".opencode/skills/graphify/SKILL.md",
       "source_location": "L412",
       "_origin": "ast",
-      "id": "graphify_skill_step_5_label_communities",
       "community": 4,
-      "norm_label": "step 5 - label communities"
+      "norm_label": "step 5 - label communities",
+      "id": "graphify_skill_step_5_label_communities"
     },
     {
       "label": "Step 6 - Generate Obsidian vault (opt-in) + HTML",
@@ -482,9 +1402,9 @@
       "source_file": ".opencode/skills/graphify/SKILL.md",
       "source_location": "L452",
       "_origin": "ast",
-      "id": "graphify_skill_step_6_generate_obsidian_vault_opt_in_html",
       "community": 4,
-      "norm_label": "step 6 - generate obsidian vault (opt-in) + html"
+      "norm_label": "step 6 - generate obsidian vault (opt-in) + html",
+      "id": "graphify_skill_step_6_generate_obsidian_vault_opt_in_html"
     },
     {
       "label": "Steps 6b-8 - Wiki, Neo4j, SVG, GraphML, MCP, benchmark (only on their flags)",
@@ -492,9 +1412,9 @@
       "source_file": ".opencode/skills/graphify/SKILL.md",
       "source_location": "L472",
       "_origin": "ast",
-      "id": "graphify_skill_steps_6b_8_wiki_neo4j_svg_graphml_mcp_benchmark_only_on_their_flags",
       "community": 4,
-      "norm_label": "steps 6b-8 - wiki, neo4j, svg, graphml, mcp, benchmark (only on their flags)"
+      "norm_label": "steps 6b-8 - wiki, neo4j, svg, graphml, mcp, benchmark (only on their flags)",
+      "id": "graphify_skill_steps_6b_8_wiki_neo4j_svg_graphml_mcp_benchmark_only_on_their_flags"
     },
     {
       "label": "Step 9 - Save manifest, update cost tracker, clean up, and report",
@@ -502,9 +1422,9 @@
       "source_file": ".opencode/skills/graphify/SKILL.md",
       "source_location": "L478",
       "_origin": "ast",
-      "id": "graphify_skill_step_9_save_manifest_update_cost_tracker_clean_up_and_report",
       "community": 4,
-      "norm_label": "step 9 - save manifest, update cost tracker, clean up, and report"
+      "norm_label": "step 9 - save manifest, update cost tracker, clean up, and report",
+      "id": "graphify_skill_step_9_save_manifest_update_cost_tracker_clean_up_and_report"
     },
     {
       "label": "Interpreter guard for subcommands",
@@ -512,9 +1432,9 @@
       "source_file": ".opencode/skills/graphify/SKILL.md",
       "source_location": "L553",
       "_origin": "ast",
-      "id": "graphify_skill_interpreter_guard_for_subcommands",
       "community": 4,
-      "norm_label": "interpreter guard for subcommands"
+      "norm_label": "interpreter guard for subcommands",
+      "id": "graphify_skill_interpreter_guard_for_subcommands"
     },
     {
       "label": "For --update and --cluster-only",
@@ -522,9 +1442,9 @@
       "source_file": ".opencode/skills/graphify/SKILL.md",
       "source_location": "L571",
       "_origin": "ast",
-      "id": "graphify_skill_for_update_and_cluster_only",
       "community": 4,
-      "norm_label": "for --update and --cluster-only"
+      "norm_label": "for --update and --cluster-only",
+      "id": "graphify_skill_for_update_and_cluster_only"
     },
     {
       "label": "For /graphify query",
@@ -532,9 +1452,9 @@
       "source_file": ".opencode/skills/graphify/SKILL.md",
       "source_location": "L577",
       "_origin": "ast",
-      "id": "graphify_skill_for_graphify_query",
       "community": 4,
-      "norm_label": "for /graphify query"
+      "norm_label": "for /graphify query",
+      "id": "graphify_skill_for_graphify_query"
     },
     {
       "label": "For /graphify add and --watch",
@@ -542,9 +1462,9 @@
       "source_file": ".opencode/skills/graphify/SKILL.md",
       "source_location": "L589",
       "_origin": "ast",
-      "id": "graphify_skill_for_graphify_add_and_watch",
       "community": 4,
-      "norm_label": "for /graphify add and --watch"
+      "norm_label": "for /graphify add and --watch",
+      "id": "graphify_skill_for_graphify_add_and_watch"
     },
     {
       "label": "For the commit hook and native CLAUDE.md integration",
@@ -552,9 +1472,9 @@
       "source_file": ".opencode/skills/graphify/SKILL.md",
       "source_location": "L595",
       "_origin": "ast",
-      "id": "graphify_skill_for_the_commit_hook_and_native_claude_md_integration",
       "community": 4,
-      "norm_label": "for the commit hook and native claude.md integration"
+      "norm_label": "for the commit hook and native claude.md integration",
+      "id": "graphify_skill_for_the_commit_hook_and_native_claude_md_integration"
     },
     {
       "label": "Honesty Rules",
@@ -562,9 +1482,9 @@
       "source_file": ".opencode/skills/graphify/SKILL.md",
       "source_location": "L601",
       "_origin": "ast",
-      "id": "graphify_skill_honesty_rules",
       "community": 4,
-      "norm_label": "honesty rules"
+      "norm_label": "honesty rules",
+      "id": "graphify_skill_honesty_rules"
     },
     {
       "label": "add-watch.md",
@@ -572,9 +1492,9 @@
       "source_file": ".opencode/skills/graphify/references/add-watch.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "references_add_watch",
       "community": 94,
-      "norm_label": "add-watch.md"
+      "norm_label": "add-watch.md",
+      "id": "references_add_watch"
     },
     {
       "label": "graphify reference: add a URL and watch a folder",
@@ -582,9 +1502,9 @@
       "source_file": ".opencode/skills/graphify/references/add-watch.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "references_add_watch_graphify_reference_add_a_url_and_watch_a_folder",
       "community": 94,
-      "norm_label": "graphify reference: add a url and watch a folder"
+      "norm_label": "graphify reference: add a url and watch a folder",
+      "id": "references_add_watch_graphify_reference_add_a_url_and_watch_a_folder"
     },
     {
       "label": "For /graphify add",
@@ -592,9 +1512,9 @@
       "source_file": ".opencode/skills/graphify/references/add-watch.md",
       "source_location": "L5",
       "_origin": "ast",
-      "id": "references_add_watch_for_graphify_add",
       "community": 94,
-      "norm_label": "for /graphify add"
+      "norm_label": "for /graphify add",
+      "id": "references_add_watch_for_graphify_add"
     },
     {
       "label": "For --watch",
@@ -602,9 +1522,9 @@
       "source_file": ".opencode/skills/graphify/references/add-watch.md",
       "source_location": "L39",
       "_origin": "ast",
-      "id": "references_add_watch_for_watch",
       "community": 94,
-      "norm_label": "for --watch"
+      "norm_label": "for --watch",
+      "id": "references_add_watch_for_watch"
     },
     {
       "label": "exports.md",
@@ -612,9 +1532,9 @@
       "source_file": ".opencode/skills/graphify/references/exports.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "references_exports",
       "community": 86,
-      "norm_label": "exports.md"
+      "norm_label": "exports.md",
+      "id": "references_exports"
     },
     {
       "label": "graphify reference: extra exports and benchmark",
@@ -622,9 +1542,9 @@
       "source_file": ".opencode/skills/graphify/references/exports.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "references_exports_graphify_reference_extra_exports_and_benchmark",
       "community": 86,
-      "norm_label": "graphify reference: extra exports and benchmark"
+      "norm_label": "graphify reference: extra exports and benchmark",
+      "id": "references_exports_graphify_reference_extra_exports_and_benchmark"
     },
     {
       "label": "Step 6b - Wiki (only if --wiki flag)",
@@ -632,9 +1552,9 @@
       "source_file": ".opencode/skills/graphify/references/exports.md",
       "source_location": "L5",
       "_origin": "ast",
-      "id": "references_exports_step_6b_wiki_only_if_wiki_flag",
       "community": 86,
-      "norm_label": "step 6b - wiki (only if --wiki flag)"
+      "norm_label": "step 6b - wiki (only if --wiki flag)",
+      "id": "references_exports_step_6b_wiki_only_if_wiki_flag"
     },
     {
       "label": "Step 7 - Neo4j export (only if --neo4j or --neo4j-push flag)",
@@ -642,9 +1562,9 @@
       "source_file": ".opencode/skills/graphify/references/exports.md",
       "source_location": "L15",
       "_origin": "ast",
-      "id": "references_exports_step_7_neo4j_export_only_if_neo4j_or_neo4j_push_flag",
       "community": 86,
-      "norm_label": "step 7 - neo4j export (only if --neo4j or --neo4j-push flag)"
+      "norm_label": "step 7 - neo4j export (only if --neo4j or --neo4j-push flag)",
+      "id": "references_exports_step_7_neo4j_export_only_if_neo4j_or_neo4j_push_flag"
     },
     {
       "label": "Step 7b - SVG export (only if --svg flag)",
@@ -652,9 +1572,9 @@
       "source_file": ".opencode/skills/graphify/references/exports.md",
       "source_location": "L31",
       "_origin": "ast",
-      "id": "references_exports_step_7b_svg_export_only_if_svg_flag",
       "community": 86,
-      "norm_label": "step 7b - svg export (only if --svg flag)"
+      "norm_label": "step 7b - svg export (only if --svg flag)",
+      "id": "references_exports_step_7b_svg_export_only_if_svg_flag"
     },
     {
       "label": "Step 7c - GraphML export (only if --graphml flag)",
@@ -662,9 +1582,9 @@
       "source_file": ".opencode/skills/graphify/references/exports.md",
       "source_location": "L37",
       "_origin": "ast",
-      "id": "references_exports_step_7c_graphml_export_only_if_graphml_flag",
       "community": 86,
-      "norm_label": "step 7c - graphml export (only if --graphml flag)"
+      "norm_label": "step 7c - graphml export (only if --graphml flag)",
+      "id": "references_exports_step_7c_graphml_export_only_if_graphml_flag"
     },
     {
       "label": "Step 7d - MCP server (only if --mcp flag)",
@@ -672,9 +1592,9 @@
       "source_file": ".opencode/skills/graphify/references/exports.md",
       "source_location": "L43",
       "_origin": "ast",
-      "id": "references_exports_step_7d_mcp_server_only_if_mcp_flag",
       "community": 86,
-      "norm_label": "step 7d - mcp server (only if --mcp flag)"
+      "norm_label": "step 7d - mcp server (only if --mcp flag)",
+      "id": "references_exports_step_7d_mcp_server_only_if_mcp_flag"
     },
     {
       "label": "Step 8 - Token reduction benchmark (only if total_words > 5000)",
@@ -682,9 +1602,9 @@
       "source_file": ".opencode/skills/graphify/references/exports.md",
       "source_location": "L63",
       "_origin": "ast",
-      "id": "references_exports_step_8_token_reduction_benchmark_only_if_total_words_5000",
       "community": 86,
-      "norm_label": "step 8 - token reduction benchmark (only if total_words > 5000)"
+      "norm_label": "step 8 - token reduction benchmark (only if total_words > 5000)",
+      "id": "references_exports_step_8_token_reduction_benchmark_only_if_total_words_5000"
     },
     {
       "label": "extraction-spec.md",
@@ -692,9 +1612,9 @@
       "source_file": ".opencode/skills/graphify/references/extraction-spec.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "references_extraction_spec",
       "community": 103,
-      "norm_label": "extraction-spec.md"
+      "norm_label": "extraction-spec.md",
+      "id": "references_extraction_spec"
     },
     {
       "label": "graphify reference: extraction subagent prompt",
@@ -702,9 +1622,9 @@
       "source_file": ".opencode/skills/graphify/references/extraction-spec.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "references_extraction_spec_graphify_reference_extraction_subagent_prompt",
       "community": 103,
-      "norm_label": "graphify reference: extraction subagent prompt"
+      "norm_label": "graphify reference: extraction subagent prompt",
+      "id": "references_extraction_spec_graphify_reference_extraction_subagent_prompt"
     },
     {
       "label": "github-and-merge.md",
@@ -712,9 +1632,9 @@
       "source_file": ".opencode/skills/graphify/references/github-and-merge.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "references_github_and_merge",
       "community": 100,
-      "norm_label": "github-and-merge.md"
+      "norm_label": "github-and-merge.md",
+      "id": "references_github_and_merge"
     },
     {
       "label": "graphify reference: GitHub clone and cross-repo merge",
@@ -722,9 +1642,9 @@
       "source_file": ".opencode/skills/graphify/references/github-and-merge.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "references_github_and_merge_graphify_reference_github_clone_and_cross_repo_merge",
       "community": 100,
-      "norm_label": "graphify reference: github clone and cross-repo merge"
+      "norm_label": "graphify reference: github clone and cross-repo merge",
+      "id": "references_github_and_merge_graphify_reference_github_clone_and_cross_repo_merge"
     },
     {
       "label": "Step 0 - Clone GitHub repo(s) (only if a GitHub URL was given)",
@@ -732,9 +1652,9 @@
       "source_file": ".opencode/skills/graphify/references/github-and-merge.md",
       "source_location": "L5",
       "_origin": "ast",
-      "id": "references_github_and_merge_step_0_clone_github_repo_s_only_if_a_github_url_was_given",
       "community": 100,
-      "norm_label": "step 0 - clone github repo(s) (only if a github url was given)"
+      "norm_label": "step 0 - clone github repo(s) (only if a github url was given)",
+      "id": "references_github_and_merge_step_0_clone_github_repo_s_only_if_a_github_url_was_given"
     },
     {
       "label": "hooks.md",
@@ -742,9 +1662,9 @@
       "source_file": ".opencode/skills/graphify/references/hooks.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "references_hooks",
       "community": 95,
-      "norm_label": "hooks.md"
+      "norm_label": "hooks.md",
+      "id": "references_hooks"
     },
     {
       "label": "graphify reference: commit hook and native CLAUDE.md integration",
@@ -752,9 +1672,9 @@
       "source_file": ".opencode/skills/graphify/references/hooks.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "references_hooks_graphify_reference_commit_hook_and_native_claude_md_integration",
       "community": 95,
-      "norm_label": "graphify reference: commit hook and native claude.md integration"
+      "norm_label": "graphify reference: commit hook and native claude.md integration",
+      "id": "references_hooks_graphify_reference_commit_hook_and_native_claude_md_integration"
     },
     {
       "label": "For git commit hook",
@@ -762,9 +1682,9 @@
       "source_file": ".opencode/skills/graphify/references/hooks.md",
       "source_location": "L5",
       "_origin": "ast",
-      "id": "references_hooks_for_git_commit_hook",
       "community": 95,
-      "norm_label": "for git commit hook"
+      "norm_label": "for git commit hook",
+      "id": "references_hooks_for_git_commit_hook"
     },
     {
       "label": "For native CLAUDE.md integration",
@@ -772,9 +1692,9 @@
       "source_file": ".opencode/skills/graphify/references/hooks.md",
       "source_location": "L21",
       "_origin": "ast",
-      "id": "references_hooks_for_native_claude_md_integration",
       "community": 95,
-      "norm_label": "for native claude.md integration"
+      "norm_label": "for native claude.md integration",
+      "id": "references_hooks_for_native_claude_md_integration"
     },
     {
       "label": "query.md",
@@ -782,9 +1702,9 @@
       "source_file": ".opencode/skills/graphify/references/query.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "references_query",
       "community": 96,
-      "norm_label": "query.md"
+      "norm_label": "query.md",
+      "id": "references_query"
     },
     {
       "label": "graphify reference: query, path, explain",
@@ -792,9 +1712,9 @@
       "source_file": ".opencode/skills/graphify/references/query.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "references_query_graphify_reference_query_path_explain",
       "community": 96,
-      "norm_label": "graphify reference: query, path, explain"
+      "norm_label": "graphify reference: query, path, explain",
+      "id": "references_query_graphify_reference_query_path_explain"
     },
     {
       "label": "For /graphify path",
@@ -802,9 +1722,9 @@
       "source_file": ".opencode/skills/graphify/references/query.md",
       "source_location": "L136",
       "_origin": "ast",
-      "id": "references_query_for_graphify_path",
       "community": 96,
-      "norm_label": "for /graphify path"
+      "norm_label": "for /graphify path",
+      "id": "references_query_for_graphify_path"
     },
     {
       "label": "For /graphify explain",
@@ -812,9 +1732,9 @@
       "source_file": ".opencode/skills/graphify/references/query.md",
       "source_location": "L198",
       "_origin": "ast",
-      "id": "references_query_for_graphify_explain",
       "community": 96,
-      "norm_label": "for /graphify explain"
+      "norm_label": "for /graphify explain",
+      "id": "references_query_for_graphify_explain"
     },
     {
       "label": "transcribe.md",
@@ -822,9 +1742,9 @@
       "source_file": ".opencode/skills/graphify/references/transcribe.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "references_transcribe",
       "community": 102,
-      "norm_label": "transcribe.md"
+      "norm_label": "transcribe.md",
+      "id": "references_transcribe"
     },
     {
       "label": "graphify reference: transcribe video and audio",
@@ -832,9 +1752,9 @@
       "source_file": ".opencode/skills/graphify/references/transcribe.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "references_transcribe_graphify_reference_transcribe_video_and_audio",
       "community": 102,
-      "norm_label": "graphify reference: transcribe video and audio"
+      "norm_label": "graphify reference: transcribe video and audio",
+      "id": "references_transcribe_graphify_reference_transcribe_video_and_audio"
     },
     {
       "label": "Step 2.5 - Transcribe video / audio files (only if video files detected)",
@@ -842,9 +1762,9 @@
       "source_file": ".opencode/skills/graphify/references/transcribe.md",
       "source_location": "L5",
       "_origin": "ast",
-      "id": "references_transcribe_step_2_5_transcribe_video_audio_files_only_if_video_files_detected",
       "community": 102,
-      "norm_label": "step 2.5 - transcribe video / audio files (only if video files detected)"
+      "norm_label": "step 2.5 - transcribe video / audio files (only if video files detected)",
+      "id": "references_transcribe_step_2_5_transcribe_video_audio_files_only_if_video_files_detected"
     },
     {
       "label": "update.md",
@@ -852,9 +1772,9 @@
       "source_file": ".opencode/skills/graphify/references/update.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "references_update",
       "community": 97,
-      "norm_label": "update.md"
+      "norm_label": "update.md",
+      "id": "references_update"
     },
     {
       "label": "graphify reference: incremental update and cluster-only",
@@ -862,9 +1782,9 @@
       "source_file": ".opencode/skills/graphify/references/update.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "references_update_graphify_reference_incremental_update_and_cluster_only",
       "community": 97,
-      "norm_label": "graphify reference: incremental update and cluster-only"
+      "norm_label": "graphify reference: incremental update and cluster-only",
+      "id": "references_update_graphify_reference_incremental_update_and_cluster_only"
     },
     {
       "label": "For --update (incremental re-extraction)",
@@ -872,9 +1792,9 @@
       "source_file": ".opencode/skills/graphify/references/update.md",
       "source_location": "L5",
       "_origin": "ast",
-      "id": "references_update_for_update_incremental_re_extraction",
       "community": 97,
-      "norm_label": "for --update (incremental re-extraction)"
+      "norm_label": "for --update (incremental re-extraction)",
+      "id": "references_update_for_update_incremental_re_extraction"
     },
     {
       "label": "For --cluster-only",
@@ -882,9 +1802,9 @@
       "source_file": ".opencode/skills/graphify/references/update.md",
       "source_location": "L171",
       "_origin": "ast",
-      "id": "references_update_for_cluster_only",
       "community": 97,
-      "norm_label": "for --cluster-only"
+      "norm_label": "for --cluster-only",
+      "id": "references_update_for_cluster_only"
     },
     {
       "label": "index.js",
@@ -1977,256 +2897,6 @@
       "id": "opencode_commit_template"
     },
     {
-      "label": "package.json",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 5,
-      "norm_label": "package.json",
-      "id": "package"
-    },
-    {
-      "label": "name",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L2",
-      "_origin": "ast",
-      "community": 5,
-      "norm_label": "name",
-      "id": "package_name"
-    },
-    {
-      "label": "version",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L3",
-      "_origin": "ast",
-      "community": 5,
-      "norm_label": "version",
-      "id": "package_version"
-    },
-    {
-      "label": "private",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L4",
-      "_origin": "ast",
-      "community": 5,
-      "norm_label": "private",
-      "id": "package_private"
-    },
-    {
-      "label": "type",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L5",
-      "_origin": "ast",
-      "community": 5,
-      "norm_label": "type",
-      "id": "package_type"
-    },
-    {
-      "label": "scripts",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L6",
-      "_origin": "ast",
-      "community": 5,
-      "norm_label": "scripts",
-      "id": "package_scripts"
-    },
-    {
-      "label": "dev",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L7",
-      "_origin": "ast",
-      "community": 5,
-      "norm_label": "dev",
-      "id": "package_scripts_dev"
-    },
-    {
-      "label": "build",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L8",
-      "_origin": "ast",
-      "community": 5,
-      "norm_label": "build",
-      "id": "package_scripts_build"
-    },
-    {
-      "label": "start",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L9",
-      "_origin": "ast",
-      "community": 5,
-      "norm_label": "start",
-      "id": "package_scripts_start"
-    },
-    {
-      "label": "test",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L10",
-      "_origin": "ast",
-      "community": 5,
-      "norm_label": "test",
-      "id": "package_scripts_test"
-    },
-    {
-      "label": "test:watch",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L11",
-      "_origin": "ast",
-      "community": 5,
-      "norm_label": "test:watch",
-      "id": "package_scripts_test_watch"
-    },
-    {
-      "label": "test:e2e",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L12",
-      "_origin": "ast",
-      "community": 5,
-      "norm_label": "test:e2e",
-      "id": "package_scripts_test_e2e"
-    },
-    {
-      "label": "dependencies",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L14",
-      "_origin": "ast",
-      "community": 5,
-      "norm_label": "dependencies",
-      "id": "package_dependencies"
-    },
-    {
-      "label": "dotenv",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L15",
-      "_origin": "ast",
-      "community": 5,
-      "norm_label": "dotenv",
-      "id": "package_dependencies_dotenv"
-    },
-    {
-      "label": "express",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L16",
-      "_origin": "ast",
-      "community": 5,
-      "norm_label": "express",
-      "id": "package_dependencies_express"
-    },
-    {
-      "label": "express-rate-limit",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L17",
-      "_origin": "ast",
-      "community": 5,
-      "norm_label": "express-rate-limit",
-      "id": "package_dependencies_express_rate_limit"
-    },
-    {
-      "label": "ioredis",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L18",
-      "_origin": "ast",
-      "community": 5,
-      "norm_label": "ioredis",
-      "id": "package_dependencies_ioredis"
-    },
-    {
-      "label": "minio",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L19",
-      "_origin": "ast",
-      "community": 5,
-      "norm_label": "minio",
-      "id": "package_dependencies_minio"
-    },
-    {
-      "label": "pino",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L20",
-      "_origin": "ast",
-      "community": 5,
-      "norm_label": "pino",
-      "id": "package_dependencies_pino"
-    },
-    {
-      "label": "pino-pretty",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L21",
-      "_origin": "ast",
-      "community": 5,
-      "norm_label": "pino-pretty",
-      "id": "package_dependencies_pino_pretty"
-    },
-    {
-      "label": "devDependencies",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L23",
-      "_origin": "ast",
-      "community": 5,
-      "norm_label": "devdependencies",
-      "id": "package_devdependencies"
-    },
-    {
-      "label": "@playwright/test",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L24",
-      "_origin": "ast",
-      "community": 5,
-      "norm_label": "@playwright/test",
-      "id": "package_devdependencies_playwright_test"
-    },
-    {
-      "label": "nock",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L25",
-      "_origin": "ast",
-      "community": 5,
-      "norm_label": "nock",
-      "id": "package_devdependencies_nock"
-    },
-    {
-      "label": "supertest",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L26",
-      "_origin": "ast",
-      "community": 5,
-      "norm_label": "supertest",
-      "id": "package_devdependencies_supertest"
-    },
-    {
-      "label": "vitest",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L27",
-      "_origin": "ast",
-      "community": 5,
-      "norm_label": "vitest",
-      "id": "package_devdependencies_vitest"
-    },
-    {
       "label": "playwright.config.js",
       "file_type": "code",
       "source_file": "playwright.config.js",
@@ -2277,26 +2947,6 @@
       "id": "routes_danbooru_test_mockposts"
     },
     {
-      "label": "posts.test.js",
-      "file_type": "code",
-      "source_file": "server/__tests__/routes/posts.test.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 0,
-      "norm_label": "posts.test.js",
-      "id": "routes_posts_test"
-    },
-    {
-      "label": "mockDanbooru()",
-      "file_type": "code",
-      "source_file": "server/__tests__/routes/posts.test.js",
-      "source_location": "L8",
-      "_origin": "ast",
-      "community": 0,
-      "norm_label": "mockdanbooru()",
-      "id": "routes_posts_test_mockdanbooru"
-    },
-    {
       "label": "source-fallback.test.js",
       "file_type": "code",
       "source_file": "server/__tests__/routes/source-fallback.test.js",
@@ -2315,56 +2965,6 @@
       "community": 0,
       "norm_label": "version.test.js",
       "id": "routes_version_test"
-    },
-    {
-      "label": "app.js",
-      "file_type": "code",
-      "source_file": "server/app.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 0,
-      "norm_label": "app.js",
-      "id": "server_app"
-    },
-    {
-      "label": "__dirname",
-      "file_type": "code",
-      "source_file": "server/app.js",
-      "source_location": "L18",
-      "_origin": "ast",
-      "community": 0,
-      "norm_label": "__dirname",
-      "id": "server_app_dirname"
-    },
-    {
-      "label": "app",
-      "file_type": "code",
-      "source_file": "server/app.js",
-      "source_location": "L19",
-      "_origin": "ast",
-      "community": 0,
-      "norm_label": "app",
-      "id": "server_app_app"
-    },
-    {
-      "label": "conf",
-      "file_type": "code",
-      "source_file": "server/app.js",
-      "source_location": "L21",
-      "_origin": "ast",
-      "community": 0,
-      "norm_label": "conf",
-      "id": "server_app_conf"
-    },
-    {
-      "label": "distPath",
-      "file_type": "code",
-      "source_file": "server/app.js",
-      "source_location": "L68",
-      "_origin": "ast",
-      "community": 0,
-      "norm_label": "distpath",
-      "id": "server_app_distpath"
     },
     {
       "label": "cache.js",
@@ -10232,7 +10832,7 @@
       "source_file": ".agents/skills/vercel-react-best-practices/AGENTS.md",
       "source_location": "L3633",
       "_origin": "ast",
-      "community": 93,
+      "community": 91,
       "norm_label": "8. advanced patterns",
       "id": "vercel_react_best_practices_agents_8_advanced_patterns"
     },
@@ -10242,7 +10842,7 @@
       "source_file": ".agents/skills/vercel-react-best-practices/AGENTS.md",
       "source_location": "L3639",
       "_origin": "ast",
-      "community": 93,
+      "community": 91,
       "norm_label": "8.1 do not put effect events in dependency arrays",
       "id": "vercel_react_best_practices_agents_8_1_do_not_put_effect_events_in_dependency_arrays"
     },
@@ -10252,7 +10852,7 @@
       "source_file": ".agents/skills/vercel-react-best-practices/AGENTS.md",
       "source_location": "L3691",
       "_origin": "ast",
-      "community": 93,
+      "community": 91,
       "norm_label": "8.2 initialize app once, not per mount",
       "id": "vercel_react_best_practices_agents_8_2_initialize_app_once_not_per_mount"
     },
@@ -10262,7 +10862,7 @@
       "source_file": ".agents/skills/vercel-react-best-practices/AGENTS.md",
       "source_location": "L3729",
       "_origin": "ast",
-      "community": 93,
+      "community": 91,
       "norm_label": "8.3 store event handlers in refs",
       "id": "vercel_react_best_practices_agents_8_3_store_event_handlers_in_refs"
     },
@@ -10272,7 +10872,7 @@
       "source_file": ".agents/skills/vercel-react-best-practices/AGENTS.md",
       "source_location": "L3765",
       "_origin": "ast",
-      "community": 93,
+      "community": 91,
       "norm_label": "8.4 useeffectevent for stable callback refs",
       "id": "vercel_react_best_practices_agents_8_4_useeffectevent_for_stable_callback_refs"
     },
@@ -12037,266 +12637,6 @@
       "id": "rules_server_serialization_minimize_serialization_at_rsc_boundaries"
     },
     {
-      "label": "AGENTS.md",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 41,
-      "norm_label": "agents.md",
-      "id": "agents"
-    },
-    {
-      "label": "subooru",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 41,
-      "norm_label": "subooru",
-      "id": "agents_subooru"
-    },
-    {
-      "label": "Dev commands",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L5",
-      "_origin": "ast",
-      "community": 41,
-      "norm_label": "dev commands",
-      "id": "agents_dev_commands"
-    },
-    {
-      "label": "Key gotchas",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L20",
-      "_origin": "ast",
-      "community": 41,
-      "norm_label": "key gotchas",
-      "id": "agents_key_gotchas"
-    },
-    {
-      "label": "Config & env",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L22",
-      "_origin": "ast",
-      "community": 41,
-      "norm_label": "config & env",
-      "id": "agents_config_env"
-    },
-    {
-      "label": "Rate limiting",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L29",
-      "_origin": "ast",
-      "community": 41,
-      "norm_label": "rate limiting",
-      "id": "agents_rate_limiting"
-    },
-    {
-      "label": "Logging (pino v10)",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L33",
-      "_origin": "ast",
-      "community": 41,
-      "norm_label": "logging (pino v10)",
-      "id": "agents_logging_pino_v10"
-    },
-    {
-      "label": "Server-side include/blacklist",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L37",
-      "_origin": "ast",
-      "community": 41,
-      "norm_label": "server-side include/blacklist",
-      "id": "agents_server_side_include_blacklist"
-    },
-    {
-      "label": "Client-side include/blacklist toggles",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L41",
-      "_origin": "ast",
-      "community": 41,
-      "norm_label": "client-side include/blacklist toggles",
-      "id": "agents_client_side_include_blacklist_toggles"
-    },
-    {
-      "label": "Media proxy",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L46",
-      "_origin": "ast",
-      "community": 41,
-      "norm_label": "media proxy",
-      "id": "agents_media_proxy"
-    },
-    {
-      "label": "S3 media cache",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L52",
-      "_origin": "ast",
-      "community": 41,
-      "norm_label": "s3 media cache",
-      "id": "agents_s3_media_cache"
-    },
-    {
-      "label": "Frontend quirks",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L58",
-      "_origin": "ast",
-      "community": 41,
-      "norm_label": "frontend quirks",
-      "id": "agents_frontend_quirks"
-    },
-    {
-      "label": "CRITICAL RULES - MUST FOLLOW",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L69",
-      "_origin": "ast",
-      "community": 41,
-      "norm_label": "critical rules - must follow",
-      "id": "agents_critical_rules_must_follow"
-    },
-    {
-      "label": "RESPONSES",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L71",
-      "_origin": "ast",
-      "community": 41,
-      "norm_label": "responses",
-      "id": "agents_responses"
-    },
-    {
-      "label": "PLANNING MODE",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L75",
-      "_origin": "ast",
-      "community": 41,
-      "norm_label": "planning mode",
-      "id": "agents_planning_mode"
-    },
-    {
-      "label": "CHANGE / EDIT MODE",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L82",
-      "_origin": "ast",
-      "community": 41,
-      "norm_label": "change / edit mode",
-      "id": "agents_change_edit_mode"
-    },
-    {
-      "label": "TESTING",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L90",
-      "_origin": "ast",
-      "community": 41,
-      "norm_label": "testing",
-      "id": "agents_testing"
-    },
-    {
-      "label": "UI DESIGN",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L96",
-      "_origin": "ast",
-      "community": 41,
-      "norm_label": "ui design",
-      "id": "agents_ui_design"
-    },
-    {
-      "label": "Documentation",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L101",
-      "_origin": "ast",
-      "community": 41,
-      "norm_label": "documentation",
-      "id": "agents_documentation"
-    },
-    {
-      "label": "Danbooru API support",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L106",
-      "_origin": "ast",
-      "community": 41,
-      "norm_label": "danbooru api support",
-      "id": "agents_danbooru_api_support"
-    },
-    {
-      "label": "Source selection",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L108",
-      "_origin": "ast",
-      "community": 41,
-      "norm_label": "source selection",
-      "id": "agents_source_selection"
-    },
-    {
-      "label": "Fallback mechanism",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L113",
-      "_origin": "ast",
-      "community": 41,
-      "norm_label": "fallback mechanism",
-      "id": "agents_fallback_mechanism"
-    },
-    {
-      "label": "Danbooru client (`server/danbooru.js`)",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L118",
-      "_origin": "ast",
-      "community": 41,
-      "norm_label": "danbooru client (`server/danbooru.js`)",
-      "id": "agents_danbooru_client_server_danbooru_js"
-    },
-    {
-      "label": "Key differences from Gelbooru",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L124",
-      "_origin": "ast",
-      "community": 41,
-      "norm_label": "key differences from gelbooru",
-      "id": "agents_key_differences_from_gelbooru"
-    },
-    {
-      "label": "Backward compatibility",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L135",
-      "_origin": "ast",
-      "community": 41,
-      "norm_label": "backward compatibility",
-      "id": "agents_backward_compatibility"
-    },
-    {
-      "label": "graphify",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L141",
-      "_origin": "ast",
-      "community": 41,
-      "norm_label": "graphify",
-      "id": "agents_graphify"
-    },
-    {
       "label": "DESIGN.md",
       "file_type": "document",
       "source_file": "DESIGN.md",
@@ -12647,336 +12987,6 @@
       "id": "design_branding"
     },
     {
-      "label": "README.md",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 55,
-      "norm_label": "readme.md",
-      "id": "readme"
-    },
-    {
-      "label": "subooru",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 55,
-      "norm_label": "subooru",
-      "id": "readme_subooru"
-    },
-    {
-      "label": "Prerequisites",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L5",
-      "_origin": "ast",
-      "community": 55,
-      "norm_label": "prerequisites",
-      "id": "readme_prerequisites"
-    },
-    {
-      "label": "Quick Start",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L13",
-      "_origin": "ast",
-      "community": 55,
-      "norm_label": "quick start",
-      "id": "readme_quick_start"
-    },
-    {
-      "label": "1. Configuration",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L15",
-      "_origin": "ast",
-      "community": 55,
-      "norm_label": "1. configuration",
-      "id": "readme_1_configuration"
-    },
-    {
-      "label": "2. Run",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L37",
-      "_origin": "ast",
-      "community": 55,
-      "norm_label": "2. run",
-      "id": "readme_2_run"
-    },
-    {
-      "label": "Docker Deployment",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L58",
-      "_origin": "ast",
-      "community": 55,
-      "norm_label": "docker deployment",
-      "id": "readme_docker_deployment"
-    },
-    {
-      "label": "1. Configuration",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L60",
-      "_origin": "ast",
-      "community": 55,
-      "norm_label": "1. configuration",
-      "id": "readme_1_configuration_60"
-    },
-    {
-      "label": "2. Start",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L69",
-      "_origin": "ast",
-      "community": 55,
-      "norm_label": "2. start",
-      "id": "readme_2_start"
-    },
-    {
-      "label": "3. Update",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L85",
-      "_origin": "ast",
-      "community": 55,
-      "norm_label": "3. update",
-      "id": "readme_3_update"
-    },
-    {
-      "label": "4. Stop",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L92",
-      "_origin": "ast",
-      "community": 55,
-      "norm_label": "4. stop",
-      "id": "readme_4_stop"
-    },
-    {
-      "label": "Environment Files",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L101",
-      "_origin": "ast",
-      "community": 55,
-      "norm_label": "environment files",
-      "id": "readme_environment_files"
-    },
-    {
-      "label": "`.env` (local dev)",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L112",
-      "_origin": "ast",
-      "community": 55,
-      "norm_label": "`.env` (local dev)",
-      "id": "readme_env_local_dev"
-    },
-    {
-      "label": "`.env.prod` (Docker)",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L137",
-      "_origin": "ast",
-      "community": 55,
-      "norm_label": "`.env.prod` (docker)",
-      "id": "readme_env_prod_docker"
-    },
-    {
-      "label": "Configuration Reference",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L161",
-      "_origin": "ast",
-      "community": 55,
-      "norm_label": "configuration reference",
-      "id": "readme_configuration_reference"
-    },
-    {
-      "label": "`log`",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L165",
-      "_origin": "ast",
-      "community": 55,
-      "norm_label": "`log`",
-      "id": "readme_log"
-    },
-    {
-      "label": "`server.rate_limit`",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L181",
-      "_origin": "ast",
-      "community": 55,
-      "norm_label": "`server.rate_limit`",
-      "id": "readme_server_rate_limit"
-    },
-    {
-      "label": "`server.trust_proxy`",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L202",
-      "_origin": "ast",
-      "community": 55,
-      "norm_label": "`server.trust_proxy`",
-      "id": "readme_server_trust_proxy"
-    },
-    {
-      "label": "`server.cache`",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L208",
-      "_origin": "ast",
-      "community": 55,
-      "norm_label": "`server.cache`",
-      "id": "readme_server_cache"
-    },
-    {
-      "label": "`server.sources`",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L230",
-      "_origin": "ast",
-      "community": 55,
-      "norm_label": "`server.sources`",
-      "id": "readme_server_sources"
-    },
-    {
-      "label": "`server.media_cache`",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L240",
-      "_origin": "ast",
-      "community": 55,
-      "norm_label": "`server.media_cache`",
-      "id": "readme_server_media_cache"
-    },
-    {
-      "label": "`server.server_proxy`",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L256",
-      "_origin": "ast",
-      "community": 55,
-      "norm_label": "`server.server_proxy`",
-      "id": "readme_server_server_proxy"
-    },
-    {
-      "label": "`server.include`, `server.blacklist`",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L264",
-      "_origin": "ast",
-      "community": 55,
-      "norm_label": "`server.include`, `server.blacklist`",
-      "id": "readme_server_include_server_blacklist"
-    },
-    {
-      "label": "`server.metatags`",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L274",
-      "_origin": "ast",
-      "community": 55,
-      "norm_label": "`server.metatags`",
-      "id": "readme_server_metatags"
-    },
-    {
-      "label": "`client`",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L286",
-      "_origin": "ast",
-      "community": 55,
-      "norm_label": "`client`",
-      "id": "readme_client"
-    },
-    {
-      "label": "Media Proxy Worker (Cloudflare Workers)",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L310",
-      "_origin": "ast",
-      "community": 55,
-      "norm_label": "media proxy worker (cloudflare workers)",
-      "id": "readme_media_proxy_worker_cloudflare_workers"
-    },
-    {
-      "label": "How it works",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L314",
-      "_origin": "ast",
-      "community": 55,
-      "norm_label": "how it works",
-      "id": "readme_how_it_works"
-    },
-    {
-      "label": "Prerequisites",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L320",
-      "_origin": "ast",
-      "community": 55,
-      "norm_label": "prerequisites",
-      "id": "readme_prerequisites_320"
-    },
-    {
-      "label": "Setup",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L325",
-      "_origin": "ast",
-      "community": 55,
-      "norm_label": "setup",
-      "id": "readme_setup"
-    },
-    {
-      "label": "Configure",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L335",
-      "_origin": "ast",
-      "community": 55,
-      "norm_label": "configure",
-      "id": "readme_configure"
-    },
-    {
-      "label": "Deploy",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L350",
-      "_origin": "ast",
-      "community": 55,
-      "norm_label": "deploy",
-      "id": "readme_deploy"
-    },
-    {
-      "label": "Link to frontend",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L359",
-      "_origin": "ast",
-      "community": 55,
-      "norm_label": "link to frontend",
-      "id": "readme_link_to_frontend"
-    },
-    {
-      "label": "API Routes",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L375",
-      "_origin": "ast",
-      "community": 55,
-      "norm_label": "api routes",
-      "id": "readme_api_routes"
-    },
-    {
       "label": "Design system",
       "file_type": "concept",
       "source_file": "DESIGN.md",
@@ -13196,58 +13206,6 @@
       "community": 7,
       "norm_label": "react-router-dom v6",
       "id": "subooru_design_md_react_router"
-    },
-    {
-      "label": "API routes",
-      "file_type": "concept",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 63,
-      "norm_label": "api routes",
-      "id": "subooru_readme_md_api_routes"
-    },
-    {
-      "label": "Configuration reference",
-      "file_type": "concept",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 42,
-      "norm_label": "configuration reference",
-      "id": "subooru_readme_md_configuration"
-    },
-    {
-      "label": "Cloudflare Worker media proxy",
-      "file_type": "concept",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 64,
-      "norm_label": "cloudflare worker media proxy",
-      "id": "subooru_readme_md_cloudflare_worker"
-    },
-    {
-      "label": "Environment files (.env, .env.prod)",
-      "file_type": "concept",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 42,
-      "norm_label": "environment files (.env, .env.prod)",
-      "id": "subooru_readme_md_environment_files"
     },
     {
       "label": "find-skills skill",
@@ -13917,6 +13875,1107 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L69",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents",
+      "target": "agents_critical_rules_must_follow"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents",
+      "target": "agents_subooru"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_subooru",
+      "target": "agents_dev_commands"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_subooru",
+      "target": "agents_key_gotchas"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L41",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_key_gotchas",
+      "target": "agents_client_side_include_blacklist_toggles"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L22",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_key_gotchas",
+      "target": "agents_config_env"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L58",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_key_gotchas",
+      "target": "agents_frontend_quirks"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L33",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_key_gotchas",
+      "target": "agents_logging_pino_v10"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L46",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_key_gotchas",
+      "target": "agents_media_proxy"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L29",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_key_gotchas",
+      "target": "agents_rate_limiting"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L52",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_key_gotchas",
+      "target": "agents_s3_media_cache"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L37",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_key_gotchas",
+      "target": "agents_server_side_include_blacklist"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L82",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_critical_rules_must_follow",
+      "target": "agents_change_edit_mode"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L106",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_critical_rules_must_follow",
+      "target": "agents_danbooru_api_support"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L101",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_critical_rules_must_follow",
+      "target": "agents_documentation"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L141",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_critical_rules_must_follow",
+      "target": "agents_graphify"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L75",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_critical_rules_must_follow",
+      "target": "agents_planning_mode"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L71",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_critical_rules_must_follow",
+      "target": "agents_responses"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L90",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_critical_rules_must_follow",
+      "target": "agents_testing"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L96",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_critical_rules_must_follow",
+      "target": "agents_ui_design"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L135",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_danbooru_api_support",
+      "target": "agents_backward_compatibility"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L118",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_danbooru_api_support",
+      "target": "agents_danbooru_client_server_danbooru_js"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L113",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_danbooru_api_support",
+      "target": "agents_fallback_mechanism"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L124",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_danbooru_api_support",
+      "target": "agents_key_differences_from_gelbooru"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L108",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_danbooru_api_support",
+      "target": "agents_source_selection"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme",
+      "target": "readme_subooru"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L375",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_subooru",
+      "target": "readme_api_routes"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L161",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_subooru",
+      "target": "readme_configuration_reference"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L58",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_subooru",
+      "target": "readme_docker_deployment"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L101",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_subooru",
+      "target": "readme_environment_files"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L310",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_subooru",
+      "target": "readme_media_proxy_worker_cloudflare_workers"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_subooru",
+      "target": "readme_prerequisites"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_subooru",
+      "target": "readme_quick_start"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_quick_start",
+      "target": "readme_1_configuration"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L37",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_quick_start",
+      "target": "readme_2_run"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L60",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_docker_deployment",
+      "target": "readme_1_configuration_60"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L69",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_docker_deployment",
+      "target": "readme_2_start"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L85",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_docker_deployment",
+      "target": "readme_3_update"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L92",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_docker_deployment",
+      "target": "readme_4_stop"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L112",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_environment_files",
+      "target": "readme_env_local_dev"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L137",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_environment_files",
+      "target": "readme_env_prod_docker"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L286",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_configuration_reference",
+      "target": "readme_client"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L165",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_configuration_reference",
+      "target": "readme_log"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L208",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_configuration_reference",
+      "target": "readme_server_cache"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L264",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_configuration_reference",
+      "target": "readme_server_include_server_blacklist"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L240",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_configuration_reference",
+      "target": "readme_server_media_cache"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L274",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_configuration_reference",
+      "target": "readme_server_metatags"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L181",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_configuration_reference",
+      "target": "readme_server_rate_limit"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L256",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_configuration_reference",
+      "target": "readme_server_server_proxy"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L230",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_configuration_reference",
+      "target": "readme_server_sources"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L202",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_configuration_reference",
+      "target": "readme_server_trust_proxy"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L335",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_media_proxy_worker_cloudflare_workers",
+      "target": "readme_configure"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L350",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_media_proxy_worker_cloudflare_workers",
+      "target": "readme_deploy"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L314",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_media_proxy_worker_cloudflare_workers",
+      "target": "readme_how_it_works"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L359",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_media_proxy_worker_cloudflare_workers",
+      "target": "readme_link_to_frontend"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L339",
+      "weight": 1.0,
+      "source": "readme_media_proxy_worker_cloudflare_workers",
+      "target": "readme_prerequisites_339",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L325",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_media_proxy_worker_cloudflare_workers",
+      "target": "readme_setup"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package",
+      "target": "package_dependencies"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L23",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package",
+      "target": "package_devdependencies"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package",
+      "target": "package_name"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package",
+      "target": "package_private"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package",
+      "target": "package_scripts"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package",
+      "target": "package_type"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package",
+      "target": "package_version"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_scripts",
+      "target": "package_scripts_build"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_scripts",
+      "target": "package_scripts_dev"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_scripts",
+      "target": "package_scripts_start"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_scripts",
+      "target": "package_scripts_test"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_scripts",
+      "target": "package_scripts_test_e2e"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_scripts",
+      "target": "package_scripts_test_watch"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_dependencies",
+      "target": "package_dependencies_dotenv"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_dependencies",
+      "target": "package_dependencies_express"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_dependencies",
+      "target": "package_dependencies_express_rate_limit"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_dependencies",
+      "target": "package_dependencies_ioredis"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "package_dependencies",
+      "target": "package_dependencies_js_yaml",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_dependencies",
+      "target": "package_dependencies_minio"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_dependencies",
+      "target": "package_dependencies_pino"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_dependencies",
+      "target": "package_dependencies_pino_pretty"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L25",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_nock"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_playwright_test"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_supertest"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_vitest"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/__tests__/routes/posts.test.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "routes_posts_test",
+      "target": "routes_posts_test_mockdanbooru"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/__tests__/routes/posts.test.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "routes_posts_test",
+      "target": "server_app"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/__tests__/routes/config.test.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "routes_config_test",
+      "target": "server_app"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/__tests__/routes/version.test.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "routes_version_test",
+      "target": "server_app"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/app.js",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_app",
+      "target": "routes_config"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/app.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_app",
+      "target": "routes_media"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/app.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_app",
+      "target": "routes_posts"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/app.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_app",
+      "target": "routes_tags"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/app.js",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_app",
+      "target": "server_app_app"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/app.js",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_app",
+      "target": "server_app_conf"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/app.js",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_app",
+      "target": "server_app_dirname"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/app.js",
+      "source_location": "L68",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_app",
+      "target": "server_app_distpath"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/app.js",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_app",
+      "target": "server_cache"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/app.js",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_app",
+      "target": "server_cache_initcache"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/app.js",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_app",
+      "target": "server_danbooru"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/app.js",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_app",
+      "target": "server_danbooru_initdanbooruclient"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/app.js",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_app",
+      "target": "server_gelbooru"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/app.js",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_app",
+      "target": "server_gelbooru_initgelbooruclient"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/app.js",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_app",
+      "target": "server_logger"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/app.js",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_app",
+      "target": "server_logger_getlogger"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/app.js",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_app",
+      "target": "server_logger_initlogger"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/app.js",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_app",
+      "target": "server_media_cache"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/app.js",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_app",
+      "target": "server_media_cache_initmediacache"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/app.js",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_app",
+      "target": "server_rate_limit"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/app.js",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_app",
+      "target": "server_rate_limit_createratelimiter"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/index.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_index",
+      "target": "server_app"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": ".opencode/opencode.json",
       "source_location": "L3",
       "weight": 1.0,
@@ -14419,17 +15478,6 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "server/index.js",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "server_index",
-      "target": "server_app"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "server/index.js",
       "source_location": "L2",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -14456,17 +15504,6 @@
       "confidence_score": 1.0,
       "source": "routes_config",
       "target": "routes_config_router"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "server/app.js",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "server_app",
-      "target": "routes_config"
     },
     {
       "relation": "contains",
@@ -15960,257 +16997,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L14",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "package",
-      "target": "package_dependencies"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L23",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "package",
-      "target": "package_devdependencies"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "package",
-      "target": "package_name"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "package",
-      "target": "package_private"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "package",
-      "target": "package_scripts"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "package",
-      "target": "package_type"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "package",
-      "target": "package_version"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "package_scripts",
-      "target": "package_scripts_build"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "package_scripts",
-      "target": "package_scripts_dev"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "package_scripts",
-      "target": "package_scripts_start"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "package_scripts",
-      "target": "package_scripts_test"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L12",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "package_scripts",
-      "target": "package_scripts_test_e2e"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "package_scripts",
-      "target": "package_scripts_test_watch"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L15",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "package_dependencies",
-      "target": "package_dependencies_dotenv"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L16",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "package_dependencies",
-      "target": "package_dependencies_express"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L17",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "package_dependencies",
-      "target": "package_dependencies_express_rate_limit"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L18",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "package_dependencies",
-      "target": "package_dependencies_ioredis"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L19",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "package_dependencies",
-      "target": "package_dependencies_minio"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L20",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "package_dependencies",
-      "target": "package_dependencies_pino"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L21",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "package_dependencies",
-      "target": "package_dependencies_pino_pretty"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L25",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "package_devdependencies",
-      "target": "package_devdependencies_nock"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L24",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "package_devdependencies",
-      "target": "package_devdependencies_playwright_test"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L26",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "package_devdependencies",
-      "target": "package_devdependencies_supertest"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L27",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "package_devdependencies",
-      "target": "package_devdependencies_vitest"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "server/__tests__/routes/config.test.js",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "routes_config_test",
-      "target": "server_app"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "server/__tests__/routes/danbooru.test.js",
       "source_location": "L13",
       "weight": 1.0,
@@ -16285,27 +17071,6 @@
       "target": "server_danbooru_searchtags"
     },
     {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "server/__tests__/routes/posts.test.js",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "routes_posts_test",
-      "target": "routes_posts_test_mockdanbooru"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "server/__tests__/routes/posts.test.js",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "routes_posts_test",
-      "target": "server_app"
-    },
-    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -16326,233 +17091,6 @@
       "confidence_score": 1.0,
       "source": "routes_source_fallback_test",
       "target": "server_source_fallback_withsourcefallback"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "server/__tests__/routes/version.test.js",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "routes_version_test",
-      "target": "server_app"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "server/app.js",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "server_app",
-      "target": "routes_media"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "server/app.js",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "server_app",
-      "target": "routes_posts"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "server/app.js",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "server_app",
-      "target": "routes_tags"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "server/app.js",
-      "source_location": "L19",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "server_app",
-      "target": "server_app_app"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "server/app.js",
-      "source_location": "L21",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "server_app",
-      "target": "server_app_conf"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "server/app.js",
-      "source_location": "L18",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "server_app",
-      "target": "server_app_dirname"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "server/app.js",
-      "source_location": "L68",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "server_app",
-      "target": "server_app_distpath"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "server/app.js",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "server_app",
-      "target": "server_cache"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "server/app.js",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "server_app",
-      "target": "server_cache_initcache"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "server/app.js",
-      "source_location": "L14",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "server_app",
-      "target": "server_danbooru"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "server/app.js",
-      "source_location": "L14",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "server_app",
-      "target": "server_danbooru_initdanbooruclient"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "server/app.js",
-      "source_location": "L13",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "server_app",
-      "target": "server_gelbooru"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "server/app.js",
-      "source_location": "L13",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "server_app",
-      "target": "server_gelbooru_initgelbooruclient"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "server/app.js",
-      "source_location": "L16",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "server_app",
-      "target": "server_logger"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "server/app.js",
-      "source_location": "L16",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "server_app",
-      "target": "server_logger_getlogger"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "server/app.js",
-      "source_location": "L16",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "server_app",
-      "target": "server_logger_initlogger"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "server/app.js",
-      "source_location": "L15",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "server_app",
-      "target": "server_media_cache"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "server/app.js",
-      "source_location": "L15",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "server_app",
-      "target": "server_media_cache_initmediacache"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "server/app.js",
-      "source_location": "L12",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "server_app",
-      "target": "server_rate_limit"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "server/app.js",
-      "source_location": "L12",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "server_app",
-      "target": "server_rate_limit_createratelimiter"
     },
     {
       "relation": "contains",
@@ -26579,256 +27117,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L69",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents",
-      "target": "agents_critical_rules_must_follow"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents",
-      "target": "agents_subooru"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents_subooru",
-      "target": "agents_dev_commands"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L20",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents_subooru",
-      "target": "agents_key_gotchas"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L41",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents_key_gotchas",
-      "target": "agents_client_side_include_blacklist_toggles"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L22",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents_key_gotchas",
-      "target": "agents_config_env"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L58",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents_key_gotchas",
-      "target": "agents_frontend_quirks"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L33",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents_key_gotchas",
-      "target": "agents_logging_pino_v10"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L46",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents_key_gotchas",
-      "target": "agents_media_proxy"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L29",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents_key_gotchas",
-      "target": "agents_rate_limiting"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L52",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents_key_gotchas",
-      "target": "agents_s3_media_cache"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L37",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents_key_gotchas",
-      "target": "agents_server_side_include_blacklist"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L82",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents_critical_rules_must_follow",
-      "target": "agents_change_edit_mode"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L106",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents_critical_rules_must_follow",
-      "target": "agents_danbooru_api_support"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L101",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents_critical_rules_must_follow",
-      "target": "agents_documentation"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L141",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents_critical_rules_must_follow",
-      "target": "agents_graphify"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L75",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents_critical_rules_must_follow",
-      "target": "agents_planning_mode"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L71",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents_critical_rules_must_follow",
-      "target": "agents_responses"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L90",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents_critical_rules_must_follow",
-      "target": "agents_testing"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L96",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents_critical_rules_must_follow",
-      "target": "agents_ui_design"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L135",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents_danbooru_api_support",
-      "target": "agents_backward_compatibility"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L118",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents_danbooru_api_support",
-      "target": "agents_danbooru_client_server_danbooru_js"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L113",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents_danbooru_api_support",
-      "target": "agents_fallback_mechanism"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L124",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents_danbooru_api_support",
-      "target": "agents_key_differences_from_gelbooru"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L108",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents_danbooru_api_support",
-      "target": "agents_source_selection"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "DESIGN.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -27167,326 +27455,6 @@
       "target": "design_tags_in_blacklist_dropdown"
     },
     {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme",
-      "target": "readme_subooru"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L375",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_subooru",
-      "target": "readme_api_routes"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L161",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_subooru",
-      "target": "readme_configuration_reference"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L58",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_subooru",
-      "target": "readme_docker_deployment"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L101",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_subooru",
-      "target": "readme_environment_files"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L310",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_subooru",
-      "target": "readme_media_proxy_worker_cloudflare_workers"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_subooru",
-      "target": "readme_prerequisites"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L13",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_subooru",
-      "target": "readme_quick_start"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L15",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_quick_start",
-      "target": "readme_1_configuration"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L37",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_quick_start",
-      "target": "readme_2_run"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L60",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_docker_deployment",
-      "target": "readme_1_configuration_60"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L69",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_docker_deployment",
-      "target": "readme_2_start"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L85",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_docker_deployment",
-      "target": "readme_3_update"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L92",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_docker_deployment",
-      "target": "readme_4_stop"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L112",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_environment_files",
-      "target": "readme_env_local_dev"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L137",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_environment_files",
-      "target": "readme_env_prod_docker"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L286",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_configuration_reference",
-      "target": "readme_client"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L165",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_configuration_reference",
-      "target": "readme_log"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L208",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_configuration_reference",
-      "target": "readme_server_cache"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L264",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_configuration_reference",
-      "target": "readme_server_include_server_blacklist"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L240",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_configuration_reference",
-      "target": "readme_server_media_cache"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L274",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_configuration_reference",
-      "target": "readme_server_metatags"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L181",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_configuration_reference",
-      "target": "readme_server_rate_limit"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L256",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_configuration_reference",
-      "target": "readme_server_server_proxy"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L230",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_configuration_reference",
-      "target": "readme_server_sources"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L202",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_configuration_reference",
-      "target": "readme_server_trust_proxy"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L335",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_media_proxy_worker_cloudflare_workers",
-      "target": "readme_configure"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L350",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_media_proxy_worker_cloudflare_workers",
-      "target": "readme_deploy"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L314",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_media_proxy_worker_cloudflare_workers",
-      "target": "readme_how_it_works"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L359",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_media_proxy_worker_cloudflare_workers",
-      "target": "readme_link_to_frontend"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L320",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_media_proxy_worker_cloudflare_workers",
-      "target": "readme_prerequisites_320"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L325",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_media_proxy_worker_cloudflare_workers",
-      "target": "readme_setup"
-    },
-    {
       "relation": "defines",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
@@ -27645,16 +27613,6 @@
       "weight": 1.0,
       "source": "subooru_design_md_design_system",
       "target": "subooru_design_md_tailwind_css_v4"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "subooru_readme_md_configuration",
-      "target": "subooru_readme_md_environment_files"
     },
     {
       "relation": "references",
@@ -28069,5 +28027,5 @@
       "source_file": ".opencode/skills/graphify/SKILL.md"
     }
   ],
-  "built_at_commit": "654368facbf2e30f22e660a9c525e751829b76d3"
+  "built_at_commit": "26e3f3cac9880c82991d13f3be69be72e3efb0b8"
 }

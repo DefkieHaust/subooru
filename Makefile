@@ -10,6 +10,15 @@ build:
 	@echo "Built and tagged:"
 	@echo "  $(IMAGE_NAME):$(GIT_COMMIT)"
 	@echo "  $(IMAGE_NAME):latest"
+	$(MAKE) trivy-scan
+
+.PHONY: trivy-scan
+trivy-scan:
+	@if ! command -v trivy &> /dev/null; then \
+		echo "Installing trivy..."; \
+		curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin; \
+	fi
+	trivy image --severity HIGH,CRITICAL --exit-code 1 $(IMAGE_NAME):$(GIT_COMMIT)
 
 .PHONY: up
 up:

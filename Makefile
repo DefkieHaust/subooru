@@ -14,11 +14,16 @@ build:
 
 .PHONY: trivy-scan
 trivy-scan:
-	@if ! command -v trivy &> /dev/null; then \
-		echo "Installing trivy..."; \
-		curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin; \
-	fi
-	trivy image --severity HIGH,CRITICAL --exit-code 1 $(IMAGE_NAME):$(GIT_COMMIT)
+	docker run --rm \
+	  -v /var/run/docker.sock:/var/run/docker.sock \
+	  -v $(HOME)/.cache/trivy:/root/.cache/trivy \
+	  aquasec/trivy:latest \
+	  image --severity HIGH,CRITICAL --exit-code 1 $(IMAGE_NAME):$(GIT_COMMIT)
+	docker run --rm \
+	  -v $(PWD):/workspace \
+	  -v $(HOME)/.cache/trivy:/root/.cache/trivy \
+	  aquasec/trivy:latest \
+	  config --severity HIGH,CRITICAL --exit-code 1 /workspace/Dockerfile
 
 .PHONY: up
 up:

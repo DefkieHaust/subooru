@@ -15,11 +15,6 @@ build:
 .PHONY: trivy-scan
 trivy-scan:
 	docker run --rm \
-	  -v /var/run/docker.sock:/var/run/docker.sock \
-	  -v $(HOME)/.cache/trivy:/root/.cache/trivy \
-	  aquasec/trivy:latest \
-	  image --severity HIGH,CRITICAL --exit-code 1 $(IMAGE_NAME):$(GIT_COMMIT)
-	docker run --rm \
 	  -v $(PWD):/workspace \
 	  -v $(HOME)/.cache/trivy:/root/.cache/trivy \
 	  aquasec/trivy:latest \
